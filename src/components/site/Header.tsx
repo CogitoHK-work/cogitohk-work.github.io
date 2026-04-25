@@ -2,18 +2,21 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/cogito-logo.png";
-
-const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/programmes", label: "Programmes" },
-  { to: "/advantage", label: "Advantage" },
-  { to: "/about", label: "About" },
-  { to: "/comments", label: "Parents" },
-  { to: "/partners", label: "Partners" },
-] as const;
+import { useLang } from "@/i18n/LanguageProvider";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { t, lang, setLang } = useLang();
+
+  const NAV = [
+    { to: "/", label: t.nav.home },
+    { to: "/programmes", label: t.nav.programmes },
+    { to: "/advantage", label: t.nav.advantage },
+    { to: "/about", label: t.nav.about },
+    { to: "/comments", label: t.nav.parents },
+    { to: "/partners", label: t.nav.partners },
+  ] as const;
+
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 py-3">
@@ -50,12 +53,12 @@ export function Header() {
             to="/begin"
             className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
           >
-            Join as Parent
+            {t.nav.joinAsParent}
           </Link>
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden p-2 text-foreground"
-            aria-label="Menu"
+            aria-label={t.nav.menu}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -80,8 +83,32 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-sm font-medium text-primary-foreground"
             >
-              Join as Parent
+              {t.nav.joinAsParent}
             </Link>
+            {/* Mobile language toggle (TopBar is hidden on mobile) */}
+            <div className="mt-3 flex items-center justify-center gap-3 pt-3 border-t border-border/40 text-xs text-muted-foreground">
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                aria-pressed={lang === "en"}
+                className={lang === "en" ? "font-medium text-primary" : "hover:text-primary"}
+              >
+                EN
+              </button>
+              <span className="opacity-30">|</span>
+              <button
+                type="button"
+                onClick={() => setLang("zh")}
+                aria-pressed={lang === "zh"}
+                className={
+                  lang === "zh"
+                    ? "font-zh font-medium text-primary"
+                    : "font-zh hover:text-primary"
+                }
+              >
+                繁
+              </button>
+            </div>
           </nav>
         </div>
       )}

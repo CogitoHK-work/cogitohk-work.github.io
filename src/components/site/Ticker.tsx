@@ -1,12 +1,8 @@
-const SLOGANS = [
-  "Cogito Education — Where Every Child Learns Differently, Brilliantly",
-  "Empowering Minds, Nurturing Futures",
-  "Just Right for the Mind of Every Child",
-  "Learn Effectively, but Effortlessly",
-];
+import { useT } from "@/i18n/LanguageProvider";
 
 export function Ticker() {
-  const items = [...SLOGANS, ...SLOGANS];
+  const t = useT();
+  const items = [...t.ticker, ...t.ticker];
   return (
     <div className="overflow-hidden bg-gradient-primary py-2.5 text-primary-foreground">
       <div className="ticker-track flex w-max items-center gap-12 whitespace-nowrap text-sm font-medium">
