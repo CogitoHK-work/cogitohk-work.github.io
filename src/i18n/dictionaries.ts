@@ -1028,6 +1028,6 @@ export const dict = {
       home: "返回首頁",
     },
   },
-} as const;
+};
 
-export type Dict = typeof dict.en;
+export type Dict = (typeof dict)["en"];
