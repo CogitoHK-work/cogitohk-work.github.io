@@ -1,67 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { useT } from "@/i18n/LanguageProvider";
+import { dict } from "@/i18n/dictionaries";
 
 export const Route = createFileRoute("/begin")({
   head: () => ({
     meta: [
-      { title: "Begin Your Cogito Journey — Free Discovery Session" },
-      {
-        name: "description",
-        content:
-          "Book a free Parent Discovery Session with Cogito Education. Friendly placement assessment, personalized learning plan, and supportive small-group lessons in Lam Tin, Hong Kong.",
-      },
-      { property: "og:title", content: "Begin Your Cogito Journey" },
-      { property: "og:description", content: "Free consultation, placement assessment and a personalized learning plan." },
+      { title: `${dict.en.begin.meta.title} | ${dict.zh.begin.meta.title}` },
+      { name: "description", content: `${dict.en.begin.meta.description} ${dict.zh.begin.meta.description}` },
+      { property: "og:title", content: dict.en.begin.meta.ogTitle },
+      { property: "og:description", content: dict.en.begin.meta.ogDescription },
     ],
   }),
   component: BeginPage,
 });
 
-const STEPS = [
-  {
-    n: "01",
-    title: "Attend a Free Parent Discovery Session",
-    desc: "Make an appointment for a free, no-pressure consultation with our team.",
-  },
-  {
-    n: "02",
-    title: "Friendly placement assessment",
-    desc: "Your child completes an insightful diagnostic test (DT) so we can pinpoint the perfect starting point.",
-  },
-  {
-    n: "03",
-    title: "Personalized learning plan",
-    desc: "We deliver a detailed, fully personalized plan tailored to your child's strengths and needs.",
-  },
-  {
-    n: "04",
-    title: "Begin in a supportive small group",
-    desc: "Start learning in a 1:3 environment where curiosity thrives and progress is constantly checked.",
-  },
-];
-
 function BeginPage() {
+  const t = useT();
+  const L = t.begin.labels;
+
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">7.0 · Begin Your Journey</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.begin.section}</div>
           <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
-            Begin your Cogito journey <em className="not-italic text-primary">as a parent</em>.
+            {t.begin.titleA}
+            <em className="not-italic text-primary">{t.begin.titleEm}</em>
+            {t.begin.titleB}
           </h1>
-          <p className="mt-7 max-w-3xl text-lg text-muted-foreground leading-relaxed">
-            Every parent wants to give their child the best — but finding the right approach isn't always easy.
-            We recommend a face-to-face consultation for serious parents who seek a sustainable solution, not a one-time
-            examination win.
-          </p>
+          <p className="mt-7 max-w-3xl text-lg text-muted-foreground leading-relaxed">{t.begin.lead}</p>
         </div>
       </section>
 
       {/* Steps */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((s) => (
+          {t.begin.steps.map((s) => (
             <div
               key={s.n}
               className="relative rounded-2xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-shadow"
@@ -81,12 +57,12 @@ function BeginPage() {
           <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-primary-glow/40 blur-3xl" />
           <div className="relative">
             <h2 className="font-display text-4xl md:text-5xl text-balance text-primary-foreground max-w-2xl">
-              Contact us today.
+              {t.begin.contactTitle}
             </h2>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               <a href="tel:81288686" className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors">
                 <Phone className="h-5 w-5 text-gold" />
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">Phone</div>
+                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.phone}</div>
                 <div className="mt-1 font-display text-xl">8128 8686</div>
               </a>
               <a
@@ -96,7 +72,7 @@ function BeginPage() {
                 className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors"
               >
                 <MessageCircle className="h-5 w-5 text-gold" />
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">WhatsApp · Parents</div>
+                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.waParents}</div>
                 <div className="mt-1 font-display text-xl">6400 9989</div>
               </a>
               <a
@@ -106,7 +82,7 @@ function BeginPage() {
                 className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors"
               >
                 <MessageCircle className="h-5 w-5 text-gold" />
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">WhatsApp · Franchise & Other</div>
+                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.waOthers}</div>
                 <div className="mt-1 font-display text-xl">9494 0994</div>
               </a>
               <a
@@ -114,23 +90,23 @@ function BeginPage() {
                 className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors"
               >
                 <Mail className="h-5 w-5 text-gold" />
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">Email</div>
+                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.email}</div>
                 <div className="mt-1 font-display text-xl">cogitohk@gmail.com</div>
               </a>
               <div className="rounded-2xl bg-cream/10 border border-cream/20 p-5">
                 <MapPin className="h-5 w-5 text-gold" />
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">Showcase Centre</div>
-                <div className="mt-1 font-display text-xl">Lam Tin, Hong Kong</div>
-                <div className="text-xs opacity-70 mt-1">Contact us to schedule a visit.</div>
+                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.showcase}</div>
+                <div className="mt-1 font-display text-xl">{L.showcaseValue}</div>
+                <div className="text-xs opacity-70 mt-1">{L.showcaseHint}</div>
               </div>
               <div className="rounded-2xl bg-cream/10 border border-cream/20 p-5">
                 <div className="flex gap-2">
                   <Facebook className="h-5 w-5 text-gold" />
                   <Instagram className="h-5 w-5 text-gold" />
                 </div>
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">Follow our community</div>
-                <div className="mt-1 font-display text-xl">Cogito Hong Kong</div>
-                <div className="text-xs opacity-70 mt-1">Parenting tips & updates.</div>
+                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.social}</div>
+                <div className="mt-1 font-display text-xl">{L.socialValue}</div>
+                <div className="text-xs opacity-70 mt-1">{L.socialHint}</div>
               </div>
             </div>
 
@@ -141,7 +117,7 @@ function BeginPage() {
                 rel="noopener"
                 className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-gold-foreground shadow-gold hover:scale-[1.02] transition-transform"
               >
-                <MessageCircle className="h-4 w-4" /> Book my free session
+                <MessageCircle className="h-4 w-4" /> {t.begin.bookCta}
               </a>
             </div>
           </div>
