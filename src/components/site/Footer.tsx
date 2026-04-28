@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="" width={48} height={48} className="h-12 w-12 brightness-150" />
+              <img src={logo} alt="Cogito 夏恩教育" className="h-12 w-auto brightness-150" />
               <div>
                 <div className="font-display text-xl">Cogito Education</div>
                 <div className="font-zh text-sm opacity-70">夏恩教育</div>
