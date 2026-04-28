@@ -20,18 +20,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 py-3">
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center group">
           <img
             src={logo}
-            alt="Cogito Tree of Wisdom"
-            width={44}
-            height={44}
-            className="h-11 w-11 transition-transform group-hover:scale-105"
+            alt="Cogito 夏恩教育"
+            className="h-12 w-auto transition-transform group-hover:scale-105"
           />
-          <div className="leading-tight">
-            <div className="font-display text-xl font-semibold text-ink">Cogito</div>
-            <div className="font-zh text-[11px] text-muted-foreground -mt-0.5">夏恩教育</div>
-          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
