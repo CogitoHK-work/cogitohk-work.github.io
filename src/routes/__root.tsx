@@ -1,5 +1,4 @@
-import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { Outlet, Link, createRootRoute, HeadContent } from "@tanstack/react-router";
 import { LanguageProvider, useT } from "@/i18n/LanguageProvider";
 
 function NotFoundComponent() {
@@ -42,11 +41,9 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-  useEffect(() => {
-    // Apply per-route <title> / <meta> updates managed by route head() at runtime.
-  }, []);
   return (
     <LanguageProvider>
+      <HeadContent />
       <Outlet />
     </LanguageProvider>
   );
