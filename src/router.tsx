@@ -1,4 +1,4 @@
-import { createRouter, useRouter } from "@tanstack/react-router";
+import { createRouter, useRouter, createMemoryHistory, createBrowserHistory } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
 function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
@@ -55,12 +55,25 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
 }
 
 export const getRouter = () => {
+  // Recover deep-link path injected by public/404.html (?p=/some/path).
+  if (typeof window !== "undefined") {
+    const url = new URL(window.location.href);
+    const p = url.searchParams.get("p");
+    if (p) {
+      window.history.replaceState(null, "", p);
+    }
+  }
+
   const router = createRouter({
     routeTree,
     context: {},
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
+    history:
+      typeof window === "undefined"
+        ? createMemoryHistory({ initialEntries: ["/"] })
+        : createBrowserHistory(),
   });
 
   return router;

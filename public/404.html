@@ -1,0 +1,9 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Redirecting…</title>
+<script>
+  // GitHub Pages SPA fallback: rewrite 404 to /?p=/path so index.html can recover the route.
+  var l = window.location;
+  var path = l.pathname.replace(/^\/+/, "/");
+  l.replace(l.origin + "/?p=" + encodeURIComponent(path + l.search) + l.hash);
+</script>
+</head><body></body></html>
