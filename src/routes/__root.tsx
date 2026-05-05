@@ -1,6 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
+import { Outlet, Link, createRootRoute, HeadContent } from "@tanstack/react-router";
 import { LanguageProvider, useT } from "@/i18n/LanguageProvider";
 
 function NotFoundComponent() {
@@ -33,50 +31,19 @@ function NotFoundRoot() {
 }
 
 export const Route = createRootRoute({
+  component: RootComponent,
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Cogito Education (Hong Kong) Ltd." },
-      {
-        name: "keywords",
-        content:
-          "Cogito Education, 夏恩教育, Hong Kong tutorial centre, AI personalized learning, small group tuition, English Excellence, Mathematics Mastery, Chinese Eminence, Cogito Kids",
-      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap",
-      },
-    ],
   }),
-  shellComponent: RootShell,
-  component: RootComponent,
   notFoundComponent: NotFoundRoot,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return (
     <LanguageProvider>
+      <HeadContent />
       <Outlet />
     </LanguageProvider>
   );
