@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Quote } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { useT } from "@/i18n/LanguageProvider";
+import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 
 export const Route = createFileRoute("/comments")({
@@ -18,6 +18,9 @@ export const Route = createFileRoute("/comments")({
 
 function CommentsPage() {
   const t = useT();
+  const { lang } = useLang();
+  const openQuote = lang === "zh" ? "「" : "\u201C";
+  const closeQuote = lang === "zh" ? "」" : "\u201D";
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
@@ -41,7 +44,7 @@ function CommentsPage() {
               className="relative rounded-3xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-shadow"
             >
               <Quote className="absolute -top-3 -left-2 h-10 w-10 text-gold/30" />
-              <p className="text-foreground/80 leading-relaxed">"{c.body}"</p>
+              <p className="text-foreground/80 leading-relaxed">{openQuote}{c.body}{closeQuote}</p>
               <div className="mt-6 border-t border-border pt-4">
                 <div className="font-display text-lg text-ink">{c.name}</div>
                 <div className="text-sm text-muted-foreground">{c.relation}</div>
