@@ -50,6 +50,18 @@ function HomePage() {
               <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
               {t.home.heroTitleB}
             </h1>
+            {/*
+              Swappable hero photo.
+              To replace: overwrite the file at `public/hero-feature.jpg`
+              with your new image (keep the same filename). No code changes needed.
+            */}
+            <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-soft">
+              <img
+                src="/hero-feature.jpg"
+                alt="Featured photo"
+                className="w-full h-auto object-cover"
+              />
+            </div>
             <p className="mt-7 max-w-xl text-lg text-muted-foreground leading-relaxed text-pretty">
               {t.home.heroLead}
             </p>
