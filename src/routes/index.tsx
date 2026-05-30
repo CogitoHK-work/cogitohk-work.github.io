@@ -50,18 +50,6 @@ function HomePage() {
               <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
               {t.home.heroTitleB}
             </h1>
-            {/*
-              Swappable hero photo "hero-feature-1.4.1".
-              To replace: overwrite the file at `public/hero-feature-1.4.1.png`
-              with your new image (keep the same filename). No code changes needed.
-            */}
-            <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-soft">
-              <img
-                src="/hero-feature-1.4.1.png"
-                alt="hero-feature-1.4.1"
-                className="w-full h-auto object-cover"
-              />
-            </div>
             <p className="mt-7 max-w-xl text-lg text-muted-foreground leading-relaxed text-pretty">
               {t.home.heroLead}
             </p>
@@ -156,6 +144,18 @@ function HomePage() {
           <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
             <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
             <h3 className="mt-2 font-display text-3xl">{t.home.nameTitle}</h3>
+            {/*
+              Swappable hero photo "hero-feature-1.4.1".
+              To replace: overwrite the file at `public/hero-feature-1.4.1.png`
+              with your new image (keep the same filename). No code changes needed.
+            */}
+            <div className="mt-6 overflow-hidden rounded-2xl border border-border shadow-soft">
+              <img
+                src="/hero-feature-1.4.1.png"
+                alt="hero-feature-1.4.1"
+                className="w-full h-auto object-cover"
+              />
+            </div>
             <p className="mt-5 text-foreground/75 leading-relaxed">
               <strong className="text-primary">{t.home.nameP1A}</strong>
               {t.home.nameP1B}
