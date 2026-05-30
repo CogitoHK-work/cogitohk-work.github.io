@@ -24,7 +24,7 @@ function BeginPage() {
     <SiteLayout>
       <section className="bg-gradient-warm">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.begin.section}</div>
+          <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.begin.section}</div>
           <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
             {t.begin.titleA}
             <em className="not-italic text-primary">{t.begin.titleEm}</em>

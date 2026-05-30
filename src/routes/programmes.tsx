@@ -26,7 +26,7 @@ function ProgrammesPage() {
     <SiteLayout>
       <section className="bg-gradient-warm">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.programmes.section}</div>
+          <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.programmes.section}</div>
           <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
             {t.programmes.titleA}
             <em className="not-italic text-primary">{t.programmes.titleEm}</em>
@@ -43,7 +43,7 @@ function ProgrammesPage() {
           return (
             <article key={IDS[idx]} id={IDS[idx]} className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
               <div className="lg:sticky lg:top-32 lg:self-start">
-                <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">2.{idx + 1}</div>
+                <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">2.{idx + 1}</div>
                 <div className="mt-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
                   <Icon className="h-7 w-7" />
                 </div>

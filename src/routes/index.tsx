@@ -142,7 +142,7 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.philSection}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.philSection}</div>
             <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.philTitle}</h2>
             <blockquote className="mt-6 border-l-2 border-gold pl-5 italic text-lg text-foreground/80">
               {t.home.philQuote}
@@ -170,7 +170,7 @@ function HomePage() {
       <section className="bg-cream/60 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2">
           <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
             <h3 className="mt-2 font-display text-3xl">{t.home.nameTitle}</h3>
             {/*
               Swappable hero photo "hero-feature-1.4.1".
@@ -194,7 +194,7 @@ function HomePage() {
           </article>
 
           <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.logoSection}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.logoSection}</div>
             <h3 className="mt-2 font-display text-3xl">{t.home.logoTitle}</h3>
             <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row">
               <img src={logo} alt="Cogito 夏恩教育" loading="lazy" className="h-24 w-auto shrink-0" />
@@ -211,7 +211,7 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.progSection}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.progSection}</div>
             <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.progTitle}</h2>
           </div>
           <Link to="/programmes" className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow">
