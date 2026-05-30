@@ -51,14 +51,14 @@ function HomePage() {
               {t.home.heroTitleB}
             </h1>
             {/*
-              Swappable hero photo.
-              To replace: overwrite the file at `public/hero-feature.jpg`
+              Swappable hero photo "hero-feature-1.4.1".
+              To replace: overwrite the file at `public/hero-feature-1.4.1.png`
               with your new image (keep the same filename). No code changes needed.
             */}
             <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-soft">
               <img
-                src="/hero-feature.jpg"
-                alt="Featured photo"
+                src="/hero-feature-1.4.1.png"
+                alt="hero-feature-1.4.1"
                 className="w-full h-auto object-cover"
               />
             </div>
