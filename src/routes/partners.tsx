@@ -22,7 +22,7 @@ function PartnersPage() {
     <SiteLayout>
       <section className="bg-gradient-warm">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.partners.section}</div>
+          <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.partners.section}</div>
           <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
             {t.partners.titleA}
             <em className="not-italic text-primary">{t.partners.titleEm}</em>
@@ -37,7 +37,7 @@ function PartnersPage() {
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Partner */}
           <article className="rounded-3xl border border-border bg-card p-10 shadow-soft hover:shadow-elegant transition-shadow">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.partners.partnerSection}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.partners.partnerSection}</div>
             <div className="mt-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/15 text-gold-foreground">
               <Handshake className="h-7 w-7 text-gold" />
             </div>
@@ -51,7 +51,7 @@ function PartnersPage() {
 
           {/* Franchisee */}
           <article className="rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/5 to-card p-10 shadow-elegant">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.partners.franchiseeSection}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.partners.franchiseeSection}</div>
             <div className="mt-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground">
               <Building2 className="h-7 w-7" />
             </div>

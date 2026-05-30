@@ -23,7 +23,7 @@ function AboutPage() {
     <SiteLayout>
       <section className="bg-gradient-warm">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
-          <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.about.section}</div>
+          <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.about.section}</div>
           <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
             {t.about.titleA}
             <em className="not-italic text-primary">{t.about.titleEm}</em>
@@ -37,7 +37,7 @@ function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:items-start">
           <div className="lg:sticky lg:top-32">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{grace.section}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{grace.section}</div>
             <h2 className="mt-3 font-display text-4xl">{grace.name}</h2>
             <p className="mt-1 font-zh text-muted-foreground">{grace.nameZh}</p>
             <p className="mt-3 text-sm text-muted-foreground">{grace.role}</p>
@@ -60,7 +60,7 @@ function AboutPage() {
       <section className="bg-ink py-24 text-cream relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero opacity-50 pointer-events-none" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
-          <div className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">{poem.eyebrow}</div>
+          <div className="hidden text-xs uppercase tracking-[0.3em] text-gold font-semibold">{poem.eyebrow}</div>
           <h2 className="mt-4 font-display text-5xl md:text-6xl text-cream text-balance">{poem.title}</h2>
           <blockquote className="mt-10 font-display text-3xl md:text-4xl leading-[1.4] text-cream/90 italic">
             {poem.lines.map((line, i) => (
@@ -83,7 +83,7 @@ function AboutPage() {
             </div>
           </article>
           <div className="lg:sticky lg:top-32 order-1 lg:order-2">
-            <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{hc.section}</div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{hc.section}</div>
             <h2 className="mt-3 font-display text-4xl">{hc.name}</h2>
             <p className="mt-1 font-zh text-muted-foreground">{hc.nameZh}</p>
             <p className="mt-3 text-sm text-muted-foreground">{hc.role}</p>
