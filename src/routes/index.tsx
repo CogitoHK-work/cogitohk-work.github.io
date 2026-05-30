@@ -45,7 +45,7 @@ function HomePage() {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
               <Sparkles className="h-3.5 w-3.5" /> {t.home.heroBadge}
             </div>
-            <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-balance">
+            <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-balance">
               {t.home.heroTitleA}
               <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
               {t.home.heroTitleB}
