@@ -111,6 +111,19 @@ function HomePage() {
       </section>
 
       {/* PHILOSOPHY */}
+      <section className="mx-auto max-w-5xl px-6 pt-16">
+        <div className="overflow-hidden rounded-3xl border border-border shadow-elegant">
+          <video
+            src="/hero-video-1.4.2.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto"
+          />
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
           <div>
