@@ -49,14 +49,7 @@ export function Header() {
           >
             {t.nav.joinAsParent}
           </Link>
-          <button
-            onClick={() => setOpen(!open)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label={t.nav.menu}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-          {/* Mobile language toggle next to hamburger */}
+          {/* Mobile language toggle, left of hamburger */}
           <div className="lg:hidden flex items-center gap-2 text-xs text-muted-foreground">
             <button
               type="button"
@@ -80,6 +73,13 @@ export function Header() {
               繁
             </button>
           </div>
+          <button
+            onClick={() => setOpen(!open)}
+            className="lg:hidden p-2 text-foreground"
+            aria-label={t.nav.menu}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
 
