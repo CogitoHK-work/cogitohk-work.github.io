@@ -56,6 +56,30 @@ export function Header() {
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
+          {/* Mobile language toggle next to hamburger */}
+          <div className="lg:hidden flex items-center gap-2 text-xs text-muted-foreground">
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
+              className={lang === "en" ? "font-medium text-primary" : "hover:text-primary"}
+            >
+              EN
+            </button>
+            <span className="opacity-30">|</span>
+            <button
+              type="button"
+              onClick={() => setLang("zh")}
+              aria-pressed={lang === "zh"}
+              className={
+                lang === "zh"
+                  ? "font-zh font-medium text-primary"
+                  : "font-zh hover:text-primary"
+              }
+            >
+              繁
+            </button>
+          </div>
         </div>
       </div>
 
@@ -79,30 +103,6 @@ export function Header() {
             >
               {t.nav.joinAsParent}
             </Link>
-            {/* Mobile language toggle (TopBar is hidden on mobile) */}
-            <div className="mt-3 flex items-center justify-center gap-3 pt-3 border-t border-border/40 text-xs text-muted-foreground">
-              <button
-                type="button"
-                onClick={() => setLang("en")}
-                aria-pressed={lang === "en"}
-                className={lang === "en" ? "font-medium text-primary" : "hover:text-primary"}
-              >
-                EN
-              </button>
-              <span className="opacity-30">|</span>
-              <button
-                type="button"
-                onClick={() => setLang("zh")}
-                aria-pressed={lang === "zh"}
-                className={
-                  lang === "zh"
-                    ? "font-zh font-medium text-primary"
-                    : "font-zh hover:text-primary"
-                }
-              >
-                繁
-              </button>
-            </div>
           </nav>
         </div>
       )}
