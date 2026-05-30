@@ -156,7 +156,7 @@ function HomePage() {
           <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
             <div className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.logoSection}</div>
             <h3 className="mt-2 font-display text-3xl">{t.home.logoTitle}</h3>
-            <div className="mt-6 flex items-start gap-6">
+            <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row">
               <img src={logo} alt="Cogito 夏恩教育" loading="lazy" className="h-24 w-auto shrink-0" />
               <p className="text-foreground/75 leading-relaxed">
                 <em>{t.home.logoBodyEm}</em>
