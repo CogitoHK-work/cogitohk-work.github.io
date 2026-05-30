@@ -177,11 +177,11 @@ function HomePage() {
               To replace: overwrite the file at `public/hero-feature-1.4.1.png`
               with your new image (keep the same filename). No code changes needed.
             */}
-            <div className="mt-6 overflow-hidden rounded-2xl border border-border shadow-soft">
+            <div className="mt-6 inline-block overflow-hidden rounded-2xl border border-border shadow-soft">
               <img
                 src="/hero-feature-1.4.1.png"
                 alt="hero-feature-1.4.1"
-                className="w-full h-auto object-cover"
+                className="h-24 w-auto object-cover"
               />
             </div>
             <p className="mt-5 text-foreground/75 leading-relaxed">
