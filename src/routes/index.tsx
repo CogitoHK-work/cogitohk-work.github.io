@@ -7,6 +7,7 @@ import treeImg from "@/assets/tree-illustration.jpg";
 import logo from "@/assets/cogito-logo.png";
 import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
+import { useHomeMedia } from "@/hooks/useHomeMedia";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,6 +35,10 @@ const CARD_TINTS = [
 
 function HomePage() {
   const t = useT();
+  const media = useHomeMedia();
+  const heroSrc = media.hero ?? heroImg;
+  const videoSrc = media.video ?? "/hero-video-1.4.2.mp4";
+  const featureSrc = media.feature ?? "/hero-feature-1.4.1.png";
 
   return (
     <SiteLayout>
@@ -94,7 +99,7 @@ function HomePage() {
             <div className="absolute -top-6 -right-6 h-72 w-72 rounded-full bg-gold/20 blur-3xl" />
             <div className="absolute -bottom-8 -left-8 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
             <img
-              src={heroImg}
+              src={heroSrc}
               alt="A young learner deep in study at a sunlit desk"
               width={1600}
               height={1200}
@@ -115,7 +120,8 @@ function HomePage() {
         <div className="grid gap-6 md:grid-cols-[1.6fr_1fr] md:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant h-[500px]">
             <video
-              src="/hero-video-1.4.2.mp4"
+              key={videoSrc}
+              src={videoSrc}
               autoPlay
               loop
               muted
@@ -179,7 +185,7 @@ function HomePage() {
             */}
             <div className="mt-6 inline-block overflow-hidden rounded-2xl border border-border shadow-soft">
               <img
-                src="/hero-feature-1.4.1.png"
+                src={featureSrc}
                 alt="hero-feature-1.4.1"
                 className="h-24 w-auto object-cover"
               />
