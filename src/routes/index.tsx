@@ -37,7 +37,6 @@ function HomePage() {
   const t = useT();
   const media = useHomeMedia();
   const heroSrc = media.hero ?? heroImg;
-  const videoSrc = media.video ?? "/hero-video-1.4.2.mp4";
   const featureSrc = media.feature ?? "/hero-feature-1.4.1.png";
 
   return (
@@ -119,15 +118,26 @@ function HomePage() {
       <section className="mx-auto max-w-5xl px-6 pt-16">
         <div className="grid gap-6 md:grid-cols-[1.6fr_1fr] md:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant h-[500px]">
-            <video
-              key={videoSrc}
-              src={videoSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
+            {media.videoFileId ? (
+              <iframe
+                key={media.videoFileId}
+                title="Cogito video"
+                src={`https://drive.google.com/file/d/${media.videoFileId}/preview`}
+                allow="autoplay"
+                allowFullScreen
+                className="w-full h-full"
+                style={{ border: "none" }}
+              />
+            ) : (
+              <video
+                src="/hero-video-1.4.2.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            )}
           </div>
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant bg-card">
             <iframe
