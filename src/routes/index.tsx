@@ -35,8 +35,8 @@ const CARD_TINTS = [
 function HomePage() {
   const t = useT();
   const media = useHomeMedia();
-  const heroSrc = media.hero ?? "/hero.jpg";
-  const featureSrc = media.feature ?? "/hero-feature-1.4.1.png";
+  const heroSrc = media.hero ?? "/hero-portrait.jpg";
+  const featureSrc = media.feature ?? "/name-card.png";
 
   return (
     <SiteLayout>
@@ -118,7 +118,7 @@ function HomePage() {
         <div className="grid gap-6 md:grid-cols-[1.6fr_1fr] md:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant h-[500px]">
             <video
-              src="/hero-video.mp4"
+              src="/philosophy-video.mp4"
               autoPlay
               loop
               muted
@@ -176,14 +176,14 @@ function HomePage() {
             <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
             <h3 className="mt-2 font-display text-3xl">{t.home.nameTitle}</h3>
             {/*
-              Swappable hero photo "hero-feature-1.4.1".
-              To replace: overwrite the file at `public/hero-feature-1.4.1.png`
+              Swappable name-card image.
+              To replace: overwrite the file at `public/name-card.png`
               with your new image (keep the same filename). No code changes needed.
             */}
             <div className="mt-6 inline-block overflow-hidden rounded-2xl border border-border shadow-soft">
               <img
                 src={featureSrc}
-                alt="hero-feature-1.4.1"
+                alt="Name card"
                 className="h-24 w-auto object-cover"
               />
             </div>
