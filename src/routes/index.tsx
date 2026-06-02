@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import heroImg from "@/assets/hero-child.jpg";
 import treeImg from "@/assets/tree-illustration.jpg";
 import logo from "@/assets/cogito-logo.png";
 import { useT } from "@/i18n/LanguageProvider";
