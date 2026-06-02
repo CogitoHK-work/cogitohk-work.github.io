@@ -9,6 +9,7 @@ import {
 export type HomeMediaUrls = {
   hero?: string;
   video?: string;
+  videoFileId?: string;
   feature?: string;
 };
 
@@ -25,9 +26,11 @@ export function useHomeMedia(): HomeMediaUrls {
         const idx = indexByBasename(files);
         const pick = (key: string, width?: number) =>
           idx[key] ? driveContentUrl(idx[key].id, width) : undefined;
+        const videoFile = idx["video"] ?? idx["hero-video"];
         setUrls({
           hero: pick("hero", 1600),
           video: pick("video", 1600) ?? pick("hero-video", 1600),
+          videoFileId: videoFile?.id,
           feature: pick("feature", 800) ?? pick("hero-feature", 800),
         });
       })
