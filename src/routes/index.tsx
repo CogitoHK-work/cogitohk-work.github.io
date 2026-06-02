@@ -35,7 +35,7 @@ const CARD_TINTS = [
 function HomePage() {
   const t = useT();
   const media = useHomeMedia();
-  const heroSrc = media.hero ?? "/hero-portrait.png";
+  const heroSrc = media.hero ?? "/hero-portrait.jpg";
   const featureSrc = media.feature ?? "/name-card.png";
 
   return (
