@@ -533,6 +533,7 @@ export const dict = {
       about: "關於我們",
       parents: "家長心聲",
       partners: "合作與加盟",
+      gallery: "相簿",
       joinAsParent: "家長預約",
       menu: "選單",
     },
