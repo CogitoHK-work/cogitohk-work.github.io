@@ -14,8 +14,9 @@ export type HomeMediaUrls = {
 };
 
 // Fetches the public Drive folder once and resolves URLs for
-// files named hero.*, video.*/hero-video.* (we accept "video" or "hero-video"),
-// and feature.*. Returns {} until loaded; consumers fall back to local assets.
+// files named hero-portrait.*, philosophy-video.*, and name-card.*.
+// Also accepts legacy names (hero.*, video.*, feature.*) for backward compatibility.
+// Returns {} until loaded; consumers fall back to local assets.
 export function useHomeMedia(): HomeMediaUrls {
   const [urls, setUrls] = useState<HomeMediaUrls>({});
 
@@ -26,12 +27,23 @@ export function useHomeMedia(): HomeMediaUrls {
         const idx = indexByBasename(files);
         const pick = (key: string, width?: number) =>
           idx[key] ? driveContentUrl(idx[key].id, width) : undefined;
-        const videoFile = idx["video"] ?? idx["hero-video"];
+        const videoFile =
+          idx["philosophy-video"] ??
+          idx["video"] ??
+          idx["hero-video"];
         setUrls({
-          hero: pick("hero", 1600),
-          video: pick("video", 1600) ?? pick("hero-video", 1600),
+          hero:
+            pick("hero-portrait", 1600) ??
+            pick("hero", 1600),
+          video:
+            pick("philosophy-video", 1600) ??
+            pick("video", 1600) ??
+            pick("hero-video", 1600),
           videoFileId: videoFile?.id,
-          feature: pick("feature", 800) ?? pick("hero-feature", 800),
+          feature:
+            pick("name-card", 800) ??
+            pick("feature", 800) ??
+            pick("hero-feature", 800),
         });
       })
       .catch((err) => {
