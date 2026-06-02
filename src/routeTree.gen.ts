@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgrammesRouteImport } from './routes/programmes'
 import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as CommentsRouteImport } from './routes/comments'
 import { Route as BeginRouteImport } from './routes/begin'
 import { Route as AdvantageRouteImport } from './routes/advantage'
@@ -25,6 +26,11 @@ const ProgrammesRoute = ProgrammesRouteImport.update({
 const PartnersRoute = PartnersRouteImport.update({
   id: '/partners',
   path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommentsRoute = CommentsRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/advantage': typeof AdvantageRoute
   '/begin': typeof BeginRoute
   '/comments': typeof CommentsRoute
+  '/gallery': typeof GalleryRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/advantage': typeof AdvantageRoute
   '/begin': typeof BeginRoute
   '/comments': typeof CommentsRoute
+  '/gallery': typeof GalleryRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/advantage': typeof AdvantageRoute
   '/begin': typeof BeginRoute
   '/comments': typeof CommentsRoute
+  '/gallery': typeof GalleryRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/advantage'
     | '/begin'
     | '/comments'
+    | '/gallery'
     | '/partners'
     | '/programmes'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/advantage'
     | '/begin'
     | '/comments'
+    | '/gallery'
     | '/partners'
     | '/programmes'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/advantage'
     | '/begin'
     | '/comments'
+    | '/gallery'
     | '/partners'
     | '/programmes'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   AdvantageRoute: typeof AdvantageRoute
   BeginRoute: typeof BeginRoute
   CommentsRoute: typeof CommentsRoute
+  GalleryRoute: typeof GalleryRoute
   PartnersRoute: typeof PartnersRoute
   ProgrammesRoute: typeof ProgrammesRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/partners'
       fullPath: '/partners'
       preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/comments': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdvantageRoute: AdvantageRoute,
   BeginRoute: BeginRoute,
   CommentsRoute: CommentsRoute,
+  GalleryRoute: GalleryRoute,
   PartnersRoute: PartnersRoute,
   ProgrammesRoute: ProgrammesRoute,
 }
