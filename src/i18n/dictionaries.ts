@@ -13,6 +13,7 @@ export const dict = {
       about: "About",
       parents: "Parents",
       partners: "Partners",
+      gallery: "Gallery",
       joinAsParent: "Join as Parent",
       menu: "Menu",
     },
