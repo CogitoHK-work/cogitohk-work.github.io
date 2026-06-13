@@ -51,7 +51,7 @@ function ProgrammesPage() {
         {t.programmes.list.map((p, idx) => {
           const Icon = ICONS[idx];
           return (
-            <article key={IDS[idx]} id={IDS[idx]} className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+            <article key={IDS[idx]} id={IDS[idx]} className="grid gap-10 scroll-mt-32 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
               <div className="lg:sticky lg:top-32 lg:self-start">
                 <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">2.{idx + 1}</div>
                 <div className="mt-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
