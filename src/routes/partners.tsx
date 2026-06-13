@@ -12,6 +12,7 @@ export const Route = createFileRoute("/partners")({
       { property: "og:title", content: dict.en.partners.meta.ogTitle },
       { property: "og:description", content: dict.en.partners.meta.ogDescription },
     ],
+    links: [{ rel: "canonical", href: "/partners" }],
   }),
   component: PartnersPage,
 });

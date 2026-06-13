@@ -20,6 +20,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: dict.en.home.meta.ogDescription },
       { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: HomePage,
 });

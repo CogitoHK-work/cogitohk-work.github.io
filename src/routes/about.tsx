@@ -11,6 +11,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: dict.en.about.meta.ogTitle },
       { property: "og:description", content: dict.en.about.meta.ogDescription },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: AboutPage,
 });

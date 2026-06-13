@@ -13,6 +13,7 @@ export const Route = createFileRoute("/advantage")({
       { property: "og:title", content: dict.en.advantage.meta.ogTitle },
       { property: "og:description", content: dict.en.advantage.meta.ogDescription },
     ],
+    links: [{ rel: "canonical", href: "/advantage" }],
   }),
   component: AdvantagePage,
 });

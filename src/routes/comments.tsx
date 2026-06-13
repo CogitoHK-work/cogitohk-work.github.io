@@ -12,6 +12,7 @@ export const Route = createFileRoute("/comments")({
       { property: "og:title", content: dict.en.comments.meta.ogTitle },
       { property: "og:description", content: dict.en.comments.meta.ogDescription },
     ],
+    links: [{ rel: "canonical", href: "/comments" }],
   }),
   component: CommentsPage,
 });
