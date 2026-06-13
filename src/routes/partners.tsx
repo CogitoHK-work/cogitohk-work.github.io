@@ -55,7 +55,7 @@ function PartnersPage() {
             <p className="mt-4 text-foreground/80 leading-relaxed">{t.partners.partnerP1}</p>
             <p className="mt-3 text-foreground/75 leading-relaxed">{t.partners.partnerP2}</p>
             <div className="mt-6 rounded-xl bg-gold/5 border border-gold/30 p-4 text-sm text-foreground/80">
-              <strong className="text-gold-foreground">{t.partners.partnerNoteLabel}</strong> {t.partners.partnerNote}
+              <strong className="text-foreground/80">{t.partners.partnerNoteLabel}</strong> {t.partners.partnerNote}
             </div>
           </article>
 
