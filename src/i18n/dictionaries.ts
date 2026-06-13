@@ -81,7 +81,7 @@ export const dict = {
       philQuote:
         "\"Give a man a fish, feed him for a day. Teach him to fish, feed him for a lifetime.\"",
       philP1:
-        "Education today is no longer about disseminating information — technology has made it readily available. Education is about nurturing a culture of problem solving and a habitual reliance on one's own self.",
+        "Education today is no longer about disseminating information — technology has made it readily available. Education is about nurturing a culture of problem solving and a habitual reliance on one's own self. At Cogito, we don't just feed answers — we teach children how to catch them. We weave self-learning into the teaching process and make it a habit they won't forget.",
       philP2:
         "Like teaching a child to walk: a little handholding at first, steady guidance along each tiny step. Then one day, they can run. And we're still there, watching proudly, ready to catch them if they stumble.",
       philP3: "Guide first. Then watch them soar. For life.",
@@ -101,7 +101,7 @@ export const dict = {
       logoBodyEm:
         "\"Takes ten years to grow a tree; a hundred to nurture a person.\"",
       logoBody:
-        " The Tree of Wisdom, resembling the branching pathways of the brain, symbolizes both our commitment to high-quality educational services and the era's call for balancing logical thinking and creativity. Lush left and right branches bursting with sparks of thought represent the simultaneous activation of both brain hemispheres — and the flourishing of intellect.",
+        " The Tree of Wisdom, resembling the branching pathways of the brain, symbolizes both our commitment to high-quality educational services and the era's call for balancing logical thinking and creativity. Lush left and right branches bursting with sparks of thought represent the simultaneous activation of both brain hemispheres — and the flourishing of intellect. \"Realizing one's true potential\" is what this logo symbolizes.",
 
       progSection: "2.0 · Programmes",
       progTitle: "Tailored for everyone, regardless of potential.",
@@ -264,7 +264,7 @@ export const dict = {
         },
         {
           title: "Intimate Small Groups (1:3 Ratio)",
-          desc: "With no more than 3 students per teacher, your child receives focused attention, immediate feedback, and a supportive space where curiosity thrives.",
+          desc: "With no more than 3 students (sometimes even less) per teacher, your child receives focused attention, immediate feedback, and a supportive space where curiosity thrives.",
         },
         {
           title: "British English Foundation, Local Relevance",
@@ -597,7 +597,7 @@ export const dict = {
       philTitle: "授人以漁，而非單給答案。",
       philQuote: "「授人以魚，不如授人以漁。」",
       philP1:
-        "今日的教育不在於傳遞資訊——科技已使資訊隨手可得。教育的真諦，在於培養解決問題的文化，以及養成倚靠自己的習慣。",
+        "今日的教育不在於傳遞資訊——科技已使資訊隨手可得。教育的真諦，在於培養解決問題的文化，以及養成倚靠自己的習慣。在夏恩，我們不只給孩子答案，而是教他們如何自己找到答案——把自主學習織入教學過程，培養成他們一生難忘的習慣。",
       philP2:
         "就像教孩子走路：起初輕扶，每一步耐心引導。終有一天，他們能夠奔跑；而我們依然在旁，欣慰地看著，隨時準備在他們跌倒時伸出雙手。",
       philP3: "先引導，再看他們展翅高飛。一生受益。",
@@ -616,7 +616,7 @@ export const dict = {
       logoTitle: "智慧之樹。",
       logoBodyEm: "「十年樹木，百年樹人。」",
       logoBody:
-        "智慧之樹如大腦神經分枝般的脈絡，既象徵我們對優質教育的承諾，也呼應時代對邏輯思維與創造力平衡的呼喚。左右兩側茂盛的枝葉迸發著思想火花，生動地代表左右腦的同步激活與智慧的蓬勃發展。",
+        "智慧之樹如大腦神經分枝般的脈絡，既象徵我們對優質教育的承諾，也呼應時代對邏輯思維與創造力平衡的呼喚。左右兩側茂盛的枝葉迸發著思想火花，生動地代表左右腦的同步激活與智慧的蓬勃發展。「實現真正潛能」，正是此標誌的核心寓意。",
 
       progSection: "2.0 · 課程總覽",
       progTitle: "為每個孩子量身打造，不論潛能高低。",
@@ -776,7 +776,7 @@ export const dict = {
         },
         {
           title: "親密小班(1:3 師生比)",
-          desc: "每班不超過 3 名學生，孩子獲得專注關注、即時回饋，以及讓好奇心茁壯的支持環境。",
+          desc: "每班不超過 3 名學生(有時更少)，孩子獲得專注關注、即時回饋，以及讓好奇心茁壯的支持環境。",
         },
         {
           title: "英式英語根基，本地課程銜接",
