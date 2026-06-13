@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProgrammesRouteImport } from './routes/programmes'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as CommentsRouteImport } from './routes/comments'
@@ -17,6 +18,11 @@ import { Route as AdvantageRouteImport } from './routes/advantage'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgrammesRoute = ProgrammesRouteImport.update({
   id: '/programmes',
   path: '/programmes',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/comments'
     | '/partners'
     | '/programmes'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/comments'
     | '/partners'
     | '/programmes'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/comments'
     | '/partners'
     | '/programmes'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   CommentsRoute: typeof CommentsRoute
   PartnersRoute: typeof PartnersRoute
   ProgrammesRoute: typeof ProgrammesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programmes': {
       id: '/programmes'
       path: '/programmes'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommentsRoute: CommentsRoute,
   PartnersRoute: PartnersRoute,
   ProgrammesRoute: ProgrammesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

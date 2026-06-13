@@ -36,6 +36,28 @@ export const Route = createRootRoute({
     meta: [
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Cogito Education 夏恩教育",
+          alternateName: "Shane Grace Choi Education",
+          url: "/",
+          description: "Small-group tutorials with AI-personalised learning in Hong Kong.",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+852-8128-8686",
+            contactType: "customer service",
+            availableLanguage: ["English", "Chinese"],
+          },
+          sameAs: [
+            "https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/",
+          ],
+        }),
+      },
+    ],
   }),
   notFoundComponent: NotFoundRoot,
 });
