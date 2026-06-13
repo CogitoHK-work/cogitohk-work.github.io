@@ -19,12 +19,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 py-3">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <Link to="/" className="flex items-center group">
           <img
             src={logo}
             alt="Cogito 夏恩教育"
-            className="h-12 w-auto transition-transform group-hover:scale-105"
+            className="h-[3.75rem] w-auto transition-transform group-hover:scale-105"
           />
         </Link>
 
@@ -33,8 +33,8 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="px-3 py-2 text-sm font-medium text-foreground/75 hover:text-primary transition-colors relative"
-              activeProps={{ className: "px-3 py-2 text-sm font-medium text-primary" }}
+              className="px-3 py-2 text-lg font-medium text-foreground/75 hover:text-primary transition-colors relative"
+              activeProps={{ className: "px-3 py-2 text-lg font-medium text-primary" }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
@@ -45,7 +45,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             to="/begin"
-            className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+            className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
           >
             {t.nav.joinAsParent}
           </Link>
@@ -91,7 +91,7 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium text-foreground/80 border-b border-border/40 last:border-0"
+                className="py-3 text-lg font-medium text-foreground/80 border-b border-border/40 last:border-0"
               >
                 {item.label}
               </Link>
@@ -99,7 +99,7 @@ export function Header() {
             <Link
               to="/begin"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-sm font-medium text-primary-foreground"
+              className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-lg font-medium text-primary-foreground"
             >
               {t.nav.joinAsParent}
             </Link>
