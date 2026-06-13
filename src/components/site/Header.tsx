@@ -19,12 +19,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 py-3">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <Link to="/" className="flex items-center group">
           <img
             src={logo}
             alt="Cogito 夏恩教育"
-            className="h-12 w-auto transition-transform group-hover:scale-105"
+            className="h-[3.75rem] w-auto transition-transform group-hover:scale-105"
           />
         </Link>
 
