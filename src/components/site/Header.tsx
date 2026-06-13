@@ -91,7 +91,7 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm font-medium text-foreground/80 border-b border-border/40 last:border-0"
+                className="py-3 text-lg font-medium text-foreground/80 border-b border-border/40 last:border-0"
               >
                 {item.label}
               </Link>
@@ -99,7 +99,7 @@ export function Header() {
             <Link
               to="/begin"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-sm font-medium text-primary-foreground"
+              className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-lg font-medium text-primary-foreground"
             >
               {t.nav.joinAsParent}
             </Link>
