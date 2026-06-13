@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
+import treeImg from "@/assets/tree-illustration.jpg";
+import logo from "@/assets/cogito-logo.png";
+import { useHomeMedia } from "@/hooks/useHomeMedia";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -19,18 +22,80 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   const t = useT();
   const { grace, poem, hc } = t.about;
+  const media = useHomeMedia();
+  const featureSrc = media.feature ?? "/name-card.png";
 
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
           <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.about.section}</div>
-          <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
+          <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
             {t.about.titleA}
             <em className="not-italic text-primary">{t.about.titleEm}</em>
             {t.about.titleB}
           </h1>
-          <p className="mt-7 max-w-3xl text-lg text-muted-foreground leading-relaxed">{t.about.lead}</p>
+          <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.about.lead}</p>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
+          <div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.philSection}</div>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.philTitle}</h2>
+            <blockquote className="mt-6 border-l-2 border-gold pl-5 italic text-lg text-foreground/80">
+              {t.home.philQuote}
+            </blockquote>
+            <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed">
+              <p>{t.home.philP1}</p>
+              <p>{t.home.philP2}</p>
+              <p className="font-display text-xl text-primary">{t.home.philP3}</p>
+            </div>
+          </div>
+          <div className="relative">
+            <img
+              src={treeImg}
+              alt="Tree of Wisdom illustration with neural pathways and golden sparks"
+              width={1200}
+              height={1200}
+              loading="lazy"
+              className="rounded-[2rem] shadow-soft"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* NAME + LOGO */}
+      <section className="bg-cream/60 py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2">
+          <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
+            <h3 className="mt-2 font-display text-3xl">{t.home.nameTitle}</h3>
+            <div className="mt-6 inline-block overflow-hidden rounded-2xl border border-border shadow-soft">
+              <img src={featureSrc} alt="Name card" className="h-24 w-auto object-cover" />
+            </div>
+            <p className="mt-5 text-foreground/75 leading-relaxed">
+              <strong className="text-primary">{t.home.nameP1A}</strong>
+              {t.home.nameP1B}
+              <em>{t.home.nameP1Em}</em>
+              {t.home.nameP1C}
+            </p>
+            <p className="mt-4 text-foreground/75 leading-relaxed">{t.home.nameP2}</p>
+          </article>
+
+          <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.logoSection}</div>
+            <h3 className="mt-2 font-display text-3xl">{t.home.logoTitle}</h3>
+            <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row">
+              <img src={logo} alt="Cogito 夏恩教育" loading="lazy" className="h-24 w-auto shrink-0" />
+              <p className="text-foreground/75 leading-relaxed">
+                <em>{t.home.logoBodyEm}</em>
+                {t.home.logoBody}
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 

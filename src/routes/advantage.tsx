@@ -23,14 +23,14 @@ function AdvantagePage() {
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
           <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.advantage.section}</div>
-          <h1 className="mt-3 max-w-4xl font-display text-5xl md:text-6xl lg:text-7xl text-balance leading-[1.05]">
+          <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
             {t.advantage.titleA}
             <em className="not-italic text-primary">{t.advantage.titleEm}</em>
             {t.advantage.titleB}
           </h1>
-          <p className="mt-7 max-w-3xl text-lg text-muted-foreground leading-relaxed">{t.advantage.lead}</p>
+          <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.advantage.lead}</p>
         </div>
       </section>
 
