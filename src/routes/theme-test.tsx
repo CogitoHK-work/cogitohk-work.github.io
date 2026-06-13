@@ -147,6 +147,7 @@ const palettes: Palette[] = [
       "--border": "oklch(0.9 0.01 260)",
       "--ring": "oklch(0.7 0.2 75)",
     },
+  },
 ];
 
 function PaletteSwatches({ vars }: { vars: Record<string, string> }) {
