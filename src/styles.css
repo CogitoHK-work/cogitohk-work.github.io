@@ -47,54 +47,54 @@
   /* Sharper geometry */
   --radius: 0.5rem;
 
-  /* Near-white canvas, charcoal ink, electric indigo accent */
-  --background: oklch(0.995 0 0);
-  --cream: oklch(0.975 0.003 250);          /* repurposed: ultra-light surface */
-  --foreground: oklch(0.18 0.012 260);
-  --ink: oklch(0.14 0.014 260);
+  /* Emerald green, golden yellow, deep indigo */
+  --background: oklch(0.985 0.01 145);
+  --cream: oklch(0.97 0.015 100);
+  --foreground: oklch(0.2 0.02 260);
+  --ink: oklch(0.15 0.03 260);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.012 260);
+  --card-foreground: oklch(0.2 0.02 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.012 260);
+  --popover-foreground: oklch(0.2 0.02 260);
 
-  /* Electric indigo */
-  --primary: oklch(0.21 0.02 260);          /* near-black for buttons (Linear/Vercel feel) */
+  /* Emerald green primary */
+  --primary: oklch(0.35 0.1 155);
   --primary-foreground: oklch(0.99 0 0);
-  --primary-glow: oklch(0.58 0.22 275);     /* indigo accent for glow/links */
+  --primary-glow: oklch(0.7 0.2 75);
 
-  --secondary: oklch(0.965 0.004 260);
-  --secondary-foreground: oklch(0.2 0.012 260);
+  --secondary: oklch(0.95 0.015 260);
+  --secondary-foreground: oklch(0.22 0.02 260);
 
-  --muted: oklch(0.965 0.004 260);
-  --muted-foreground: oklch(0.48 0.008 260);
+  --muted: oklch(0.94 0.01 260);
+  --muted-foreground: oklch(0.48 0.01 260);
 
-  --accent: oklch(0.96 0.01 275);
-  --accent-foreground: oklch(0.21 0.02 260);
+  --accent: oklch(0.82 0.15 75);
+  --accent-foreground: oklch(0.18 0.05 260);
 
-  /* "Gold" repurposed as electric indigo accent for legacy class compatibility */
-  --gold: oklch(0.62 0.22 275);
+  /* "Gold" as yellow accent for legacy class compatibility */
+  --gold: oklch(0.5 0.15 270);
   --gold-foreground: oklch(0.99 0 0);
 
   --destructive: oklch(0.58 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.92 0.004 260);          /* hairline */
-  --input: oklch(0.94 0.004 260);
-  --ring: oklch(0.58 0.22 275);
+  --border: oklch(0.9 0.01 260);
+  --input: oklch(0.94 0.01 260);
+  --ring: oklch(0.7 0.2 75);
 
-  /* Restrained gradients — subtle, technical */
-  --gradient-primary: linear-gradient(135deg, oklch(0.18 0.014 260), oklch(0.28 0.04 270));
-  --gradient-gold: linear-gradient(135deg, oklch(0.62 0.22 275), oklch(0.55 0.24 285));
-  --gradient-warm: linear-gradient(180deg, oklch(0.995 0 0), oklch(0.975 0.003 260));
+  /* Fresh gradients */
+  --gradient-primary: linear-gradient(135deg, oklch(0.15 0.03 260), oklch(0.35 0.1 155));
+  --gradient-gold: linear-gradient(135deg, oklch(0.7 0.2 75), oklch(0.5 0.15 270));
+  --gradient-warm: linear-gradient(180deg, oklch(0.985 0.01 145), oklch(0.97 0.015 100));
   --gradient-hero:
-    radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.58 0.22 275 / 0.08), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 100% 100%, oklch(0.62 0.22 285 / 0.06), transparent 60%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.7 0.2 75 / 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, oklch(0.5 0.15 270 / 0.06), transparent 60%);
 
   /* Sharper, tighter shadows */
-  --shadow-soft: 0 1px 0 oklch(0.18 0.012 260 / 0.04), 0 1px 2px oklch(0.18 0.012 260 / 0.04);
-  --shadow-elegant: 0 1px 0 oklch(0.18 0.012 260 / 0.05), 0 8px 24px -12px oklch(0.18 0.012 260 / 0.18);
-  --shadow-gold: 0 0 0 1px oklch(0.58 0.22 275 / 0.3), 0 8px 24px -12px oklch(0.58 0.22 275 / 0.35);
+  --shadow-soft: 0 1px 0 oklch(0.2 0.02 260 / 0.04), 0 1px 2px oklch(0.2 0.02 260 / 0.04);
+  --shadow-elegant: 0 1px 0 oklch(0.2 0.02 260 / 0.05), 0 8px 24px -12px oklch(0.2 0.02 260 / 0.18);
+  --shadow-gold: 0 0 0 1px oklch(0.7 0.2 75 / 0.3), 0 8px 24px -12px oklch(0.7 0.2 75 / 0.35);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -115,7 +115,7 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     /* Subtle dotted grid background — modern tech feel */
-    background-image: radial-gradient(oklch(0.88 0.004 260) 1px, transparent 1px);
+    background-image: radial-gradient(oklch(0.85 0.01 260) 1px, transparent 1px);
     background-size: 32px 32px;
     background-position: 0 0;
   }
