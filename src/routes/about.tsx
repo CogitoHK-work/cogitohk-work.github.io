@@ -4,6 +4,7 @@ import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import treeImg from "@/assets/tree-illustration.jpg";
 import logo from "@/assets/cogito-logo.png";
+import heroChild from "@/assets/hero-child.jpg";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
 
 export const Route = createFileRoute("/about")({
@@ -28,14 +29,22 @@ function AboutPage() {
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
-        <div className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
-          <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.about.section}</div>
-          <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
-            {t.about.titleA}
-            <em className="not-italic text-primary">{t.about.titleEm}</em>
-            {t.about.titleB}
-          </h1>
-          <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.about.lead}</p>
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 lg:py-14 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.about.section}</div>
+            <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
+              {t.about.titleA}
+              <em className="not-italic text-primary">{t.about.titleEm}</em>
+              {t.about.titleB}
+            </h1>
+            <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.about.lead}</p>
+          </div>
+          <img
+            src={heroChild}
+            alt=""
+            loading="eager"
+            className="hidden lg:block h-[33vh] w-full rounded-[2rem] object-cover shadow-elegant"
+          />
         </div>
       </section>
 

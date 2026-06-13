@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, Sparkles, BookOpen, Brain, Users } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import heroChild from "@/assets/hero-child.jpg";
 import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 
@@ -26,15 +27,23 @@ function ProgrammesPage() {
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
-        <div className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
-          <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.programmes.section}</div>
-          <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
-            {t.programmes.titleA}
-            <em className="not-italic text-primary">{t.programmes.titleEm}</em>
-            {t.programmes.titleB}
-          </h1>
-          <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.programmes.lead1}</p>
-          <p className="mt-3 max-w-3xl text-foreground/75 leading-relaxed">{t.programmes.lead2}</p>
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 lg:py-14 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.programmes.section}</div>
+            <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
+              {t.programmes.titleA}
+              <em className="not-italic text-primary">{t.programmes.titleEm}</em>
+              {t.programmes.titleB}
+            </h1>
+            <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.programmes.lead1}</p>
+            <p className="mt-3 max-w-3xl text-foreground/75 leading-relaxed">{t.programmes.lead2}</p>
+          </div>
+          <img
+            src={heroChild}
+            alt=""
+            loading="eager"
+            className="hidden lg:block h-[33vh] w-full rounded-[2rem] object-cover shadow-elegant"
+          />
         </div>
       </section>
 
