@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle, Quote, Newspaper } from "lucide-react";
