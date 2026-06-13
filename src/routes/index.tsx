@@ -66,7 +66,7 @@ function HomePage() {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
               <Sparkles className="h-3.5 w-3.5" /> {t.home.heroBadge}
             </div>
-            <h1 className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight text-balance">
+            <h1 className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight text-balance break-keep">
               {t.home.heroTitleA}
               <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
               {t.home.heroTitleB}
@@ -163,7 +163,7 @@ function HomePage() {
       {/* LATEST NEWS (reserved) */}
       <section className="mx-auto max-w-7xl px-6 pt-24">
         <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.newsSection}</div>
-        <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.newsTitle}</h2>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance break-keep">{t.home.newsTitle}</h2>
         <Carousel opts={{ align: "start", loop: true }} className="mt-8 px-12">
           <CarouselContent>
             {[0, 1, 2, 3, 4, 5].map((i) => (
@@ -185,7 +185,7 @@ function HomePage() {
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.progSection}</div>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.progTitle}</h2>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance break-keep">{t.home.progTitle}</h2>
           </div>
           <Link to="/programmes" className="group inline-flex items-center gap-2 text-[1.0625rem] font-medium text-primary hover:text-primary-glow">
             {t.home.progViewAll} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -231,7 +231,7 @@ function HomePage() {
           <div className="flex items-end justify-between gap-6 flex-wrap">
             <div>
               <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.commentsHomeSection}</div>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.commentsHomeTitle}</h2>
+              <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance break-keep">{t.home.commentsHomeTitle}</h2>
             </div>
             <Link to="/comments" className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow">
               {t.home.commentsHomeView} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
