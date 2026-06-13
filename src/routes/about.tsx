@@ -156,11 +156,11 @@ function AboutPage() {
       </section>
 
       {/* Tagore's Poem */}
-      <section className="bg-ink py-24 text-cream relative overflow-hidden">
+      <section className="bg-ink py-12 text-cream relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero opacity-50 pointer-events-none" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <div className="hidden text-xs uppercase tracking-[0.3em] text-gold font-semibold">{poem.eyebrow}</div>
-          <h2 className="mt-4 font-display text-5xl md:text-6xl text-cream text-balance">{poem.title}</h2>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl text-cream text-balance">{poem.title}</h2>
           <blockquote className="mt-10 font-display text-3xl md:text-4xl leading-[1.4] text-cream/90 italic">
             {poem.lines.map((line, i) => (
               <p key={i}>{line}</p>
