@@ -119,6 +119,12 @@ export const dict = {
         "Attend a free Parent Discovery Session, take a friendly placement assessment, and receive a personalized learning plan.",
       ctaStart: "Start now",
       ctaWA: "WhatsApp us",
+      newsSection: "1.8 · Latest News",
+      newsTitle: "Latest News",
+      newsEmpty: "No news yet — check back soon.",
+      commentsHomeSection: "1.9 · Parents' Voices",
+      commentsHomeTitle: "What parents say.",
+      commentsHomeView: "Read all comments",
     },
 
     // ───────── Programmes ─────────
@@ -634,6 +640,12 @@ export const dict = {
         "預約免費家長諮詢、輕鬆的學習能力評估，以及度身訂造的個人化學習方案。",
       ctaStart: "立即開始",
       ctaWA: "WhatsApp 我們",
+      newsSection: "1.8 · 最新消息",
+      newsTitle: "最新消息",
+      newsEmpty: "暫無消息，請稍後再來。",
+      commentsHomeSection: "1.9 · 家長心聲",
+      commentsHomeTitle: "家長怎麼說。",
+      commentsHomeView: "查看所有心聲",
     },
 
     // ───────── Programmes ─────────
