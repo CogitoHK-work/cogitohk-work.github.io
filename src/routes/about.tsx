@@ -82,16 +82,20 @@ function AboutPage() {
           <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
             <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
             <h3 className="mt-2 font-display text-3xl">{t.home.nameTitle}</h3>
-            <div className="mt-6 inline-block overflow-hidden rounded-2xl border border-border shadow-soft">
-              <img src={featureSrc} alt="Name card" className="h-24 w-auto object-cover" />
+            <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row">
+              <div className="shrink-0 overflow-hidden rounded-2xl border border-border shadow-soft">
+                <img src={featureSrc} alt="Name card" className="h-24 w-auto object-cover" />
+              </div>
+              <div className="text-foreground/75 leading-relaxed">
+                <p>
+                  <strong className="text-primary">{t.home.nameP1A}</strong>
+                  {t.home.nameP1B}
+                  <em>{t.home.nameP1Em}</em>
+                  {t.home.nameP1C}
+                </p>
+                <p className="mt-4">{t.home.nameP2}</p>
+              </div>
             </div>
-            <p className="mt-5 text-foreground/75 leading-relaxed">
-              <strong className="text-primary">{t.home.nameP1A}</strong>
-              {t.home.nameP1B}
-              <em>{t.home.nameP1Em}</em>
-              {t.home.nameP1C}
-            </p>
-            <p className="mt-4 text-foreground/75 leading-relaxed">{t.home.nameP2}</p>
           </article>
 
           <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
