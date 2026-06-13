@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle, Quote, Newspaper } from "lucide-react";
@@ -38,7 +39,14 @@ function HomePage() {
   const heroSrc = media.hero ?? "/hero-portrait.jpg";
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
-  const commentsPreview = t.comments.list.slice(0, 3);
+  const commentsPreview = useMemo(() => {
+    const list = [...t.comments.list];
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list.slice(0, 3);
+  }, [t.comments.list]);
 
   return (
     <SiteLayout>

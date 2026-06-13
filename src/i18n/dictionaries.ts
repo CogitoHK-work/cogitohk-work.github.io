@@ -312,6 +312,9 @@ export const dict = {
       lead:
         "Founded in 2017 — formerly known as Shane Education — by two veteran educators with 40 years of experience in the field, Cogito Education is a rebranding of the same institute as we cease to be affiliated with a British company. Given today's technological advances in knowledge management, our new identity marks a focus on being more technology-driven, service-oriented and student-focused. We are now primarily an indigenous platform serving the needs of Hong Kong students. Our curriculum has been significantly revamped with the aid of AI tools to reassess and reprioritize our teaching system.",
 
+      foundersSection: "4.2 · Founders",
+      foundersTitle: "Message from Our Founders",
+
       grace: {
         section: "4.1 · Founder",
         name: "Ms. Grace Choi",
@@ -829,6 +832,9 @@ export const dict = {
       titleB: "。",
       lead:
         "夏恩教育由兩位擁有四十年教育經驗的資深教育工作者於 2017 年創立。隨著公司升級轉型，品牌重新命名為 Cogito(中文名稱保持不變)。鑑於當今知識管理的科技進步，新身份亦標誌著我們更聚焦於科技驅動、服務導向及以學生為本。我們現在是一個服務香港學生需求的本土平台。配合新焦點，我們的課程已透過 AI 工具進行大幅革新，重新評估及優化教學系統，確保新身份與最新教育趨勢接軌。",
+
+      foundersSection: "4.2 · 創辦人",
+      foundersTitle: "創辦人的話",
 
       grace: {
         section: "4.1 · 創辦人",
