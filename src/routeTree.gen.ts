@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ThemeTestRouteImport } from './routes/theme-test'
 import { Route as ProgrammesRouteImport } from './routes/programmes'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as CommentsRouteImport } from './routes/comments'
@@ -17,6 +18,11 @@ import { Route as AdvantageRouteImport } from './routes/advantage'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ThemeTestRoute = ThemeTestRouteImport.update({
+  id: '/theme-test',
+  path: '/theme-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgrammesRoute = ProgrammesRouteImport.update({
   id: '/programmes',
   path: '/programmes',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
+  '/theme-test': typeof ThemeTestRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
+  '/theme-test': typeof ThemeTestRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
   '/programmes': typeof ProgrammesRoute
+  '/theme-test': typeof ThemeTestRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/comments'
     | '/partners'
     | '/programmes'
+    | '/theme-test'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/comments'
     | '/partners'
     | '/programmes'
+    | '/theme-test'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/comments'
     | '/partners'
     | '/programmes'
+    | '/theme-test'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   CommentsRoute: typeof CommentsRoute
   PartnersRoute: typeof PartnersRoute
   ProgrammesRoute: typeof ProgrammesRoute
+  ThemeTestRoute: typeof ThemeTestRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/theme-test': {
+      id: '/theme-test'
+      path: '/theme-test'
+      fullPath: '/theme-test'
+      preLoaderRoute: typeof ThemeTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programmes': {
       id: '/programmes'
       path: '/programmes'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommentsRoute: CommentsRoute,
   PartnersRoute: PartnersRoute,
   ProgrammesRoute: ProgrammesRoute,
+  ThemeTestRoute: ThemeTestRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
