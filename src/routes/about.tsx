@@ -63,7 +63,7 @@ function AboutPage() {
           </div>
           <div className="order-1 lg:order-2">
             <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.philSection}</div>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.philTitle}</h2>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance break-keep">{t.home.philTitle}</h2>
             <blockquote className="mt-6 border-l-2 border-gold pl-5 italic text-lg text-foreground/80">
               {t.home.philQuote}
             </blockquote>
