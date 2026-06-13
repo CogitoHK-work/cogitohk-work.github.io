@@ -164,7 +164,7 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 pt-24">
         <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.newsSection}</div>
         <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.newsTitle}</h2>
-        <Carousel opts={{ align: "start", loop: true }} className="mt-8">
+        <Carousel opts={{ align: "start", loop: true }} className="mt-8 px-12">
           <CarouselContent>
             {[0, 1, 2, 3, 4, 5].map((i) => (
               <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
@@ -175,8 +175,8 @@ function HomePage() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-0" />
+          <CarouselNext className="right-0" />
         </Carousel>
       </section>
 
@@ -192,7 +192,7 @@ function HomePage() {
           </Link>
         </div>
 
-        <Carousel opts={{ align: "start", loop: true }} className="mt-12">
+        <Carousel opts={{ align: "start", loop: true }} className="mt-12 px-12">
           <CarouselContent>
             {t.home.cards.map((p, i) => {
               const Icon = ICONS[i];
@@ -220,8 +220,8 @@ function HomePage() {
               );
             })}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-0" />
+          <CarouselNext className="right-0" />
         </Carousel>
       </section>
 
