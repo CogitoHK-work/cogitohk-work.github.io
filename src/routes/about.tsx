@@ -51,7 +51,17 @@ function AboutPage() {
       {/* PHILOSOPHY */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div>
+          <div className="relative order-2 lg:order-1">
+            <img
+              src={treeImg}
+              alt="Tree of Wisdom illustration with neural pathways and golden sparks"
+              width={1200}
+              height={1200}
+              loading="lazy"
+              className="rounded-[2rem] shadow-soft"
+            />
+          </div>
+          <div className="order-1 lg:order-2">
             <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.philSection}</div>
             <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.philTitle}</h2>
             <blockquote className="mt-6 border-l-2 border-gold pl-5 italic text-lg text-foreground/80">
@@ -62,16 +72,6 @@ function AboutPage() {
               <p>{t.home.philP2}</p>
               <p className="font-display text-xl text-primary">{t.home.philP3}</p>
             </div>
-          </div>
-          <div className="relative">
-            <img
-              src={treeImg}
-              alt="Tree of Wisdom illustration with neural pathways and golden sparks"
-              width={1200}
-              height={1200}
-              loading="lazy"
-              className="rounded-[2rem] shadow-soft"
-            />
           </div>
         </div>
       </section>
