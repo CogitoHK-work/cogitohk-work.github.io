@@ -276,7 +276,7 @@ function ThemeTest() {
         </div>
 
         {/* Palette picker */}
-        <div className="mb-8 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {palettes.map((p) => {
             const isActive = p.id === activeId;
             return (
