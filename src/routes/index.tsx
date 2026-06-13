@@ -6,6 +6,13 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +38,7 @@ const CARD_TINTS = [
   "from-primary/15 to-primary/5",
   "from-gold/20 to-gold/5",
 ] as const;
+const PROGRAMME_IDS = ["kids", "english", "mathematics", "chinese"] as const;
 
 function HomePage() {
   const t = useT();
@@ -156,17 +164,20 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-6 pt-24">
         <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.newsSection}</div>
         <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.newsTitle}</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-dashed border-border bg-card/50 p-7 min-h-[180px] flex flex-col items-center justify-center text-center"
-            >
-              <Newspaper className="h-8 w-8 text-muted-foreground/40" />
-              <p className="mt-4 text-sm text-muted-foreground italic">{t.home.newsEmpty}</p>
-            </div>
-          ))}
-        </div>
+        <Carousel opts={{ align: "start", loop: true }} className="mt-8">
+          <CarouselContent>
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+                <div className="rounded-2xl border border-dashed border-border bg-card/50 p-7 min-h-[180px] h-full flex flex-col items-center justify-center text-center">
+                  <Newspaper className="h-8 w-8 text-muted-foreground/40" />
+                  <p className="mt-4 text-sm text-muted-foreground italic">{t.home.newsEmpty}</p>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </section>
 
       {/* QUICK PROGRAMMES */}
@@ -176,35 +187,42 @@ function HomePage() {
             <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.progSection}</div>
             <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.progTitle}</h2>
           </div>
-          <Link to="/programmes" className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow">
+          <Link to="/programmes" className="group inline-flex items-center gap-2 text-[1.0625rem] font-medium text-primary hover:text-primary-glow">
             {t.home.progViewAll} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {t.home.cards.map((p, i) => {
-            const Icon = ICONS[i];
-            return (
-              <Link
-                key={p.name}
-                to="/programmes"
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-all hover:-translate-y-1"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${CARD_TINTS[i]} opacity-60`} />
-                <div className="relative">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-card shadow-soft text-primary">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 font-display text-xl">{p.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{p.age}</p>
-                  <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                    {t.home.progLearnMore} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        <Carousel opts={{ align: "start", loop: true }} className="mt-12">
+          <CarouselContent>
+            {t.home.cards.map((p, i) => {
+              const Icon = ICONS[i];
+              const id = PROGRAMME_IDS[i];
+              return (
+                <CarouselItem key={p.name} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                  <Link
+                    to="/programmes"
+                    hash={id}
+                    className="group relative block h-full overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-all hover:-translate-y-1"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${CARD_TINTS[i]} opacity-60`} />
+                    <div className="relative">
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-card shadow-soft text-primary">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mt-5 font-display text-xl">{p.name}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{p.age}</p>
+                      <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                        {t.home.progLearnMore} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </Link>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </section>
 
       {/* PARENTS' COMMENTS PREVIEW */}
