@@ -45,7 +45,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             to="/begin"
-            className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+            className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
           >
             {t.nav.joinAsParent}
           </Link>
