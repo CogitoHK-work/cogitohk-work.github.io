@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle } from "lucide-react";
+import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle, Quote, Newspaper } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import treeImg from "@/assets/tree-illustration.jpg";
-import logo from "@/assets/cogito-logo.png";
-import { useT } from "@/i18n/LanguageProvider";
+import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
 
@@ -35,32 +33,35 @@ const CARD_TINTS = [
 
 function HomePage() {
   const t = useT();
+  const { lang } = useLang();
   const media = useHomeMedia();
   const heroSrc = media.hero ?? "/hero-portrait.jpg";
-  const featureSrc = media.feature ?? "/name-card.png";
+  const openQuote = lang === "zh" ? "「" : "\u201C";
+  const closeQuote = lang === "zh" ? "」" : "\u201D";
+  const commentsPreview = t.comments.list.slice(0, 3);
 
   return (
     <SiteLayout>
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-warm">
         <div className="absolute inset-0 bg-gradient-hero pointer-events-none" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:py-28 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-10 lg:py-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div className="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
               <Sparkles className="h-3.5 w-3.5" /> {t.home.heroBadge}
             </div>
-            <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-balance">
+            <h1 className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight text-balance">
               {t.home.heroTitleA}
               <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
               {t.home.heroTitleB}
             </h1>
-            <p className="mt-7 max-w-xl text-lg text-muted-foreground leading-relaxed text-pretty">
+            <p className="mt-5 max-w-xl text-base text-muted-foreground leading-relaxed text-pretty">
               {t.home.heroLead}
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 to="/programmes"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
               >
                 {t.home.ctaExplore}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -69,14 +70,14 @@ function HomePage() {
                 href="https://wa.me/85264009989?text=Hi%20Cogito%2C%20I%27d%20like%20to%20book%20a%20free%20discovery%20session."
                 target="_blank"
                 rel="noopener"
-                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/80 px-7 py-3.5 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/80 px-6 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all"
               >
                 <MessageCircle className="h-4 w-4" />
                 {t.home.ctaBook}
               </a>
             </div>
 
-            <div className="mt-12 flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
               <div>
                 <div className="font-display text-2xl text-ink">40+</div>
                 <div className="text-xs uppercase tracking-wide">{t.home.stat40}</div>
@@ -102,7 +103,7 @@ function HomePage() {
               alt="A young learner deep in study at a sunlit desk"
               width={1600}
               height={1200}
-              className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-elegant"
+              className="relative aspect-[4/3] w-full rounded-[2rem] object-cover shadow-elegant"
             />
             <div className="absolute -bottom-6 -left-6 hidden md:block rounded-2xl bg-card p-5 shadow-elegant border border-border max-w-[220px]">
               <div className="text-xs uppercase tracking-wide text-muted-foreground">{t.home.heroCardLabel}</div>
@@ -114,7 +115,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PHILOSOPHY */}
+      {/* MEDIA STRIP (video + facebook) */}
       <section className="mx-auto max-w-5xl px-6 pt-16">
         <div className="grid gap-6 md:grid-cols-[1.6fr_1fr] md:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant h-[500px]">
@@ -143,71 +144,20 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div>
-            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.philSection}</div>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.philTitle}</h2>
-            <blockquote className="mt-6 border-l-2 border-gold pl-5 italic text-lg text-foreground/80">
-              {t.home.philQuote}
-            </blockquote>
-            <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed">
-              <p>{t.home.philP1}</p>
-              <p>{t.home.philP2}</p>
-              <p className="font-display text-xl text-primary">{t.home.philP3}</p>
+      {/* LATEST NEWS (reserved) */}
+      <section className="mx-auto max-w-7xl px-6 pt-24">
+        <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.newsSection}</div>
+        <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.newsTitle}</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {[0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-dashed border-border bg-card/50 p-7 min-h-[180px] flex flex-col items-center justify-center text-center"
+            >
+              <Newspaper className="h-8 w-8 text-muted-foreground/40" />
+              <p className="mt-4 text-sm text-muted-foreground italic">{t.home.newsEmpty}</p>
             </div>
-          </div>
-          <div className="relative">
-            <img
-              src={treeImg}
-              alt="Tree of Wisdom illustration with neural pathways and golden sparks"
-              width={1200}
-              height={1200}
-              loading="lazy"
-              className="rounded-[2rem] shadow-soft"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* NAME + LOGO */}
-      <section className="bg-cream/60 py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2">
-          <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
-            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.nameSection}</div>
-            <h3 className="mt-2 font-display text-3xl">{t.home.nameTitle}</h3>
-            {/*
-              Swappable name-card image.
-              To replace: overwrite the file at `public/name-card.png`
-              with your new image (keep the same filename). No code changes needed.
-            */}
-            <div className="mt-6 inline-block overflow-hidden rounded-2xl border border-border shadow-soft">
-              <img
-                src={featureSrc}
-                alt="Name card"
-                className="h-24 w-auto object-cover"
-              />
-            </div>
-            <p className="mt-5 text-foreground/75 leading-relaxed">
-              <strong className="text-primary">{t.home.nameP1A}</strong>
-              {t.home.nameP1B}
-              <em>{t.home.nameP1Em}</em>
-              {t.home.nameP1C}
-            </p>
-            <p className="mt-4 text-foreground/75 leading-relaxed">{t.home.nameP2}</p>
-          </article>
-
-          <article className="rounded-3xl bg-card p-10 shadow-soft border border-border">
-            <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.logoSection}</div>
-            <h3 className="mt-2 font-display text-3xl">{t.home.logoTitle}</h3>
-            <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row">
-              <img src={logo} alt="Cogito 夏恩教育" loading="lazy" className="h-24 w-auto shrink-0" />
-              <p className="text-foreground/75 leading-relaxed">
-                <em>{t.home.logoBodyEm}</em>
-                {t.home.logoBody}
-              </p>
-            </div>
-          </article>
+          ))}
         </div>
       </section>
 
@@ -249,8 +199,38 @@ function HomePage() {
         </div>
       </section>
 
+      {/* PARENTS' COMMENTS PREVIEW */}
+      <section className="bg-cream/60 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-end justify-between gap-6 flex-wrap">
+            <div>
+              <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.home.commentsHomeSection}</div>
+              <h2 className="mt-3 font-display text-4xl md:text-5xl text-balance">{t.home.commentsHomeTitle}</h2>
+            </div>
+            <Link to="/comments" className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-glow">
+              {t.home.commentsHomeView} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {commentsPreview.map((c, i) => (
+              <article
+                key={i}
+                className="relative rounded-3xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-shadow"
+              >
+                <Quote className="absolute -top-3 -left-2 h-10 w-10 text-gold/30" />
+                <p className="text-foreground/80 leading-relaxed">{openQuote}{c.body}{closeQuote}</p>
+                <div className="mt-6 border-t border-border pt-4">
+                  <div className="font-display text-lg text-ink">{c.name}</div>
+                  <div className="text-sm text-muted-foreground">{c.relation}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
+      <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-primary p-12 lg:p-16 text-primary-foreground">
           <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-gold/30 blur-3xl" />
           <div className="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-primary-glow/40 blur-3xl" />
