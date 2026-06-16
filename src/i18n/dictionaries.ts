@@ -12,7 +12,7 @@ export const dict = {
       advantage: "Advantage",
       about: "About",
       parents: "Parents",
-      partners: "Partners",
+      partners: "Partners & Franchisees",
       joinAsParent: "Join as Parent",
       menu: "Menu",
     },
