@@ -269,23 +269,29 @@ function PartnersPage() {
         </div>
 
         {/* Contact */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5">
-          <p className="text-xl font-display text-card-foreground">{t.partners.preferChat}</p>
-          <div className="flex flex-wrap gap-2">
-            <a
-              href="https://wa.me/85294940994?text=Hi%20Cogito%2C%20I%27d%20like%20to%20learn%20about%20joining%20as%20a%20partner%2Ffranchisee."
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-sm font-semibold text-gold-foreground hover:scale-[1.02] transition-transform"
-            >
-              <MessageCircle className="h-4 w-4" /> WhatsApp
-            </a>
-            <a
-              href="mailto:cogitohk@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-medium text-card-foreground hover:bg-muted transition-colors"
-            >
-              <Mail className="h-4 w-4" /> Email
-            </a>
+        <div className="mt-16 rounded-[2.5rem] bg-gradient-primary p-12 lg:p-16 text-primary-foreground relative overflow-hidden">
+          <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-gold/30 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-primary-glow/40 blur-3xl" />
+          <div className="relative flex flex-wrap items-center justify-between gap-6">
+            <h2 className="font-display text-4xl md:text-5xl text-balance text-primary-foreground max-w-2xl">
+              {t.partners.preferChat}
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://wa.me/85294940994?text=Hi%20Cogito%2C%20I%27d%20like%20to%20learn%20about%20joining%20as%20a%20partner%2Ffranchisee."
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-gold-foreground shadow-gold hover:scale-[1.02] transition-transform"
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
+              <a
+                href="mailto:cogitohk@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-cream/10 border border-cream/20 px-7 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-cream/15 transition-colors"
+              >
+                <Mail className="h-4 w-4" /> Email
+              </a>
+            </div>
           </div>
         </div>
       </section>
