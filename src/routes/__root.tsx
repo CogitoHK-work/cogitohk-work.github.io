@@ -41,11 +41,12 @@ export const Route = createRootRoute({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "EducationalOrganization",
           name: "Cogito Education 夏恩教育",
           alternateName: "Shane Grace Choi Education",
-          url: "/",
+          url: "https://cogito.edu.hk/",
           description: "Small-group tutorials with AI-personalised learning in Hong Kong.",
+          areaServed: "Hong Kong",
           contactPoint: {
             "@type": "ContactPoint",
             telephone: "+852-8128-8686",
