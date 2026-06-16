@@ -33,18 +33,25 @@ export function FacebookEmbed() {
       parse();
     }
 
-    // Poll the rendered iframe height. When FB serves real Page content
-    // it renders an iframe ~500px tall. When the viewer isn't logged in
-    // and the embed is blocked, the iframe stays empty / 0-height.
+    // Detect a real render vs a blocked/empty embed.
+    // When FB successfully serves Page content, the SDK posts a resize
+    // message and sets the wrapping <span>'s inline height to match the
+    // real content (typically the requested 500px). When blocked, the
+    // <span> stays at its initial 0 / unset height even though the
+    // <iframe> itself is sized to 500px.
     let elapsed = 0;
     const interval = window.setInterval(() => {
       elapsed += 500;
-      const iframe = host.querySelector("iframe") as HTMLIFrameElement | null;
-      if (iframe && iframe.offsetHeight > 150) {
+      const fbEl = host.querySelector(".fb-page") as HTMLElement | null;
+      const span = fbEl?.querySelector("span") as HTMLElement | null;
+      const spanHeight = span ? parseInt(span.style.height || "0", 10) : 0;
+      const state = fbEl?.getAttribute("fb-xfbml-state");
+
+      if (state === "rendered" && spanHeight > 150) {
         window.clearInterval(interval);
         return;
       }
-      if (elapsed >= 6000) {
+      if (elapsed >= 5000) {
         window.clearInterval(interval);
         setFailed(true);
       }
