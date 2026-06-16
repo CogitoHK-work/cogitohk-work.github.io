@@ -11,7 +11,7 @@ export const dict = {
       programmes: "Programmes",
       advantage: "Advantage",
       about: "About",
-      parents: "Parents",
+      parents: "Reviews",
       partners: "Partners & Franchisees",
       joinAsParent: "Join as Parent",
       centres: "Centres",
