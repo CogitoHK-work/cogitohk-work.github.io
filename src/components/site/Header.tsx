@@ -13,6 +13,7 @@ export function Header() {
     { to: "/programmes", label: t.nav.programmes },
     { to: "/advantage", label: t.nav.advantage },
     { to: "/about", label: t.nav.about },
+    { to: "/centres", label: t.nav.centres },
     { to: "/comments", label: t.nav.parents },
     { to: "/partners", label: t.nav.partners },
   ] as const;

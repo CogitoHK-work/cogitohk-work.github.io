@@ -14,6 +14,7 @@ export const dict = {
       parents: "Parents",
       partners: "Partners & Franchisees",
       joinAsParent: "Join as Parent",
+      centres: "Centres",
       menu: "Menu",
     },
     topbar: {
@@ -530,6 +531,46 @@ export const dict = {
       lead: "The page you're looking for doesn't exist or has been moved.",
       home: "Go home",
     },
+
+    // ───────── Centres ─────────
+    centres: {
+      meta: {
+        title: "Our Centres — Cogito Education (夏恩教育)",
+        description:
+          "Visit Cogito Education centres in Hong Kong: Lam Tin (Sceneway Plaza) and Siu Sai Wan (Fullview Garden). Addresses, phone numbers, and WhatsApp.",
+        ogTitle: "Our Centres — Cogito Education",
+        ogDescription:
+          "Find a Cogito Education centre near you in Lam Tin or Siu Sai Wan, Hong Kong.",
+      },
+      section: "Visit Us",
+      title: "Our Centres",
+      lead: "Two welcoming locations across Hong Kong. Drop by, or message us on WhatsApp to schedule a free discovery session.",
+      addressLabel: "Address",
+      phoneLabel: "Phone",
+      whatsappLabel: "WhatsApp",
+      directionsCta: "Get directions",
+      whatsappCta: "Chat on WhatsApp",
+      callCta: "Call",
+      list: [
+        {
+          name: "Shane Grace Choi Education Centre",
+          address:
+            "Shop 587, Level 5, Sceneway Plaza, 8 Sceneway Road, Lam Tin, Kowloon",
+          phone: "2775 1234",
+          whatsapp: "6844 9899",
+          mapsQuery: "Sceneway Plaza, 8 Sceneway Road, Lam Tin, Kowloon",
+        },
+        {
+          name: "Shane Siu Sai Wan Education Centre",
+          address:
+            "Shop 160, 1/F, Fullview Garden Shopping Centre, 18 Siu Sai Wan Road, Hong Kong",
+          phone: "2898 5187",
+          whatsapp: "9732 8072",
+          mapsQuery:
+            "Fullview Garden Shopping Centre, 18 Siu Sai Wan Road, Hong Kong",
+        },
+      ],
+    },
   },
 
   zh: {
@@ -542,6 +583,7 @@ export const dict = {
       parents: "家長心聲",
       partners: "合作與加盟",
       joinAsParent: "家長預約",
+      centres: "教育中心",
       menu: "選單",
     },
     topbar: {
@@ -1045,6 +1087,42 @@ export const dict = {
       title: "找不到頁面",
       lead: "您要尋找的頁面不存在或已被移動。",
       home: "返回首頁",
+    },
+
+    // ───────── Centres ─────────
+    centres: {
+      meta: {
+        title: "我們的教育中心 — 夏恩教育 Cogito Education",
+        description:
+          "歡迎蒞臨夏恩教育中心：藍田匯景廣場及小西灣富景花園。地址、電話及 WhatsApp 一覽。",
+        ogTitle: "我們的教育中心 — 夏恩教育",
+        ogDescription: "於藍田或小西灣尋找最就近您的夏恩教育中心。",
+      },
+      section: "親臨參觀",
+      title: "我們的教育中心",
+      lead: "兩間用心經營的教育中心遍佈港九，歡迎親臨，或透過 WhatsApp 預約免費諮詢。",
+      addressLabel: "地址",
+      phoneLabel: "電話",
+      whatsappLabel: "WhatsApp",
+      directionsCta: "查看地圖",
+      whatsappCta: "WhatsApp 聯絡",
+      callCta: "致電查詢",
+      list: [
+        {
+          name: "夏恩蔡老師教育中心",
+          address: "九龍藍田匯景廣場五樓 587 舖（藍田地鐵 B 出口）",
+          phone: "2775 1234",
+          whatsapp: "6844 9899",
+          mapsQuery: "匯景廣場 藍田",
+        },
+        {
+          name: "夏恩小西灣教育中心",
+          address: "香港柴灣小西灣道 18 號富景花園商場一樓 160 舖",
+          phone: "2898 5187",
+          whatsapp: "9732 8072",
+          mapsQuery: "富景花園商場 小西灣",
+        },
+      ],
     },
   },
 };
