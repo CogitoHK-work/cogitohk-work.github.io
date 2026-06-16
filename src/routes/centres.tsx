@@ -53,90 +53,107 @@ function CentresPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8">
           {c.list.map((centre) => (
             <article
               key={centre.name}
-              className="flex flex-col rounded-3xl bg-card p-8 lg:p-10 shadow-soft border border-border"
+              className="grid gap-6 rounded-3xl bg-card p-6 lg:p-8 shadow-soft border border-border md:grid-cols-2"
             >
-              <h2 className="font-display text-2xl md:text-3xl text-balance">
-                {centre.name}
-              </h2>
+              {/* Info column */}
+              <div className="flex flex-col justify-between">
+                <div>
+                  <h2 className="font-display text-2xl md:text-3xl text-balance">
+                    {centre.name}
+                  </h2>
 
-              <dl className="mt-6 space-y-5 text-foreground/80">
-                <div className="flex gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                      {c.addressLabel}
-                    </dt>
-                    <dd className="mt-1 leading-relaxed">{centre.address}</dd>
-                  </div>
+                  <dl className="mt-6 space-y-5 text-foreground/80">
+                    <div className="flex gap-3">
+                      <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                      <div>
+                        <dt className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                          {c.addressLabel}
+                        </dt>
+                        <dd className="mt-1 leading-relaxed">{centre.address}</dd>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                      <div>
+                        <dt className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                          {c.phoneLabel}
+                        </dt>
+                        <dd className="mt-1">
+                          <a
+                            href={telLink(centre.phone)}
+                            className="hover:text-primary transition-colors"
+                          >
+                            {centre.phone}
+                          </a>
+                        </dd>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                      <div>
+                        <dt className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                          {c.whatsappLabel}
+                        </dt>
+                        <dd className="mt-1">
+                          <a
+                            href={waLink(centre.whatsapp)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-primary transition-colors"
+                          >
+                            {centre.whatsapp}
+                          </a>
+                        </dd>
+                      </div>
+                    </div>
+                  </dl>
                 </div>
 
-                <div className="flex gap-3">
-                  <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                      {c.phoneLabel}
-                    </dt>
-                    <dd className="mt-1">
-                      <a
-                        href={telLink(centre.phone)}
-                        className="hover:text-primary transition-colors"
-                      >
-                        {centre.phone}
-                      </a>
-                    </dd>
-                  </div>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href={mapsLink(centre.mapsQuery)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+                  >
+                    <MapPin className="h-4 w-4" aria-hidden />
+                    {c.directionsCta}
+                  </a>
+                  <a
+                    href={waLink(centre.whatsapp)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden />
+                    {c.whatsappCta}
+                  </a>
+                  <a
+                    href={telLink(centre.phone)}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                  >
+                    <Phone className="h-4 w-4" aria-hidden />
+                    {c.callCta}
+                  </a>
                 </div>
+              </div>
 
-                <div className="flex gap-3">
-                  <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
-                  <div>
-                    <dt className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                      {c.whatsappLabel}
-                    </dt>
-                    <dd className="mt-1">
-                      <a
-                        href={waLink(centre.whatsapp)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors"
-                      >
-                        {centre.whatsapp}
-                      </a>
-                    </dd>
-                  </div>
-                </div>
-              </dl>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={mapsLink(centre.mapsQuery)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
-                >
-                  <MapPin className="h-4 w-4" aria-hidden />
-                  {c.directionsCta}
-                </a>
-                <a
-                  href={waLink(centre.whatsapp)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4" aria-hidden />
-                  {c.whatsappCta}
-                </a>
-                <a
-                  href={telLink(centre.phone)}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
-                >
-                  <Phone className="h-4 w-4" aria-hidden />
-                  {c.callCta}
-                </a>
+              {/* Map column */}
+              <div className="overflow-hidden rounded-2xl border border-border bg-background">
+                <iframe
+                  title={`Map of ${centre.name}`}
+                  src={centre.mapsEmbed}
+                  className="h-64 w-full md:h-full md:min-h-[320px]"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </article>
           ))}
