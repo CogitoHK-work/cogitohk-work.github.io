@@ -58,7 +58,7 @@ export function FacebookEmbed() {
       <div className={failed ? "hidden" : "block"}>
         <div
           className="fb-page"
-          data-href="https://www.facebook.com/cogitohk"
+          data-href="https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/"
           data-tabs="timeline"
           data-width="380"
           data-height="500"
@@ -68,10 +68,12 @@ export function FacebookEmbed() {
           data-show-facepile="true"
         >
           <blockquote
-            cite="https://www.facebook.com/cogitohk"
+            cite="https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/"
             className="fb-xfbml-parse-ignore"
           >
-            <a href="https://www.facebook.com/cogitohk">Cogito Hong Kong</a>
+            <a href="https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/">
+              夏恩蔡老師 Shane Grace Choi Education
+            </a>
           </blockquote>
         </div>
       </div>
@@ -87,7 +89,7 @@ export function FacebookEmbed() {
             Follow us on Facebook for the latest updates, events, and learning tips.
           </p>
           <a
-            href="https://www.facebook.com/cogitohk"
+            href="https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-6 py-2.5 text-sm font-medium text-white hover:bg-[#166fe5] transition-colors"
