@@ -15,7 +15,6 @@ export function Header() {
     { to: "/about", label: t.nav.about },
     { to: "/centres", label: t.nav.centres },
     { to: "/comments", label: t.nav.parents },
-    { to: "/partners", label: t.nav.partners },
   ] as const;
 
   return (
