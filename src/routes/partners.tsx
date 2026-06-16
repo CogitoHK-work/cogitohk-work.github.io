@@ -268,34 +268,23 @@ function PartnersPage() {
         </div>
 
         {/* Contact */}
-        <div className="mt-16 rounded-3xl bg-ink p-10 lg:p-14 text-cream">
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-            <div>
-              <h3 className="font-display text-3xl md:text-4xl text-cream text-balance">{t.partners.contactTitle}</h3>
-              <p className="mt-4 text-cream/75 leading-relaxed">
-                {t.partners.contactLeadA}
-                <a className="text-gold underline decoration-gold/40 underline-offset-4 hover:decoration-gold" href="mailto:cogitohk@gmail.com">cogitohk@gmail.com</a>
-                {t.partners.contactLeadB}
-                <strong className="text-gold">9494 0994</strong>
-                {t.partners.contactLeadC}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              <a
-                href="https://wa.me/85294940994?text=Hi%20Cogito%2C%20I%27d%20like%20to%20learn%20about%20joining%20as%20a%20partner%2Ffranchisee."
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground hover:scale-[1.02] transition-transform"
-              >
-                <MessageCircle className="h-4 w-4" /> {t.partners.ctaWA}
-              </a>
-              <a
-                href="mailto:cogitohk@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3 text-sm font-medium text-cream hover:bg-cream/10 transition-colors"
-              >
-                <Mail className="h-4 w-4" /> {t.partners.ctaEmail}
-              </a>
-            </div>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-muted/40 px-6 py-5">
+          <p className="text-sm text-muted-foreground">{t.partners.preferChat}</p>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href="https://wa.me/85294940994?text=Hi%20Cogito%2C%20I%27d%20like%20to%20learn%20about%20joining%20as%20a%20partner%2Ffranchisee."
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-sm font-semibold text-gold-foreground hover:scale-[1.02] transition-transform"
+            >
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+            <a
+              href="mailto:cogitohk@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+            >
+              <Mail className="h-4 w-4" /> Email
+            </a>
           </div>
         </div>
       </section>
