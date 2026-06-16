@@ -103,6 +103,13 @@ export function Header() {
               </Link>
             ))}
             <Link
+              to="/partners"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-lg font-medium text-primary-foreground"
+            >
+              {t.nav.partners}
+            </Link>
+            <Link
               to="/begin"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-lg font-medium text-primary-foreground"
