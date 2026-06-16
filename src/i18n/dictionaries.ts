@@ -559,6 +559,8 @@ export const dict = {
           phone: "2775 1234",
           whatsapp: "6844 9899",
           mapsQuery: "Sceneway Plaza, 8 Sceneway Road, Lam Tin, Kowloon",
+          mapsEmbed:
+            "https://maps.google.com/maps?q=Sceneway+Plaza%2C+8+Sceneway+Road%2C+Lam+Tin%2C+Kowloon&t=m&z=16&ie=UTF8&iwloc=&output=embed",
         },
         {
           name: "Shane Siu Sai Wan Education Centre",
@@ -568,6 +570,8 @@ export const dict = {
           whatsapp: "9732 8072",
           mapsQuery:
             "Fullview Garden Shopping Centre, 18 Siu Sai Wan Road, Hong Kong",
+          mapsEmbed:
+            "https://maps.google.com/maps?q=Fullview+Garden+Shopping+Centre%2C+18+Siu+Sai+Wan+Road%2C+Hong+Kong&t=m&z=16&ie=UTF8&iwloc=&output=embed",
         },
       ],
     },
@@ -1114,6 +1118,8 @@ export const dict = {
           phone: "2775 1234",
           whatsapp: "6844 9899",
           mapsQuery: "匯景廣場 藍田",
+          mapsEmbed:
+            "https://maps.google.com/maps?q=%E5%8C%AF%E6%99%AF%E5%BB%A3%E5%A0%B4%20%E8%97%8D%E7%94%B0&t=m&z=16&ie=UTF8&iwloc=&output=embed",
         },
         {
           name: "夏恩小西灣教育中心",
@@ -1121,6 +1127,8 @@ export const dict = {
           phone: "2898 5187",
           whatsapp: "9732 8072",
           mapsQuery: "富景花園商場 小西灣",
+          mapsEmbed:
+            "https://maps.google.com/maps?q=%E5%AF%8C%E6%99%AF%E8%8A%B1%E5%9C%92%E5%95%86%E5%A0%B4%20%E5%B0%8F%E8%A5%BF%E7%81%A3&t=m&z=16&ie=UTF8&iwloc=&output=embed",
         },
       ],
     },
