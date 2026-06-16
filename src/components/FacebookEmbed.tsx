@@ -34,30 +34,21 @@ export function FacebookEmbed() {
     }
 
     // Detect a real render vs a blocked/empty embed.
-    // When FB successfully serves Page content, the SDK posts a resize
-    // message and sets the wrapping <span>'s inline height to match the
-    // real content (typically the requested 500px). When blocked, the
-    // <span> stays at its initial 0 / unset height even though the
-    // <iframe> itself is sized to 500px.
-    let elapsed = 0;
-    const interval = window.setInterval(() => {
-      elapsed += 500;
+    // FB briefly flashes a skeleton (state=rendered, span sized to ~500px)
+    // even when the embed will fail — then the wrapper collapses back.
+    // So we must wait the full window, then check the FINAL state.
+    const timer = window.setTimeout(() => {
       const fbEl = host.querySelector(".fb-page") as HTMLElement | null;
       const span = fbEl?.querySelector("span") as HTMLElement | null;
       const spanHeight = span ? parseInt(span.style.height || "0", 10) : 0;
       const state = fbEl?.getAttribute("fb-xfbml-state");
 
-      if (state === "rendered" && spanHeight > 150) {
-        window.clearInterval(interval);
-        return;
-      }
-      if (elapsed >= 5000) {
-        window.clearInterval(interval);
+      if (state !== "rendered" || spanHeight < 150) {
         setFailed(true);
       }
-    }, 500);
+    }, 6000);
 
-    return () => window.clearInterval(interval);
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (
