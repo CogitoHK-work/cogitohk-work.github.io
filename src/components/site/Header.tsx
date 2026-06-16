@@ -15,7 +15,6 @@ export function Header() {
     { to: "/about", label: t.nav.about },
     { to: "/centres", label: t.nav.centres },
     { to: "/comments", label: t.nav.parents },
-    { to: "/partners", label: t.nav.partners },
   ] as const;
 
   return (
@@ -44,6 +43,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <Link
+            to="/partners"
+            className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+          >
+            {t.nav.partners}
+          </Link>
           <Link
             to="/begin"
             className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
@@ -97,6 +102,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              to="/partners"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex justify-center rounded-full bg-gradient-primary px-5 py-3 text-lg font-medium text-primary-foreground"
+            >
+              {t.nav.partners}
+            </Link>
             <Link
               to="/begin"
               onClick={() => setOpen(false)}
