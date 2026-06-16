@@ -3,6 +3,9 @@ import { Facebook, ExternalLink } from "lucide-react";
 
 const PAGE_URL =
   "https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/";
+const EMBED_HEIGHT = 500;
+const MIN_RENDERED_HEIGHT = 450;
+const FALLBACK_DELAY_MS = 7000;
 
 export function FacebookEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,20 +36,22 @@ export function FacebookEmbed() {
       parse();
     }
 
-    // Detect a real render vs a blocked/empty embed.
-    // FB briefly flashes a skeleton (state=rendered, span sized to ~500px)
-    // even when the embed will fail — then the wrapper collapses back.
-    // So we must wait the full window, then check the FINAL state.
+    // Detect a real timeline vs Facebook's blocked/login-wall iframe.
+    // A blocked embed still reports state="rendered", but it settles around
+    // ~331px tall instead of the requested 500px timeline.
     const timer = window.setTimeout(() => {
       const fbEl = host.querySelector(".fb-page") as HTMLElement | null;
       const span = fbEl?.querySelector("span") as HTMLElement | null;
-      const spanHeight = span ? parseInt(span.style.height || "0", 10) : 0;
+      const iframe = fbEl?.querySelector("iframe") as HTMLIFrameElement | null;
+      const spanHeight = span?.getBoundingClientRect().height ?? 0;
+      const iframeHeight = iframe?.getBoundingClientRect().height ?? 0;
+      const renderedHeight = Math.max(spanHeight, iframeHeight);
       const state = fbEl?.getAttribute("fb-xfbml-state");
 
-      if (state !== "rendered" || spanHeight < 150) {
+      if (state !== "rendered" || renderedHeight < MIN_RENDERED_HEIGHT) {
         setFailed(true);
       }
-    }, 6000);
+    }, FALLBACK_DELAY_MS);
 
     return () => window.clearTimeout(timer);
   }, []);
@@ -62,7 +67,7 @@ export function FacebookEmbed() {
           data-href={PAGE_URL}
           data-tabs="timeline"
           data-width="380"
-          data-height="500"
+          data-height={EMBED_HEIGHT.toString()}
           data-small-header="false"
           data-adapt-container-width="true"
           data-hide-cover="false"
