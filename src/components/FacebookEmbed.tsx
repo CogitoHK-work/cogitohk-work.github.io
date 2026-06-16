@@ -84,9 +84,9 @@ export function FacebookEmbed() {
           <div className="h-14 w-14 rounded-full bg-[#1877F2]/10 flex items-center justify-center mb-4">
             <Facebook className="h-7 w-7 text-[#1877F2]" />
           </div>
-          <h3 className="font-display text-xl text-ink mb-2">Cogito Hong Kong</h3>
+          <h3 className="font-display text-xl text-ink mb-2">夏恩蔡老師 Shane Grace Choi Education</h3>
           <p className="text-sm text-muted-foreground mb-6 max-w-[260px]">
-            Follow us on Facebook for the latest updates, events, and learning tips.
+            Follow on Facebook for the latest education updates and learning tips.
           </p>
           <a
             href="https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/"
