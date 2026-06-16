@@ -13,7 +13,7 @@ export const Route = createFileRoute("/comments")({
       { property: "og:title", content: dict.en.comments.meta.ogTitle },
       { property: "og:description", content: dict.en.comments.meta.ogDescription },
     ],
-    links: [{ rel: "canonical", href: "/comments" }],
+    links: [{ rel: "canonical", href: "https://cogito.edu.hk/comments" }],
   }),
   component: CommentsPage,
 });

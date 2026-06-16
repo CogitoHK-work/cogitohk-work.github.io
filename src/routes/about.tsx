@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: dict.en.about.meta.ogTitle },
       { property: "og:description", content: dict.en.about.meta.ogDescription },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://cogito.edu.hk/about" }],
   }),
   component: AboutPage,
 });
