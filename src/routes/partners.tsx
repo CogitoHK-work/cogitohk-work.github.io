@@ -273,7 +273,7 @@ function PartnersPage() {
           <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-gold/30 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-primary-glow/40 blur-3xl" />
           <div className="relative flex flex-wrap items-center justify-between gap-6">
-            <h2 className="font-display text-4xl md:text-5xl text-balance text-primary-foreground max-w-2xl">
+            <h2 className="font-display text-2xl md:text-3xl text-balance text-primary-foreground max-w-2xl">
               {t.partners.preferChat}
             </h2>
             <div className="flex flex-wrap gap-3">
