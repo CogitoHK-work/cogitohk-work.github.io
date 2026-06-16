@@ -14,6 +14,7 @@ export const dict = {
       parents: "Parents",
       partners: "Partners & Franchisees",
       joinAsParent: "Join as Parent",
+      centres: "Centres",
       menu: "Menu",
     },
     topbar: {
@@ -542,6 +543,7 @@ export const dict = {
       parents: "家長心聲",
       partners: "合作與加盟",
       joinAsParent: "家長預約",
+      centres: "教育中心",
       menu: "選單",
     },
     topbar: {
