@@ -12,8 +12,9 @@ export const Route = createFileRoute("/advantage")({
       { name: "description", content: `${dict.en.advantage.meta.description} ${dict.zh.advantage.meta.description}` },
       { property: "og:title", content: dict.en.advantage.meta.ogTitle },
       { property: "og:description", content: dict.en.advantage.meta.ogDescription },
+      { property: "og:url", content: "https://cogito.edu.hk/advantage" },
     ],
-    links: [{ rel: "canonical", href: "/advantage" }],
+    links: [{ rel: "canonical", href: "https://cogito.edu.hk/advantage" }],
   }),
   component: AdvantagePage,
 });

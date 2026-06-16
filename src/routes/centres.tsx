@@ -14,8 +14,9 @@ export const Route = createFileRoute("/centres")({
       },
       { property: "og:title", content: dict.en.centres.meta.ogTitle },
       { property: "og:description", content: dict.en.centres.meta.ogDescription },
+      { property: "og:url", content: "https://cogito.edu.hk/centres" },
     ],
-    links: [{ rel: "canonical", href: "/centres" }],
+    links: [{ rel: "canonical", href: "https://cogito.edu.hk/centres" }],
   }),
   component: CentresPage,
 });
