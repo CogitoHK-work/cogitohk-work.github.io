@@ -67,9 +67,19 @@ function BeginPage() {
           <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-gold/30 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-primary-glow/40 blur-3xl" />
           <div className="relative">
-            <h2 className="font-display text-4xl md:text-5xl text-balance text-primary-foreground max-w-2xl">
-              {t.begin.contactTitle}
-            </h2>
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <h2 className="font-display text-4xl md:text-5xl text-balance text-primary-foreground max-w-2xl">
+                {t.begin.contactTitle}
+              </h2>
+              <a
+                href="https://wa.me/85264009989?text=Hi%20Cogito%2C%20I%27d%20like%20to%20book%20a%20free%20Parent%20Discovery%20Session."
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-gold-foreground shadow-gold hover:scale-[1.02] transition-transform"
+              >
+                <MessageCircle className="h-4 w-4" /> {t.begin.bookCta}
+              </a>
+            </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               <a href="tel:81288686" className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors">
                 <Phone className="h-5 w-5 text-gold" />
@@ -119,17 +129,6 @@ function BeginPage() {
                 <div className="mt-1 font-display text-xl">{L.socialValue}</div>
                 <div className="text-xs opacity-70 mt-1">{L.socialHint}</div>
               </div>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href="https://wa.me/85264009989?text=Hi%20Cogito%2C%20I%27d%20like%20to%20book%20a%20free%20Parent%20Discovery%20Session."
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-gold-foreground shadow-gold hover:scale-[1.02] transition-transform"
-              >
-                <MessageCircle className="h-4 w-4" /> {t.begin.bookCta}
-              </a>
             </div>
           </div>
         </div>

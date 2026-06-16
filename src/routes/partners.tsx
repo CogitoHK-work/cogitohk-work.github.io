@@ -269,8 +269,8 @@ function PartnersPage() {
         </div>
 
         {/* Contact */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-muted/40 px-6 py-5">
-          <p className="text-sm text-muted-foreground">{t.partners.preferChat}</p>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5">
+          <p className="text-xl font-display text-card-foreground">{t.partners.preferChat}</p>
           <div className="flex flex-wrap gap-2">
             <a
               href="https://wa.me/85294940994?text=Hi%20Cogito%2C%20I%27d%20like%20to%20learn%20about%20joining%20as%20a%20partner%2Ffranchisee."
@@ -282,7 +282,7 @@ function PartnersPage() {
             </a>
             <a
               href="mailto:cogitohk@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-medium text-card-foreground hover:bg-muted transition-colors"
             >
               <Mail className="h-4 w-4" /> Email
             </a>
