@@ -12,6 +12,7 @@ export const Route = createFileRoute("/begin")({
       { name: "description", content: `${dict.en.begin.meta.description} ${dict.zh.begin.meta.description}` },
       { property: "og:title", content: dict.en.begin.meta.ogTitle },
       { property: "og:description", content: dict.en.begin.meta.ogDescription },
+      { property: "og:url", content: "https://cogito.edu.hk/begin" },
     ],
     links: [{ rel: "canonical", href: "https://cogito.edu.hk/begin" }],
   }),

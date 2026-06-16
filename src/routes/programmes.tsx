@@ -12,6 +12,7 @@ export const Route = createFileRoute("/programmes")({
       { name: "description", content: `${dict.en.programmes.meta.description} ${dict.zh.programmes.meta.description}` },
       { property: "og:title", content: dict.en.programmes.meta.ogTitle },
       { property: "og:description", content: dict.en.programmes.meta.ogDescription },
+      { property: "og:url", content: "https://cogito.edu.hk/programmes" },
     ],
     links: [{ rel: "canonical", href: "https://cogito.edu.hk/programmes" }],
   }),

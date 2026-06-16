@@ -12,6 +12,7 @@ export const Route = createFileRoute("/comments")({
       { name: "description", content: `${dict.en.comments.meta.description} ${dict.zh.comments.meta.description}` },
       { property: "og:title", content: dict.en.comments.meta.ogTitle },
       { property: "og:description", content: dict.en.comments.meta.ogDescription },
+      { property: "og:url", content: "https://cogito.edu.hk/comments" },
     ],
     links: [{ rel: "canonical", href: "https://cogito.edu.hk/comments" }],
   }),
