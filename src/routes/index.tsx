@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle, Quote, Newspaper } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { FacebookEmbed } from "@/components/FacebookEmbed";
 import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
@@ -144,19 +145,7 @@ function HomePage() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="overflow-hidden rounded-3xl border border-border shadow-elegant bg-card">
-            <iframe
-              title="Facebook updates"
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F100063495683700&tabs=timeline&width=380&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-              width="380"
-              height="500"
-              loading="lazy"
-              style={{ border: "none", overflow: "hidden" }}
-              scrolling="no"
-              allow="encrypted-media"
-              className="w-full h-[500px]"
-            />
-          </div>
+          <FacebookEmbed />
         </div>
       </section>
 
