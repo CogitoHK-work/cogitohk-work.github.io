@@ -147,7 +147,7 @@ function HomePage() {
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant bg-card">
             <iframe
               title="Facebook updates"
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2F%25E5%25A4%258F%25E6%2581%25A9%25E8%2594%25A1%25E8%2580%2581%25E5%25B8%25AB-Shane-Grace-Choi-Education-100063495683700%2F&tabs=timeline&width=380&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F100063495683700&tabs=timeline&width=380&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
               width="380"
               height="500"
               loading="lazy"
