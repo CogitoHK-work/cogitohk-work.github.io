@@ -32,7 +32,6 @@ export function Header() {
     const measure = () => {
       // Reset to natural size before measuring
       nav.style.fontSize = "";
-      if (buttons) buttons.style.fontSize = "1.125rem";
       requestAnimationFrame(() => {
         if (getComputedStyle(nav).display === "none") {
           setNavScale(1);
@@ -42,16 +41,22 @@ export function Header() {
         const padX =
           parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
         const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        const available =
-          container.clientWidth -
-          padX -
-          (logoEl?.offsetWidth ?? 0) -
-          gap * 2;
-        const needed = nav.scrollWidth + (buttons?.scrollWidth ?? 0);
+        const containerW = container.clientWidth - padX;
+        // Are the buttons still on the same row as the logo?
+        const sameRow =
+          buttons && logoEl
+            ? Math.abs(buttons.offsetTop - logoEl.offsetTop) < 4
+            : true;
+        const available = sameRow
+          ? containerW -
+            (logoEl?.offsetWidth ?? 0) -
+            (buttons?.offsetWidth ?? 0) -
+            gap * 2
+          : containerW - (logoEl?.offsetWidth ?? 0) - gap;
+        const needed = nav.scrollWidth;
         if (needed > available && available > 0) {
           const s = Math.max(0.65, available / needed);
           nav.style.fontSize = `${s}rem`;
-          if (buttons) buttons.style.fontSize = `${s * 1.125}rem`;
           setNavScale(s);
         } else {
           setNavScale(1);
@@ -67,7 +72,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
-      <div ref={containerRef} className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 py-3">
+      <div ref={containerRef} className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-between gap-y-2 gap-x-4 px-6 py-3">
         <Link ref={logoRef} to="/" className="flex items-center group shrink-0">
           <img
             src={logo}
@@ -91,16 +96,16 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2 shrink-0">
-          <div ref={buttonsRef} className="flex items-center gap-2 shrink-0" style={{ fontSize: "1.125rem" }}>
+          <div ref={buttonsRef} className="flex items-center gap-2 shrink-0">
             <Link
               to="/partners"
-              className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+              className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
             >
               {t.nav.partners}
             </Link>
             <Link
               to="/begin"
-              className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+              className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
             >
               {t.nav.joinAsParent}
             </Link>
