@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, Sparkles, BookOpen, Brain, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Sparkles, BookOpen, Brain, Users, Camera } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 import { ProgrammeNav, PROGRAMME_SLUGS, type ProgrammeSlug } from "./ProgrammeNav";
 
@@ -71,9 +71,16 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
               ))}
             </ul>
           </div>
-        </div>
+      </div>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
+      <div className="mt-10 rounded-3xl border-2 border-dashed border-border bg-muted/40 p-10 text-center">
+        <Camera className="mx-auto h-10 w-10 text-muted-foreground/60" />
+        <p className="mt-3 text-sm font-medium text-muted-foreground">
+          {t.programmes.imagePlaceholder}
+        </p>
+      </div>
+
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
           {prevIdx !== null ? (
             <Link
               to={`/programmes/${PROGRAMME_SLUGS[prevIdx]}` as string}
