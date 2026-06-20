@@ -32,6 +32,7 @@ export function Header() {
     const measure = () => {
       // Reset to natural size before measuring
       nav.style.fontSize = "";
+      if (buttons) buttons.style.fontSize = "";
       requestAnimationFrame(() => {
         if (getComputedStyle(nav).display === "none") {
           setNavScale(1);
@@ -45,12 +46,12 @@ export function Header() {
           container.clientWidth -
           padX -
           (logoEl?.offsetWidth ?? 0) -
-          (buttons?.offsetWidth ?? 0) -
           gap * 2;
-        const needed = nav.scrollWidth;
+        const needed = nav.scrollWidth + (buttons?.scrollWidth ?? 0);
         if (needed > available && available > 0) {
           const s = Math.max(0.65, available / needed);
           nav.style.fontSize = `${s}rem`;
+          if (buttons) buttons.style.fontSize = `${s}rem`;
           setNavScale(s);
         } else {
           setNavScale(1);
