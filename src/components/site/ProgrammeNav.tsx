@@ -19,7 +19,7 @@ export function ProgrammeNav({ active }: { active?: ProgrammeSlug | "overview" }
   return (
     <nav className="border-b border-border/60 bg-nav-bg lg:border-b-0 lg:border-r lg:border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:mx-0 lg:max-w-none lg:px-0">
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 py-3 text-base lg:flex-col lg:gap-1 lg:py-0 lg:text-lg">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 py-3 text-sm lg:flex-col lg:gap-1 lg:py-0 lg:text-base">
           {items.map((it) => {
             const isActive = active === it.slug;
             return (

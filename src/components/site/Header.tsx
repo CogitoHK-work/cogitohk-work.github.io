@@ -33,7 +33,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="px-3 py-2 text-base lg:text-xl font-medium text-foreground/75 hover:text-primary transition-colors relative"
+              className="px-3 py-2 text-base lg:text-lg font-medium text-foreground/75 hover:text-primary transition-colors relative"
               activeProps={{ className: "text-primary" }}
               activeOptions={{ exact: item.to === "/" }}
             >
