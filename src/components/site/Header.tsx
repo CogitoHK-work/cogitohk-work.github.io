@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/cogito-logo.png";
 import { useLang } from "@/i18n/LanguageProvider";
@@ -7,12 +7,6 @@ import { useLang } from "@/i18n/LanguageProvider";
 export function Header() {
   const [open, setOpen] = useState(false);
   const { t, lang, setLang } = useLang();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLAnchorElement>(null);
-  const rightRef = useRef<HTMLDivElement>(null);
-  const buttonsRef = useRef<HTMLDivElement>(null);
-  const [navScale, setNavScale] = useState(1);
 
   const NAV = [
     { to: "/", label: t.nav.home },
@@ -22,49 +16,6 @@ export function Header() {
     { to: "/centres", label: t.nav.centres },
     { to: "/comments", label: t.nav.parents },
   ] as const;
-
-  useLayoutEffect(() => {
-    const container = containerRef.current;
-    const nav = navRef.current;
-    const logoEl = logoRef.current;
-    const rightEl = rightRef.current;
-    const buttons = buttonsRef.current;
-    if (!container || !nav) return;
-
-    const measure = () => {
-      // Reset to natural size before measuring
-      nav.style.fontSize = "";
-      requestAnimationFrame(() => {
-        // Only measure when the right side (desktop bar) is visible
-        if (!rightEl || getComputedStyle(rightEl).display === "none") {
-          setNavScale(1);
-          return;
-        }
-        const styles = getComputedStyle(container);
-        const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        const containerW = container.clientWidth;
-        const available = containerW - (logoEl?.offsetWidth ?? 0) - gap;
-        const rightGap = parseFloat(getComputedStyle(rightEl).gap || "0") || 0;
-        const fixed = (buttons?.offsetWidth ?? 0) + rightGap;
-        const navOnly = nav.scrollWidth;
-        const needed = navOnly + fixed;
-        if (needed > available && available > fixed) {
-          // Only shrink the nav text; the CTA buttons stay full size.
-          const s = Math.max(0.65, (available - fixed) / navOnly);
-          nav.style.fontSize = `${s}rem`;
-          setNavScale(s);
-        } else {
-          nav.style.fontSize = "";
-          setNavScale(1);
-        }
-      });
-    };
-
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(container);
-    return () => ro.disconnect();
-  }, [lang, t]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
