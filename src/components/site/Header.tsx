@@ -10,6 +10,7 @@ export function Header() {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const [navScale, setNavScale] = useState(1);
 
@@ -26,6 +27,7 @@ export function Header() {
     const container = containerRef.current;
     const nav = navRef.current;
     const logoEl = logoRef.current;
+    const rightEl = rightRef.current;
     const buttons = buttonsRef.current;
     if (!container || !nav) return;
 
@@ -33,32 +35,26 @@ export function Header() {
       // Reset to natural size before measuring
       nav.style.fontSize = "";
       requestAnimationFrame(() => {
-        if (getComputedStyle(nav).display === "none") {
+        // Only measure when the right side (desktop bar) is visible
+        if (!rightEl || getComputedStyle(rightEl).display === "none") {
           setNavScale(1);
           return;
         }
         const styles = getComputedStyle(container);
-        const padX =
-          parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
         const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        const containerW = container.clientWidth - padX;
-        // Are the buttons still on the same row as the logo?
-        const sameRow =
-          buttons && logoEl
-            ? Math.abs(buttons.offsetTop - logoEl.offsetTop) < 4
-            : true;
-        const available = sameRow
-          ? containerW -
-            (logoEl?.offsetWidth ?? 0) -
-            (buttons?.offsetWidth ?? 0) -
-            gap * 2
-          : containerW - (logoEl?.offsetWidth ?? 0) - gap;
-        const needed = nav.scrollWidth;
-        if (needed > available && available > 0) {
-          const s = Math.max(0.65, available / needed);
+        const containerW = container.clientWidth;
+        const available = containerW - (logoEl?.offsetWidth ?? 0) - gap;
+        const rightGap = parseFloat(getComputedStyle(rightEl).gap || "0") || 0;
+        const fixed = (buttons?.offsetWidth ?? 0) + rightGap;
+        const navOnly = nav.scrollWidth;
+        const needed = navOnly + fixed;
+        if (needed > available && available > fixed) {
+          // Only shrink the nav text; the CTA buttons stay full size.
+          const s = Math.max(0.65, (available - fixed) / navOnly);
           nav.style.fontSize = `${s}rem`;
           setNavScale(s);
         } else {
+          nav.style.fontSize = "";
           setNavScale(1);
         }
       });
@@ -81,37 +77,42 @@ export function Header() {
           />
         </Link>
 
-        <nav ref={navRef} className="hidden lg:flex items-center gap-1 whitespace-nowrap">
-          {NAV.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="px-3 py-2 text-base font-medium text-foreground/75 hover:text-primary transition-colors relative"
-              activeProps={{ className: "text-primary" }}
-              activeOptions={{ exact: item.to === "/" }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Right side: nav items + CTA buttons (desktop only) */}
+        <div ref={rightRef} className="hidden lg:flex items-center gap-4">
+          <nav ref={navRef} className="flex items-center gap-1 whitespace-nowrap">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="px-3 py-2 text-base font-medium text-foreground/75 hover:text-primary transition-colors relative"
+                activeProps={{ className: "text-primary" }}
+                activeOptions={{ exact: item.to === "/" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-2 shrink-0">
           <div ref={buttonsRef} className="flex items-center gap-2 shrink-0">
             <Link
               to="/partners"
-              className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+              className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
             >
               {t.nav.partners}
             </Link>
             <Link
               to="/begin"
-              className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+              className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
             >
               {t.nav.joinAsParent}
             </Link>
           </div>
+        </div>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 shrink-0 lg:hidden">
           {/* Mobile language toggle, left of hamburger */}
-          <div className="lg:hidden flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <button
               type="button"
               onClick={() => setLang("en")}
