@@ -740,6 +740,10 @@ export const dict = {
       highlights: "課程亮點",
       comingSoon: "即將推出：互動式學習",
       comingSoonLead: "我們正計劃將互動式學習納入課程，敬請期待。",
+      overview: "課程總覽",
+      learnMore: "了解更多",
+      backToAll: "返回課程總覽",
+      explore: "瀏覽各個課程",
       list: [
         {
           title: "夏恩幼兒課程",
