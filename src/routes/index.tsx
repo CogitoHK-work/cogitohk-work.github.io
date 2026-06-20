@@ -41,7 +41,6 @@ const CARD_TINTS = [
   "from-primary/15 to-primary/5",
   "from-gold/20 to-gold/5",
 ] as const;
-const PROGRAMME_IDS = ["kids", "english", "mathematics", "chinese"] as const;
 
 function HomePage() {
   const t = useT();
