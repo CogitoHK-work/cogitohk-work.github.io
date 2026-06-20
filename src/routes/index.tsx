@@ -63,7 +63,7 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-warm">
         <div className="absolute inset-0 bg-gradient-hero pointer-events-none" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-10 lg:py-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 py-10 lg:py-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div className="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
               <Sparkles className="h-3.5 w-3.5" /> {t.home.heroBadge}
@@ -95,7 +95,7 @@ function HomePage() {
               </a>
             </div>
 
-            <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-4 sm:gap-6 text-sm text-muted-foreground">
               <div>
                 <div className="font-display text-2xl text-ink">40+</div>
                 <div className="text-xs uppercase tracking-wide">{t.home.stat40}</div>
