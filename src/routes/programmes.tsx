@@ -1,9 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Check, Sparkles, BookOpen, Brain, Users } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Sparkles, BookOpen, Brain, Users } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import heroChild from "@/assets/hero-child.jpg";
 import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
+import { ProgrammeNav, PROGRAMME_SLUGS } from "@/components/site/ProgrammeNav";
 
 export const Route = createFileRoute("/programmes")({
   head: () => ({
@@ -20,7 +21,6 @@ export const Route = createFileRoute("/programmes")({
 });
 
 const ICONS = [Sparkles, BookOpen, Brain, Users] as const;
-const IDS = ["kids", "english", "mathematics", "chinese"] as const;
 
 function ProgrammesPage() {
   const t = useT();
@@ -48,54 +48,38 @@ function ProgrammesPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-6 py-20 space-y-20">
-        {t.programmes.list.map((p, idx) => {
-          const Icon = ICONS[idx];
-          return (
-            <article key={IDS[idx]} id={IDS[idx]} className="grid gap-10 scroll-mt-32 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-              <div className="lg:sticky lg:top-32 lg:self-start">
-                <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">2.{idx + 1}</div>
-                <div className="mt-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
-                  <Icon className="h-7 w-7" />
+      <ProgrammeNav active="overview" />
+
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
+        <h2 className="font-display text-2xl md:text-3xl text-ink">{t.programmes.explore}</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {t.programmes.list.map((p, idx) => {
+            const Icon = ICONS[idx];
+            const slug = PROGRAMME_SLUGS[idx];
+            return (
+              <Link
+                key={slug}
+                to={`/programmes/${slug}` as string}
+                className="group flex flex-col rounded-3xl border border-border bg-card p-7 lg:p-8 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-elegant hover:border-primary/40"
+              >
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
+                  <Icon className="h-6 w-6" />
                 </div>
-                <h2 className="mt-5 font-display text-4xl text-balance">{p.title}</h2>
-                <div className="mt-2 text-muted-foreground">{p.age}</div>
-              </div>
+                <h3 className="mt-5 font-display text-2xl text-balance group-hover:text-primary transition-colors">
+                  {p.title}
+                </h3>
+                <div className="mt-1 text-sm text-muted-foreground">{p.age}</div>
+                <p className="mt-4 text-foreground/75 leading-relaxed line-clamp-4">{p.intro}</p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                  {t.programmes.learnMore}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
 
-              <div className="rounded-3xl border border-border bg-card p-8 lg:p-10 shadow-soft">
-                <p className="text-lg text-foreground/85 leading-relaxed">{p.intro}</p>
-                <p className="mt-5 text-foreground/75 leading-relaxed">{p.body}</p>
-
-                {p.tracks.length > 0 && (
-                  <div className="mt-8 grid gap-4 md:grid-cols-2">
-                    {p.tracks.map((tr) => (
-                      <div key={tr.name} className="rounded-2xl bg-cream/70 p-5 border border-border/60">
-                        <div className="font-display text-lg text-primary">{tr.name}</div>
-                        <p className="mt-2 text-sm text-foreground/75 leading-relaxed">{tr.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className="mt-8 border-t border-border pt-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-ink mb-4">{t.programmes.highlights}</h3>
-                  <ul className="space-y-2.5">
-                    {p.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-3 text-foreground/80">
-                        <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <Check className="h-3 w-3" />
-                        </span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-
-        <div className="rounded-3xl border border-dashed border-gold/40 bg-gold/5 p-8 text-center">
+        <div className="mt-14 rounded-3xl border border-dashed border-gold/40 bg-gold/5 p-8 text-center">
           <div className="font-display text-xl text-ink">{t.programmes.comingSoon}</div>
           <p className="mt-2 text-sm text-muted-foreground">{t.programmes.comingSoonLead}</p>
         </div>
