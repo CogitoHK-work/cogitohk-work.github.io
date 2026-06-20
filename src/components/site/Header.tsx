@@ -10,7 +10,7 @@ export function Header() {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
-  const ctasRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
   const [navScale, setNavScale] = useState(1);
 
   const NAV = [
@@ -26,7 +26,7 @@ export function Header() {
     const container = containerRef.current;
     const nav = navRef.current;
     const logoEl = logoRef.current;
-    const ctas = ctasRef.current;
+    const buttons = buttonsRef.current;
     if (!container || !nav) return;
 
     const measure = () => {
