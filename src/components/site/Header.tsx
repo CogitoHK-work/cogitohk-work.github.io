@@ -82,37 +82,42 @@ export function Header() {
           />
         </Link>
 
-        <nav ref={navRef} className="hidden lg:flex items-center gap-1 whitespace-nowrap">
-          {NAV.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="px-3 py-2 text-base font-medium text-foreground/75 hover:text-primary transition-colors relative"
-              activeProps={{ className: "text-primary" }}
-              activeOptions={{ exact: item.to === "/" }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Right side: nav items + CTA buttons (desktop only) */}
+        <div ref={rightRef} className="hidden lg:flex items-center gap-4">
+          <nav ref={navRef} className="flex items-center gap-1 whitespace-nowrap">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="px-3 py-2 text-base font-medium text-foreground/75 hover:text-primary transition-colors relative"
+                activeProps={{ className: "text-primary" }}
+                activeOptions={{ exact: item.to === "/" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-2 shrink-0">
           <div ref={buttonsRef} className="flex items-center gap-2 shrink-0">
             <Link
               to="/partners"
-              className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+              className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
             >
               {t.nav.partners}
             </Link>
             <Link
               to="/begin"
-              className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+              className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
             >
               {t.nav.joinAsParent}
             </Link>
           </div>
+        </div>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 shrink-0 lg:hidden">
           {/* Mobile language toggle, left of hamburger */}
-          <div className="lg:hidden flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <button
               type="button"
               onClick={() => setLang("en")}
