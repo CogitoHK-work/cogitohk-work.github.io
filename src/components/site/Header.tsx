@@ -61,16 +61,22 @@ export function Header() {
                   <ChevronDown className="h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" sideOffset={8}>
-                <DropdownMenuItem asChild>
-                  <Link to="/begin" className="cursor-pointer">
-                    {t.nav.joinAsParent}
-                  </Link>
+              <DropdownMenuContent
+                align="end"
+                sideOffset={8}
+                className="rounded-2xl border-0 bg-gradient-primary p-2 text-primary-foreground shadow-elegant"
+              >
+                <DropdownMenuItem
+                  asChild
+                  className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
+                >
+                  <Link to="/begin">{t.nav.joinAsParent}</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/partners" className="cursor-pointer">
-                    {t.nav.partners}
-                  </Link>
+                <DropdownMenuItem
+                  asChild
+                  className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
+                >
+                  <Link to="/partners">{t.nav.partners}</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
