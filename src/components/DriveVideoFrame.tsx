@@ -23,8 +23,6 @@ export function DriveVideoFrame({ fileId, durationMs }: DriveVideoFrameProps) {
     }, delay);
   }, [durationMs, fileId]);
 
-
-
   useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -48,8 +46,6 @@ export function DriveVideoFrame({ fileId, durationMs }: DriveVideoFrameProps) {
         startTimeRef.current = Date.now();
         scheduleReload();
       }}
-
-
     />
   );
 }
