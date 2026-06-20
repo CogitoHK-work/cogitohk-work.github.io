@@ -26,17 +26,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
       <div className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-end gap-y-2 gap-x-4 px-6 py-3">
-        <Link to="/" className="flex items-center group shrink-0 mr-auto">
-          <img
-            src={logo}
-            alt="Cogito 夏恩教育"
-            className="h-[3.75rem] w-auto shrink-0"
-          />
-        </Link>
+        {/* Left side: logo + nav items (desktop only) */}
+        <div className="flex items-center gap-4 mr-auto">
+          <Link to="/" className="flex items-center group shrink-0">
+            <img
+              src={logo}
+              alt="Cogito 夏恩教育"
+              className="h-[3.75rem] w-auto shrink-0"
+            />
+          </Link>
 
-        {/* Right side: nav items + CTA buttons (desktop only) */}
-        <div className="hidden lg:flex items-center gap-4">
-          <nav className="flex items-center gap-1 whitespace-nowrap">
+          <nav className="hidden lg:flex items-center gap-1 whitespace-nowrap">
             {NAV.map((item) => (
               <Link
                 key={item.to}
@@ -49,38 +49,39 @@ export function Header() {
               </Link>
             ))}
           </nav>
+        </div>
 
-          <div className="flex items-center gap-2 shrink-0">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1 rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
-                >
-                  {t.nav.joinUs}
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="end"
-                sideOffset={8}
-                className="rounded-2xl border-0 bg-gradient-primary p-2 text-primary-foreground shadow-elegant"
+        {/* Right side: CTA button (desktop only) */}
+        <div className="hidden lg:flex items-center shrink-0">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="inline-flex items-center gap-1 rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
               >
-                <DropdownMenuItem
-                  asChild
-                  className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
-                >
-                  <Link to="/begin">{t.nav.joinAsParent}</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  asChild
-                  className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
-                >
-                  <Link to="/partners">{t.nav.partners}</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+                {t.nav.joinUs}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              sideOffset={8}
+              className="rounded-2xl border-0 bg-gradient-primary p-2 text-primary-foreground shadow-elegant"
+            >
+              <DropdownMenuItem
+                asChild
+                className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
+              >
+                <Link to="/begin">{t.nav.joinAsParent}</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                asChild
+                className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
+              >
+                <Link to="/partners">{t.nav.partners}</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Mobile controls */}
