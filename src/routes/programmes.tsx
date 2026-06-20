@@ -27,6 +27,8 @@ function ProgrammesPage() {
 
   return (
     <SiteLayout>
+      <ProgrammeNav active="overview" />
+
       <section className="bg-gradient-warm">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 lg:py-14 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div>
@@ -47,8 +49,6 @@ function ProgrammesPage() {
           />
         </div>
       </section>
-
-      <ProgrammeNav active="overview" />
 
       <div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
         <h2 className="font-display text-2xl md:text-3xl text-ink">{t.programmes.explore}</h2>

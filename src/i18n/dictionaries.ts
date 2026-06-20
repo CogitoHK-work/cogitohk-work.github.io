@@ -744,6 +744,7 @@ export const dict = {
       overview: "課程總覽",
       learnMore: "了解更多",
       backToAll: "返回課程總覽",
+      imagePlaceholder: "圖片預留位置",
       explore: "瀏覽各個課程",
       list: [
         {
