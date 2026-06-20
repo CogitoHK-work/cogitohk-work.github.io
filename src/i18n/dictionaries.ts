@@ -12,7 +12,7 @@ export const dict = {
       advantage: "Advantage",
       about: "About",
       parents: "Reviews",
-      partners: "Join as Partners & Franchisee",
+      partners: "Partners & Franchisees",
       joinAsParent: "Join as Parent",
       joinUs: "Join Us",
       centres: "Centres",
@@ -443,7 +443,7 @@ export const dict = {
       lead2:
         "For those who would like full support from Cogito headquarter, becoming a franchisee is advantageous. We don't normally make online quotes — terms depend on size and scale. A face-to-face meeting is the only starting point, because we are not interested in feeding data to an AI machine that may be behind an enquiry.",
       partnerSection: "6.1",
-      partnerTitle: "Join as Cogito Partner",
+      partnerTitle: "Cogito Partner",
       partnerP1:
         "If you already have an establishment or you're an educator, you can join as a Cogito Partner. A no-hassle way to receive part or all of our teaching content for a small monthly fee — the amount depending on the size of your establishment and the content you need.",
       partnerP2:
@@ -453,7 +453,7 @@ export const dict = {
         "Verification of how our content is used in your centre is required as part of the partnership.",
 
       franchiseeSection: "6.2",
-      franchiseeTitle: "Join as Cogito Franchisee",
+      franchiseeTitle: "Cogito Franchisee",
       franchiseeP1:
         "Full headquarter support across every aspect of operation. Whether starting from scratch or scaling up, we assist with centre setup, licencing, recruitment, training, marketing and teaching support. You can start small and plan big — we help design a scalable operation with sound management practices.",
       franchiseeP2:
@@ -610,7 +610,7 @@ export const dict = {
       advantage: "競爭優勢",
       about: "關於我們",
       parents: "家長心聲",
-      partners: "成為合作夥伴或加盟商",
+      partners: "合作與加盟",
       joinAsParent: "家長預約",
       joinUs: "加入我們",
       centres: "教育中心",
@@ -1032,7 +1032,7 @@ export const dict = {
       lead2:
         "對於稍欠經驗、希望獲得夏恩總部全面支援的人士，成為加盟商是最佳選擇。無論選擇哪種協作模式，我們通常要先了解而不會在網上報價，因為合作條件取決於擬議的營運規模及範圍等因素。只要您有教學熱誠並有耐性應付小朋友，我們隨時歡迎。然而，我們需要與您進行面對面會談作為起點，因為我們無意將資料提供給可能隱藏在查詢背後的 AI 機器。",
       partnerSection: "6.1",
-      partnerTitle: "成為夏恩合作夥伴",
+      partnerTitle: "夏恩合作夥伴",
       partnerP1:
         "如果您已有正營運中的教育機構，或您本身就是教育工作者，可以以合作夥伴身份加入我們。每月只需支付固定的小額費用，即可獲得夏恩的全套或部分教學內容(金額視乎機構規模及所需內容)。",
       partnerP2:
@@ -1041,7 +1041,7 @@ export const dict = {
       partnerNote: "關於您在中心如何使用我們的內容，將有額外的驗證要求。",
 
       franchiseeSection: "6.2",
-      franchiseeTitle: "成為夏恩加盟商",
+      franchiseeTitle: "夏恩加盟商",
       franchiseeP1:
         "夏恩為加盟商提供由創業、營運、教學以至客戶服務等各方面的全面支援。如果您從零開始，夏恩會提供從教室設立、設計、取得適當牌照、招聘人員、培訓、市場推廣、教學協助等全程支援。我們可協助您從小規模開始，預先規劃可擴展的設計，以達致遠大的未來。",
       franchiseeP2:
