@@ -64,7 +64,7 @@ function HomePage() {
       <section className="relative overflow-hidden bg-gradient-warm">
         <div className="absolute inset-0 bg-gradient-hero pointer-events-none" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 py-10 lg:py-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-          <div className="fade-up">
+          <div className="fade-up min-w-0">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
               <Sparkles className="h-3.5 w-3.5" /> {t.home.heroBadge}
             </div>
@@ -113,7 +113,7 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative min-w-0">
             <div className="absolute -top-6 -right-6 h-72 w-72 rounded-full bg-gold/20 blur-3xl" />
             <div className="absolute -bottom-8 -left-8 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
             <img
@@ -121,7 +121,7 @@ function HomePage() {
               alt="A young learner deep in study at a sunlit desk"
               width={1600}
               height={1200}
-              className="relative aspect-[4/3] w-full rounded-[2rem] object-cover shadow-elegant"
+              className="relative aspect-[4/3] w-full max-w-full rounded-[2rem] object-cover shadow-elegant"
             />
             <div className="absolute -bottom-6 -left-6 hidden md:block rounded-2xl bg-card p-5 shadow-elegant border border-border max-w-[220px]">
               <div className="text-xs uppercase tracking-wide text-muted-foreground">{t.home.heroCardLabel}</div>
