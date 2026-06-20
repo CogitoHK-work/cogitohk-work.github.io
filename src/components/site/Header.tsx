@@ -43,21 +43,18 @@ export function Header() {
         const styles = getComputedStyle(container);
         const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
         const containerW = container.clientWidth;
-        // Is the right side still on the same row as the logo?
-        const sameRow =
-          rightEl && logoEl
-            ? rightEl.offsetTop < logoEl.offsetTop + logoEl.offsetHeight
-            : true;
-        const available = sameRow
-          ? containerW - (logoEl?.offsetWidth ?? 0) - gap
-          : containerW; // full width when wrapped to the next line
+        const available = containerW - (logoEl?.offsetWidth ?? 0) - gap;
         const rightGap = parseFloat(getComputedStyle(rightEl).gap || "0") || 0;
-        const needed = nav.scrollWidth + (buttons?.offsetWidth ?? 0) + rightGap;
-        if (needed > available && available > 0) {
-          const s = Math.max(0.65, available / needed);
+        const fixed = (buttons?.offsetWidth ?? 0) + rightGap;
+        const navOnly = nav.scrollWidth;
+        const needed = navOnly + fixed;
+        if (needed > available && available > fixed) {
+          // Only shrink the nav text; the CTA buttons stay full size.
+          const s = Math.max(0.65, (available - fixed) / navOnly);
           nav.style.fontSize = `${s}rem`;
           setNavScale(s);
         } else {
+          nav.style.fontSize = "";
           setNavScale(1);
         }
       });
