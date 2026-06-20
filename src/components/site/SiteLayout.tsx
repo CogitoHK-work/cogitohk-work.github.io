@@ -7,11 +7,11 @@ import { Toaster } from "@/components/ui/sonner";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background overflow-x-clip">
       <TopBar />
       <Ticker />
       <Header />
-      <main className="flex-1 flex flex-col">{children}</main>
+      <main className="flex-1 flex flex-col min-w-0 overflow-x-clip">{children}</main>
       <Footer />
       <Toaster position="bottom-right" />
     </div>
