@@ -16,9 +16,9 @@ export function ProgrammeNav({ active }: { active?: ProgrammeSlug | "overview" }
   ];
 
   return (
-    <nav className="border-b border-border/60 bg-cream/40">
+    <nav className="border-b border-border/60 bg-nav-bg">
       <div className="mx-auto max-w-7xl px-6">
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 py-3 text-sm">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 py-3 text-base">
           {items.map((it) => {
             const isActive = active === it.slug;
             return (

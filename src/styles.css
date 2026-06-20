@@ -36,6 +36,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-nav-bg: var(--nav-bg);
 
   /* Modern minimal type system: geometric display + neutral sans */
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
@@ -49,6 +50,7 @@
 
   /* Emerald green, golden yellow, deep indigo */
   --background: oklch(0.985 0.01 145);
+  --nav-bg: oklch(0.78 0.035 150);
   --cream: oklch(0.97 0.015 100);
   --foreground: oklch(0.2 0.02 260);
   --ink: oklch(0.15 0.03 260);
