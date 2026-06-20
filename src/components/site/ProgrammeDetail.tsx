@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Sparkles, BookOpen, Brain, Users, Camera } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
-import { ProgrammeNav, PROGRAMME_SLUGS, type ProgrammeSlug } from "./ProgrammeNav";
+import { ProgrammeLayout } from "./ProgrammeLayout";
+import { PROGRAMME_SLUGS, type ProgrammeSlug } from "./ProgrammeNav";
 
 const ICONS = [Sparkles, BookOpen, Brain, Users] as const;
 
@@ -14,11 +15,9 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
   const nextIdx = idx < PROGRAMME_SLUGS.length - 1 ? idx + 1 : null;
 
   return (
-    <>
-      <ProgrammeNav active={slug} />
-
+    <ProgrammeLayout active={slug}>
       <section className="bg-gradient-warm">
-        <div className="mx-auto max-w-7xl px-6 py-12 lg:py-16">
+        <div className="py-12 lg:py-16">
           <Link
             to="/programmes"
             className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
@@ -40,7 +39,7 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-6 py-14">
+      <div className="max-w-4xl py-14">
         <div className="rounded-3xl border border-border bg-card p-8 lg:p-10 shadow-soft">
           <p className="text-lg text-foreground/85 leading-relaxed">{p.intro}</p>
           <p className="mt-5 text-foreground/75 leading-relaxed">{p.body}</p>
@@ -71,16 +70,16 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
               ))}
             </ul>
           </div>
-      </div>
+        </div>
 
-      <div className="mt-10 rounded-3xl border-2 border-dashed border-border bg-muted/40 p-10 text-center">
-        <Camera className="mx-auto h-10 w-10 text-muted-foreground/60" />
-        <p className="mt-3 text-sm font-medium text-muted-foreground">
-          {t.programmes.imagePlaceholder}
-        </p>
-      </div>
+        <div className="mt-10 rounded-3xl border-2 border-dashed border-border bg-muted/40 p-10 text-center">
+          <Camera className="mx-auto h-10 w-10 text-muted-foreground/60" />
+          <p className="mt-3 text-sm font-medium text-muted-foreground">
+            {t.programmes.imagePlaceholder}
+          </p>
+        </div>
 
-      <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
           {prevIdx !== null ? (
             <Link
               to={`/programmes/${PROGRAMME_SLUGS[prevIdx]}` as string}
@@ -101,6 +100,6 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
           ) : <span />}
         </div>
       </div>
-    </>
+    </ProgrammeLayout>
   );
 }
