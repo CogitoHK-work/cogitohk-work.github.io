@@ -150,6 +150,10 @@ export const dict = {
       comingSoon: "Coming soon: interactive learning",
       comingSoonLead:
         "Watch out for our announcement on next-generation interactive curricula.",
+      overview: "Overview",
+      learnMore: "Learn more",
+      backToAll: "All programmes",
+      explore: "Explore each programme",
       list: [
         {
           title: "Cogito Kids",
