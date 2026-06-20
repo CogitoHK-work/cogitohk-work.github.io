@@ -4,7 +4,7 @@ import { useLang } from "@/i18n/LanguageProvider";
 export function TopBar() {
   const { lang, setLang, t } = useLang();
   return (
-    <div className="hidden md:block border-b border-border/60 bg-ink text-cream">
+    <div className="hidden md:block sticky top-0 z-50 border-b border-border/60 bg-ink text-cream">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-base">
         <div className="flex items-center gap-5">
           <a href="tel:81288686" className="flex items-center gap-1.5 hover:text-gold transition-colors">

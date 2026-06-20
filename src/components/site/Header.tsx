@@ -24,7 +24,7 @@ export function Header() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
+    <header className="sticky top-0 md:top-10 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
       <div className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-end gap-y-2 gap-x-4 px-6 py-3">
         {/* Left side: logo + nav items (desktop only) */}
         <div className="flex items-center gap-4 mr-auto">
