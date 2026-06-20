@@ -153,6 +153,7 @@ export const dict = {
       overview: "Overview",
       learnMore: "Learn more",
       backToAll: "All programmes",
+      imagePlaceholder: "Photo placeholder",
       explore: "Explore each programme",
       list: [
         {
