@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className={`border-t border-border bg-ink text-cream ${isProgrammePage ? "" : "mt-24"}`}>
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
               <img src={logo} alt="Cogito 夏恩教育" className="h-12 w-auto brightness-150" />
@@ -27,11 +27,20 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-cream mb-4 tracking-wide uppercase">{t.footer.explore}</h4>
             <ul className="space-y-2.5 text-sm opacity-80">
-              <li><Link to="/programmes" className="hover:text-gold transition-colors">{t.footer.programmes}</Link></li>
-              <li><Link to="/advantage" className="hover:text-gold transition-colors">{t.footer.advantage}</Link></li>
-              <li><Link to="/about" className="hover:text-gold transition-colors">{t.footer.about}</Link></li>
-              <li><Link to="/comments" className="hover:text-gold transition-colors">{t.footer.comments}</Link></li>
-              <li><Link to="/partners" className="hover:text-gold transition-colors">{t.footer.partners}</Link></li>
+              <li><Link to="/" className="hover:text-gold transition-colors">{t.nav.home}</Link></li>
+              <li><Link to="/programmes" className="hover:text-gold transition-colors">{t.nav.programmes}</Link></li>
+              <li><Link to="/advantage" className="hover:text-gold transition-colors">{t.nav.advantage}</Link></li>
+              <li><Link to="/about" className="hover:text-gold transition-colors">{t.nav.about}</Link></li>
+              <li><Link to="/centres" className="hover:text-gold transition-colors">{t.nav.centres}</Link></li>
+              <li><Link to="/comments" className="hover:text-gold transition-colors">{t.nav.parents}</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-cream mb-4 tracking-wide uppercase">{t.nav.joinUs}</h4>
+            <ul className="space-y-2.5 text-sm opacity-80">
+              <li><Link to="/begin" className="hover:text-gold transition-colors">{t.nav.joinAsParent}</Link></li>
+              <li><Link to="/partners" className="hover:text-gold transition-colors">{t.nav.partners}</Link></li>
             </ul>
           </div>
 
