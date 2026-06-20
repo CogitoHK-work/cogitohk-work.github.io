@@ -136,7 +136,7 @@ function HomePage() {
       {/* MEDIA STRIP (video + facebook) */}
       <section className="mx-auto max-w-5xl px-6 pt-16">
         <div className="grid gap-6 md:grid-cols-[1.6fr_1fr] md:items-start">
-          <div className="overflow-hidden rounded-3xl border border-border shadow-elegant h-[500px]">
+          <div className="overflow-hidden rounded-3xl border border-border shadow-elegant h-[320px] sm:h-[420px] md:h-[500px]">
             <video
               src="/philosophy-video.mp4"
               autoPlay
