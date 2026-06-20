@@ -43,10 +43,24 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
           name: "Cogito Education 夏恩教育",
-          alternateName: "Shane Grace Choi Education",
+          alternateName: [
+            "Cogito Education",
+            "Cogito Education HK",
+            "Cogito HK",
+            "夏恩教育",
+            "夏恩蔡老師",
+            "蔡老師",
+            "Shane Grace Choi Education",
+          ],
           url: "https://cogito.edu.hk/",
-          description: "Small-group tutorials with AI-personalised learning in Hong Kong.",
+          description:
+            "Cogito Education 夏恩教育 — Hong Kong tutorial centre offering small-group tutorials with AI-personalised learning in English, Mathematics, and Chinese.",
           areaServed: "Hong Kong",
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: "HK",
+            addressRegion: "Hong Kong",
+          },
           contactPoint: {
             "@type": "ContactPoint",
             telephone: "+852-8128-8686",
@@ -56,6 +70,17 @@ export const Route = createRootRoute({
           sameAs: [
             "https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/",
           ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Cogito Education 夏恩教育",
+          alternateName: ["Cogito HK", "夏恩教育"],
+          url: "https://cogito.edu.hk/",
+          inLanguage: ["en-HK", "zh-HK"],
         }),
       },
     ],
