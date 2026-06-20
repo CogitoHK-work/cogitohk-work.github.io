@@ -10,6 +10,7 @@ export function Header() {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const [navScale, setNavScale] = useState(1);
 
@@ -26,6 +27,7 @@ export function Header() {
     const container = containerRef.current;
     const nav = navRef.current;
     const logoEl = logoRef.current;
+    const rightEl = rightRef.current;
     const buttons = buttonsRef.current;
     if (!container || !nav) return;
 
@@ -33,7 +35,8 @@ export function Header() {
       // Reset to natural size before measuring
       nav.style.fontSize = "";
       requestAnimationFrame(() => {
-        if (getComputedStyle(nav).display === "none") {
+        // Only measure when the right side (desktop bar) is visible
+        if (!rightEl || getComputedStyle(rightEl).display === "none") {
           setNavScale(1);
           return;
         }
@@ -42,18 +45,16 @@ export function Header() {
           parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
         const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
         const containerW = container.clientWidth - padX;
-        // Are the buttons still on the same row as the logo?
+        // Is the right side still on the same row as the logo?
         const sameRow =
-          buttons && logoEl
-            ? Math.abs(buttons.offsetTop - logoEl.offsetTop) < 4
+          rightEl && logoEl
+            ? Math.abs(rightEl.offsetTop - logoEl.offsetTop) < 4
             : true;
         const available = sameRow
-          ? containerW -
-            (logoEl?.offsetWidth ?? 0) -
-            (buttons?.offsetWidth ?? 0) -
-            gap * 2
-          : containerW - (logoEl?.offsetWidth ?? 0) - gap;
-        const needed = nav.scrollWidth;
+          ? containerW - (logoEl?.offsetWidth ?? 0) - gap
+          : containerW; // full width when wrapped to the next line
+        const rightGap = parseFloat(getComputedStyle(rightEl).gap || "0") || 0;
+        const needed = nav.scrollWidth + (buttons?.offsetWidth ?? 0) + rightGap;
         if (needed > available && available > 0) {
           const s = Math.max(0.65, available / needed);
           nav.style.fontSize = `${s}rem`;
