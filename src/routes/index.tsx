@@ -7,6 +7,7 @@ import { FacebookEmbed } from "@/components/FacebookEmbed";
 import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
+import { PROGRAMME_SLUGS } from "@/components/site/ProgrammeNav";
 import {
   Carousel,
   CarouselContent,
@@ -40,7 +41,6 @@ const CARD_TINTS = [
   "from-primary/15 to-primary/5",
   "from-gold/20 to-gold/5",
 ] as const;
-const PROGRAMME_IDS = ["kids", "english", "mathematics", "chinese"] as const;
 
 function HomePage() {
   const t = useT();
@@ -186,12 +186,11 @@ function HomePage() {
           <CarouselContent>
             {t.home.cards.map((p, i) => {
               const Icon = ICONS[i];
-              const id = PROGRAMME_IDS[i];
+              const slug = PROGRAMME_SLUGS[i];
               return (
                 <CarouselItem key={p.name} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                   <Link
-                    to="/programmes"
-                    hash={id}
+                    to={`/programmes/${slug}` as string}
                     className="group relative block h-full overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-all hover:-translate-y-1"
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${CARD_TINTS[i]} opacity-60`} />
