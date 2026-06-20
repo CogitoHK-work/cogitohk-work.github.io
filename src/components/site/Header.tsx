@@ -45,7 +45,7 @@ export function Header() {
           container.clientWidth -
           padX -
           (logoEl?.offsetWidth ?? 0) -
-          (ctas?.offsetWidth ?? 0) -
+          (buttons?.offsetWidth ?? 0) -
           gap * 2;
         const needed = nav.scrollWidth;
         if (needed > available && available > 0) {
