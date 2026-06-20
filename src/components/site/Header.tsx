@@ -41,14 +41,12 @@ export function Header() {
           return;
         }
         const styles = getComputedStyle(container);
-        const padX =
-          parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
         const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        const containerW = container.clientWidth - padX;
+        const containerW = container.clientWidth;
         // Is the right side still on the same row as the logo?
         const sameRow =
           rightEl && logoEl
-            ? Math.abs(rightEl.offsetTop - logoEl.offsetTop) < 4
+            ? rightEl.offsetTop < logoEl.offsetTop + logoEl.offsetHeight
             : true;
         const available = sameRow
           ? containerW - (logoEl?.offsetWidth ?? 0) - gap
