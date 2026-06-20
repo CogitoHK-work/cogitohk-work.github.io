@@ -120,8 +120,8 @@ function HomePage() {
                 <iframe
                   key={media.videoFileId}
                   title="Cogito philosophy video"
-                  src={`https://drive.google.com/file/d/${media.videoFileId}/preview`}
-                  allow="autoplay"
+                  src={`https://drive.google.com/file/d/${media.videoFileId}/preview?autoplay=1&mute=1`}
+                  allow="autoplay; encrypted-media"
                   allowFullScreen
                   className="h-full w-full"
                   style={{ border: "none" }}
