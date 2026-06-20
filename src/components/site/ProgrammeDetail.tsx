@@ -97,17 +97,6 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
           </div>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-3xl border border-border shadow-soft">
-          <img
-            src={image}
-            alt={p.title}
-            loading="lazy"
-            width={1024}
-            height={1024}
-            className="h-full w-full object-cover"
-          />
-        </div>
-
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
           {prevIdx !== null ? (
             <Link
