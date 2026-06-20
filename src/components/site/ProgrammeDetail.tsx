@@ -1,16 +1,27 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, Sparkles, BookOpen, Brain, Users, Camera } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Sparkles, BookOpen, Brain, Users } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 import { ProgrammeLayout } from "./ProgrammeLayout";
 import { PROGRAMME_SLUGS, type ProgrammeSlug } from "./ProgrammeNav";
+import kidsImg from "@/assets/programme-kids.jpg";
+import englishImg from "@/assets/programme-english.jpg";
+import mathImg from "@/assets/programme-mathematics.jpg";
+import chineseImg from "@/assets/programme-chinese.jpg";
 
 const ICONS = [Sparkles, BookOpen, Brain, Users] as const;
+const IMAGES: Record<ProgrammeSlug, string> = {
+  kids: kidsImg,
+  english: englishImg,
+  mathematics: mathImg,
+  chinese: chineseImg,
+};
 
 export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
   const t = useT();
   const idx = PROGRAMME_SLUGS.indexOf(slug);
   const p = t.programmes.list[idx];
   const Icon = ICONS[idx];
+  const image = IMAGES[slug];
   const prevIdx = idx > 0 ? idx - 1 : null;
   const nextIdx = idx < PROGRAMME_SLUGS.length - 1 ? idx + 1 : null;
 
@@ -72,11 +83,15 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
           </div>
         </div>
 
-        <div className="mt-10 rounded-3xl border-2 border-dashed border-border bg-muted/40 p-10 text-center">
-          <Camera className="mx-auto h-10 w-10 text-muted-foreground/60" />
-          <p className="mt-3 text-sm font-medium text-muted-foreground">
-            {t.programmes.imagePlaceholder}
-          </p>
+        <div className="mt-10 overflow-hidden rounded-3xl border border-border shadow-soft">
+          <img
+            src={image}
+            alt={p.title}
+            loading="lazy"
+            width={1024}
+            height={1024}
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
