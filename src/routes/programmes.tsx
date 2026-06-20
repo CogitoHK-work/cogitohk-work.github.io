@@ -30,7 +30,7 @@ function ProgrammesPage() {
     <SiteLayout>
       <ProgrammeLayout active="overview">
         <section className="bg-gradient-warm">
-          <div className="grid gap-8 py-10 lg:py-14 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div className="grid gap-8 px-6 py-10 lg:py-14 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <div className="hidden text-xs uppercase tracking-[0.2em] text-gold font-semibold">{t.programmes.section}</div>
               <h1 className="mt-3 max-w-4xl font-display text-3xl md:text-4xl lg:text-5xl text-balance break-keep leading-[1.05]">
