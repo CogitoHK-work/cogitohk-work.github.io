@@ -45,10 +45,10 @@ export function DriveVideoFrame({ fileId, durationMs }: DriveVideoFrameProps) {
       className="h-full w-full"
       style={{ border: "none" }}
       onLoad={() => {
-        console.log("[DriveVideoFrame] iframe loaded");
         startTimeRef.current = Date.now();
         scheduleReload();
       }}
+
 
     />
   );
