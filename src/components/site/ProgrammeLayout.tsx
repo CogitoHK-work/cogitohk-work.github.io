@@ -9,9 +9,9 @@ export function ProgrammeLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-4 lg:py-8">
-      <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
-        <aside className="bg-nav-bg lg:w-60 lg:shrink-0 lg:rounded-2xl">
+    <div className="mx-auto flex max-w-7xl flex-1 flex-col px-6">
+      <div className="flex flex-1 flex-col gap-6 lg:flex-row lg:gap-10">
+        <aside className="bg-nav-bg lg:w-60 lg:shrink-0 lg:rounded-r-2xl">
           <div className="lg:sticky lg:top-28">
             <ProgrammeNav active={active} />
           </div>
