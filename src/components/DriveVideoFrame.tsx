@@ -13,18 +13,16 @@ export function DriveVideoFrame({ fileId, durationMs }: DriveVideoFrameProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scheduleReload = useCallback(() => {
-    console.log("[DriveVideoFrame] scheduleReload called", { durationMs, startTime: startTimeRef.current });
     if (!durationMs || !startTimeRef.current) return;
     const elapsed = Date.now() - startTimeRef.current;
     const delay = Math.max(0, durationMs + 500 - elapsed);
-    console.log("[DriveVideoFrame] scheduling reload in", delay, "ms");
     timeoutRef.current = setTimeout(() => {
-      console.log("[DriveVideoFrame] reloading iframe");
       setSrc(
         `https://drive.google.com/file/d/${fileId}/preview?autoplay=1&mute=1&_=${Date.now()}`,
       );
     }, delay);
   }, [durationMs, fileId]);
+
 
 
   useEffect(() => {
