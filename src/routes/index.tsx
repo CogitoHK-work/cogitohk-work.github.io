@@ -119,15 +119,11 @@ function HomePage() {
             <div className="absolute -bottom-8 -left-8 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-elegant aspect-[53/30]">
               {media.videoFileId ? (
-                <iframe
-                  key={media.videoFileId}
-                  title="Cogito philosophy video"
-                  src={`https://drive.google.com/file/d/${media.videoFileId}/preview?autoplay=1&mute=1`}
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  className="h-full w-full"
-                  style={{ border: "none" }}
+                <DriveVideoFrame
+                  fileId={media.videoFileId}
+                  durationMs={media.videoDurationMillis}
                 />
+
               ) : (
                 <video
                   src={media.video ?? "/philosophy-video.mp4"}
