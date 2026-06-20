@@ -46,7 +46,6 @@ function HomePage() {
   const t = useT();
   const { lang } = useLang();
   const media = useHomeMedia();
-  const heroSrc = media.hero ?? "/hero-portrait.jpg";
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
   const commentsPreview = useMemo(() => {
@@ -116,13 +115,17 @@ function HomePage() {
           <div className="relative min-w-0">
             <div className="absolute -top-6 -right-6 h-72 w-72 rounded-full bg-gold/20 blur-3xl" />
             <div className="absolute -bottom-8 -left-8 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
-            <img
-              src={heroSrc}
-              alt="A young learner deep in study at a sunlit desk"
-              width={1600}
-              height={1200}
-              className="relative aspect-[4/3] w-full max-w-full rounded-[2rem] object-cover shadow-elegant"
-            />
+            <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-elegant aspect-[53/30]">
+              <video
+                src={media.video ?? "/philosophy-video.mp4"}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label="A young learner deep in study"
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div className="absolute -bottom-6 -left-6 hidden md:block rounded-2xl bg-card p-5 shadow-elegant border border-border max-w-[220px]">
               <div className="text-xs uppercase tracking-wide text-muted-foreground">{t.home.heroCardLabel}</div>
               <div className="mt-1 font-display text-lg text-ink leading-tight">
@@ -133,21 +136,9 @@ function HomePage() {
         </div>
       </section>
 
-      {/* MEDIA STRIP (video + facebook) */}
+      {/* FACEBOOK EMBED */}
       <section className="mx-auto max-w-5xl px-6 pt-16">
-        <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
-          <div className="overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
-            <video
-              src="/philosophy-video.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <FacebookEmbed />
-        </div>
+        <FacebookEmbed />
       </section>
 
       {/* LATEST NEWS (reserved) */}
