@@ -76,7 +76,7 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-between">
           {prevIdx !== null ? (
             <Link
-              to={`/programmes/${PROGRAMME_SLUGS[prevIdx]}`}
+              to={`/programmes/${PROGRAMME_SLUGS[prevIdx]}` as string}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground/80 hover:text-primary hover:border-primary/40 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -85,7 +85,7 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
           ) : <span />}
           {nextIdx !== null ? (
             <Link
-              to={`/programmes/${PROGRAMME_SLUGS[nextIdx]}`}
+              to={`/programmes/${PROGRAMME_SLUGS[nextIdx]}` as string}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground/80 hover:text-primary hover:border-primary/40 transition-colors sm:ml-auto"
             >
               {t.programmes.list[nextIdx].title}
