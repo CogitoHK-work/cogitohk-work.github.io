@@ -11,7 +11,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <TopBar />
       <Ticker />
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 flex flex-col">{children}</main>
       <Footer />
       <Toaster position="bottom-right" />
     </div>

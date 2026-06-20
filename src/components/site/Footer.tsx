@@ -1,12 +1,15 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/cogito-logo.png";
 import { useT } from "@/i18n/LanguageProvider";
 
 export function Footer() {
   const t = useT();
+  const { pathname } = useLocation();
+  const isProgrammePage = pathname.startsWith("/programmes");
+
   return (
-    <footer className="mt-24 border-t border-border bg-ink text-cream">
+    <footer className={`border-t border-border bg-ink text-cream ${isProgrammePage ? "" : "mt-24"}`}>
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
