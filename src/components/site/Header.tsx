@@ -32,7 +32,7 @@ export function Header() {
     const measure = () => {
       // Reset to natural size before measuring
       nav.style.fontSize = "";
-      if (buttons) buttons.style.fontSize = "";
+      if (buttons) buttons.style.fontSize = "1.125rem";
       requestAnimationFrame(() => {
         if (getComputedStyle(nav).display === "none") {
           setNavScale(1);
@@ -51,7 +51,7 @@ export function Header() {
         if (needed > available && available > 0) {
           const s = Math.max(0.65, available / needed);
           nav.style.fontSize = `${s}rem`;
-          if (buttons) buttons.style.fontSize = `${s}rem`;
+          if (buttons) buttons.style.fontSize = `${s * 1.125}rem`;
           setNavScale(s);
         } else {
           setNavScale(1);
