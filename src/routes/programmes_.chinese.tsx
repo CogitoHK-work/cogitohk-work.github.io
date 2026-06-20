@@ -3,7 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProgrammeDetail } from "@/components/site/ProgrammeDetail";
 import { dict } from "@/i18n/dictionaries";
 
-export const Route = createFileRoute("/programmes/chinese")({
+export const Route = createFileRoute("/programmes_/chinese")({
   head: () => ({
     meta: [
       { title: `${dict.en.programmes.list[3].title} | ${dict.zh.programmes.list[3].title} — Cogito` },
