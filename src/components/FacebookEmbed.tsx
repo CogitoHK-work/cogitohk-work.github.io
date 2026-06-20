@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Facebook, ExternalLink } from "lucide-react";
 
-const PAGE_URL =
-  "https://www.facebook.com/p/%E5%A4%8F%E6%81%A9%E8%94%A1%E8%80%81%E5%B8%AB-Shane-Grace-Choi-Education-100063495683700/";
+const PAGE_URL = "https://www.facebook.com/shanehongkong/?locale=zh_HK";
 const EMBED_HEIGHT = 500;
 const MIN_RENDERED_HEIGHT = 450;
 const FALLBACK_DELAY_MS = 3000;
