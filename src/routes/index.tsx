@@ -7,6 +7,7 @@ import { FacebookEmbed } from "@/components/FacebookEmbed";
 import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
+import { PROGRAMME_SLUGS } from "@/components/site/ProgrammeNav";
 import {
   Carousel,
   CarouselContent,
