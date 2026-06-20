@@ -12,8 +12,8 @@ export const dict = {
       advantage: "Advantage",
       about: "About",
       parents: "Reviews",
-      partners: "Partners & Franchisees",
-      joinAsParent: "Join as Parent",
+      partners: "Join as Partners & Franchisees",
+      joinAsParent: "Book a Parent Consultation",
       joinUs: "Join Us",
       centres: "Centres",
       menu: "Menu",
@@ -443,7 +443,7 @@ export const dict = {
       lead2:
         "For those who would like full support from Cogito headquarter, becoming a franchisee is advantageous. We don't normally make online quotes — terms depend on size and scale. A face-to-face meeting is the only starting point, because we are not interested in feeding data to an AI machine that may be behind an enquiry.",
       partnerSection: "6.1",
-      partnerTitle: "Cogito Partner",
+      partnerTitle: "Join as Cogito Partner",
       partnerP1:
         "If you already have an establishment or you're an educator, you can join as a Cogito Partner. A no-hassle way to receive part or all of our teaching content for a small monthly fee — the amount depending on the size of your establishment and the content you need.",
       partnerP2:
@@ -453,7 +453,7 @@ export const dict = {
         "Verification of how our content is used in your centre is required as part of the partnership.",
 
       franchiseeSection: "6.2",
-      franchiseeTitle: "Cogito Franchisee",
+      franchiseeTitle: "Join as Cogito Franchisee",
       franchiseeP1:
         "Full headquarter support across every aspect of operation. Whether starting from scratch or scaling up, we assist with centre setup, licencing, recruitment, training, marketing and teaching support. You can start small and plan big — we help design a scalable operation with sound management practices.",
       franchiseeP2:
