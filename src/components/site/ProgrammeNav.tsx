@@ -11,7 +11,7 @@ export function ProgrammeNav({ active }: { active?: ProgrammeSlug | "overview" }
     ...PROGRAMME_SLUGS.map((slug, idx) => ({
       slug,
       label: t.programmes.list[idx].title,
-      to: `/programmes/${slug}` as const,
+      to: `/programmes/${slug}` as string,
     })),
   ];
 
@@ -24,7 +24,7 @@ export function ProgrammeNav({ active }: { active?: ProgrammeSlug | "overview" }
             return (
               <li key={it.slug}>
                 <Link
-                  to={it.to}
+                  to={it.to as string}
                   className={
                     isActive
                       ? "font-medium text-primary"
