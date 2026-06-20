@@ -54,10 +54,12 @@ export async function getVideoDurationMillis(
     return undefined;
   }
   const data = (await res.json()) as {
-    videoMediaMetadata?: { durationMillis?: number };
+    videoMediaMetadata?: { durationMillis?: string };
   };
-  return data.videoMediaMetadata?.durationMillis;
+  const ms = data.videoMediaMetadata?.durationMillis;
+  return ms ? Number(ms) : undefined;
 }
+
 
 
 // Build a basename-keyed lookup. "hero.jpg" -> "hero".
