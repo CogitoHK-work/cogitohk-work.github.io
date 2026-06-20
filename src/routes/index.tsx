@@ -4,8 +4,6 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle, Quote, Newspaper } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FacebookEmbed } from "@/components/FacebookEmbed";
-import { DriveVideoFrame } from "@/components/DriveVideoFrame";
-
 import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
@@ -118,23 +116,15 @@ function HomePage() {
             <div className="absolute -top-6 -right-6 h-72 w-72 rounded-full bg-gold/20 blur-3xl" />
             <div className="absolute -bottom-8 -left-8 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-elegant aspect-[53/30]">
-              {media.videoFileId ? (
-                <DriveVideoFrame
-                  fileId={media.videoFileId}
-                  durationMs={media.videoDurationMillis}
-                />
-
-              ) : (
-                <video
-                  src={media.video ?? "/philosophy-video.mp4"}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  aria-label="A young learner deep in study"
-                  className="h-full w-full object-cover"
-                />
-              )}
+              <video
+                src={media.video ?? "/philosophy-video.mp4"}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label="A young learner deep in study"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="absolute -bottom-6 -left-6 hidden md:block rounded-2xl bg-card p-5 shadow-elegant border border-border max-w-[220px]">
               <div className="text-xs uppercase tracking-wide text-muted-foreground">{t.home.heroCardLabel}</div>

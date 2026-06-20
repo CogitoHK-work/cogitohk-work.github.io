@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   HOME_MEDIA_FOLDER_ID,
   driveContentUrl,
-  getVideoDurationMillis,
   indexByBasename,
   listDriveFolder,
 } from "@/lib/drive";
@@ -11,7 +10,6 @@ export type HomeMediaUrls = {
   hero?: string;
   video?: string;
   videoFileId?: string;
-  videoDurationMillis?: number;
   feature?: string;
 };
 
@@ -24,27 +22,15 @@ export function useHomeMedia(): HomeMediaUrls {
   useEffect(() => {
     const ctrl = new AbortController();
     listDriveFolder(HOME_MEDIA_FOLDER_ID, ctrl.signal)
-      .then(async (files) => {
+      .then((files) => {
         const idx = indexByBasename(files);
         const pick = (key: string, width?: number) =>
           idx[key] ? driveContentUrl(idx[key].id, width) : undefined;
         const videoFile = idx["philosophy-video"];
-        let videoDurationMillis: number | undefined;
-        if (videoFile) {
-          try {
-            videoDurationMillis = await getVideoDurationMillis(
-              videoFile.id,
-              ctrl.signal,
-            );
-          } catch {
-            // ignore; player will simply not loop
-          }
-        }
         setUrls({
           hero: pick("hero-portrait", 1600),
           video: pick("philosophy-video", 1600),
           videoFileId: videoFile?.id,
-          videoDurationMillis,
           feature: pick("name-card", 800),
         });
       })

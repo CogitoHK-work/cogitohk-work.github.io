@@ -41,27 +41,6 @@ export function driveContentUrl(fileId: string, width = 1600): string {
   return `https://lh3.googleusercontent.com/d/${fileId}=w${width}`;
 }
 
-// Try to read the video duration from Google Drive metadata.
-export async function getVideoDurationMillis(
-  fileId: string,
-  signal?: AbortSignal,
-): Promise<number | undefined> {
-  const url = new URL(`https://www.googleapis.com/drive/v3/files/${fileId}`);
-  url.searchParams.set("fields", "videoMediaMetadata(durationMillis)");
-  url.searchParams.set("key", GOOGLE_DRIVE_API_KEY);
-  const res = await fetch(url.toString(), { signal });
-  if (!res.ok) {
-    return undefined;
-  }
-  const data = (await res.json()) as {
-    videoMediaMetadata?: { durationMillis?: string };
-  };
-  const ms = data.videoMediaMetadata?.durationMillis;
-  return ms ? Number(ms) : undefined;
-}
-
-
-
 // Build a basename-keyed lookup. "hero.jpg" -> "hero".
 export function indexByBasename(files: DriveFile[]): Record<string, DriveFile> {
   const out: Record<string, DriveFile> = {};
