@@ -10,7 +10,7 @@ export function Header() {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
-  const ctasRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
   const [navScale, setNavScale] = useState(1);
 
   const NAV = [
@@ -26,7 +26,7 @@ export function Header() {
     const container = containerRef.current;
     const nav = navRef.current;
     const logoEl = logoRef.current;
-    const ctas = ctasRef.current;
+    const buttons = buttonsRef.current;
     if (!container || !nav) return;
 
     const measure = () => {
@@ -45,7 +45,7 @@ export function Header() {
           container.clientWidth -
           padX -
           (logoEl?.offsetWidth ?? 0) -
-          (ctas?.offsetWidth ?? 0) -
+          (buttons?.offsetWidth ?? 0) -
           gap * 2;
         const needed = nav.scrollWidth;
         if (needed > available && available > 0) {
@@ -89,19 +89,21 @@ export function Header() {
           ))}
         </nav>
 
-        <div ref={ctasRef} className="flex items-center gap-2 shrink-0">
-          <Link
-            to="/partners"
-            className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
-          >
-            {t.nav.partners}
-          </Link>
-          <Link
-            to="/begin"
-            className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
-          >
-            {t.nav.joinAsParent}
-          </Link>
+        <div className="flex items-center gap-2 shrink-0">
+          <div ref={buttonsRef} className="flex items-center gap-2 shrink-0">
+            <Link
+              to="/partners"
+              className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+            >
+              {t.nav.partners}
+            </Link>
+            <Link
+              to="/begin"
+              className="hidden md:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+            >
+              {t.nav.joinAsParent}
+            </Link>
+          </div>
           {/* Mobile language toggle, left of hamburger */}
           <div className="lg:hidden flex items-center gap-2 text-xs text-muted-foreground">
             <button
