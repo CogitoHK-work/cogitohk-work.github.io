@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/cogito-logo.png";
 import { useLang } from "@/i18n/LanguageProvider";
@@ -7,6 +7,11 @@ import { useLang } from "@/i18n/LanguageProvider";
 export function Header() {
   const [open, setOpen] = useState(false);
   const { t, lang, setLang } = useLang();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const ctasRef = useRef<HTMLDivElement>(null);
+  const [navScale, setNavScale] = useState(1);
 
   const NAV = [
     { to: "/", label: t.nav.home },
@@ -17,23 +22,65 @@ export function Header() {
     { to: "/comments", label: t.nav.parents },
   ] as const;
 
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const nav = navRef.current;
+    const logoEl = logoRef.current;
+    const ctas = ctasRef.current;
+    if (!container || !nav) return;
+
+    const measure = () => {
+      // Reset to natural size before measuring
+      nav.style.fontSize = "";
+      requestAnimationFrame(() => {
+        if (getComputedStyle(nav).display === "none") {
+          setNavScale(1);
+          return;
+        }
+        const styles = getComputedStyle(container);
+        const padX =
+          parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+        const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+        const available =
+          container.clientWidth -
+          padX -
+          (logoEl?.offsetWidth ?? 0) -
+          (ctas?.offsetWidth ?? 0) -
+          gap * 2;
+        const needed = nav.scrollWidth;
+        if (needed > available && available > 0) {
+          const s = Math.max(0.65, available / needed);
+          nav.style.fontSize = `${s}rem`;
+          setNavScale(s);
+        } else {
+          setNavScale(1);
+        }
+      });
+    };
+
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(container);
+    return () => ro.disconnect();
+  }, [lang, t]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-lg">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 py-3">
-        <Link to="/" className="flex items-center group">
+      <div ref={containerRef} className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 py-3">
+        <Link ref={logoRef} to="/" className="flex items-center group shrink-0">
           <img
             src={logo}
             alt="Cogito 夏恩教育"
-            className="h-[3.75rem] w-auto transition-transform group-hover:scale-105"
+            className="h-[3.75rem] w-auto shrink-0"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav ref={navRef} className="hidden lg:flex items-center gap-1 whitespace-nowrap">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="px-3 py-2 text-base lg:text-base font-medium text-foreground/75 hover:text-primary transition-colors relative"
+              className="px-3 py-2 text-base font-medium text-foreground/75 hover:text-primary transition-colors relative"
               activeProps={{ className: "text-primary" }}
               activeOptions={{ exact: item.to === "/" }}
             >
@@ -42,7 +89,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div ref={ctasRef} className="flex items-center gap-2 shrink-0">
           <Link
             to="/partners"
             className="hidden lg:inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-lg font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
