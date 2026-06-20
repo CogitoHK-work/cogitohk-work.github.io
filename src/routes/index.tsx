@@ -46,7 +46,6 @@ function HomePage() {
   const t = useT();
   const { lang } = useLang();
   const media = useHomeMedia();
-  
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
   const commentsPreview = useMemo(() => {
