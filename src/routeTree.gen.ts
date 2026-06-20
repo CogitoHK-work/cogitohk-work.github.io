@@ -18,10 +18,10 @@ import { Route as BeginRouteImport } from './routes/begin'
 import { Route as AdvantageRouteImport } from './routes/advantage'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProgrammesMathematicsRouteImport } from './routes/programmes.mathematics'
-import { Route as ProgrammesKidsRouteImport } from './routes/programmes.kids'
-import { Route as ProgrammesEnglishRouteImport } from './routes/programmes.english'
-import { Route as ProgrammesChineseRouteImport } from './routes/programmes.chinese'
+import { Route as ProgrammesMathematicsRouteImport } from './routes/programmes_.mathematics'
+import { Route as ProgrammesKidsRouteImport } from './routes/programmes_.kids'
+import { Route as ProgrammesEnglishRouteImport } from './routes/programmes_.english'
+import { Route as ProgrammesChineseRouteImport } from './routes/programmes_.chinese'
 
 const ThemeTestRoute = ThemeTestRouteImport.update({
   id: '/theme-test',
@@ -69,24 +69,24 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgrammesMathematicsRoute = ProgrammesMathematicsRouteImport.update({
-  id: '/mathematics',
-  path: '/mathematics',
-  getParentRoute: () => ProgrammesRoute,
+  id: '/programmes_/mathematics',
+  path: '/programmes/mathematics',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProgrammesKidsRoute = ProgrammesKidsRouteImport.update({
-  id: '/kids',
-  path: '/kids',
-  getParentRoute: () => ProgrammesRoute,
+  id: '/programmes_/kids',
+  path: '/programmes/kids',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProgrammesEnglishRoute = ProgrammesEnglishRouteImport.update({
-  id: '/english',
-  path: '/english',
-  getParentRoute: () => ProgrammesRoute,
+  id: '/programmes_/english',
+  path: '/programmes/english',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProgrammesChineseRoute = ProgrammesChineseRouteImport.update({
-  id: '/chinese',
-  path: '/chinese',
-  getParentRoute: () => ProgrammesRoute,
+  id: '/programmes_/chinese',
+  path: '/programmes/chinese',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -97,7 +97,7 @@ export interface FileRoutesByFullPath {
   '/centres': typeof CentresRoute
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
-  '/programmes': typeof ProgrammesRouteWithChildren
+  '/programmes': typeof ProgrammesRoute
   '/theme-test': typeof ThemeTestRoute
   '/programmes/chinese': typeof ProgrammesChineseRoute
   '/programmes/english': typeof ProgrammesEnglishRoute
@@ -112,7 +112,7 @@ export interface FileRoutesByTo {
   '/centres': typeof CentresRoute
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
-  '/programmes': typeof ProgrammesRouteWithChildren
+  '/programmes': typeof ProgrammesRoute
   '/theme-test': typeof ThemeTestRoute
   '/programmes/chinese': typeof ProgrammesChineseRoute
   '/programmes/english': typeof ProgrammesEnglishRoute
@@ -128,12 +128,12 @@ export interface FileRoutesById {
   '/centres': typeof CentresRoute
   '/comments': typeof CommentsRoute
   '/partners': typeof PartnersRoute
-  '/programmes': typeof ProgrammesRouteWithChildren
+  '/programmes': typeof ProgrammesRoute
   '/theme-test': typeof ThemeTestRoute
-  '/programmes/chinese': typeof ProgrammesChineseRoute
-  '/programmes/english': typeof ProgrammesEnglishRoute
-  '/programmes/kids': typeof ProgrammesKidsRoute
-  '/programmes/mathematics': typeof ProgrammesMathematicsRoute
+  '/programmes_/chinese': typeof ProgrammesChineseRoute
+  '/programmes_/english': typeof ProgrammesEnglishRoute
+  '/programmes_/kids': typeof ProgrammesKidsRoute
+  '/programmes_/mathematics': typeof ProgrammesMathematicsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -177,10 +177,10 @@ export interface FileRouteTypes {
     | '/partners'
     | '/programmes'
     | '/theme-test'
-    | '/programmes/chinese'
-    | '/programmes/english'
-    | '/programmes/kids'
-    | '/programmes/mathematics'
+    | '/programmes_/chinese'
+    | '/programmes_/english'
+    | '/programmes_/kids'
+    | '/programmes_/mathematics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -191,8 +191,12 @@ export interface RootRouteChildren {
   CentresRoute: typeof CentresRoute
   CommentsRoute: typeof CommentsRoute
   PartnersRoute: typeof PartnersRoute
-  ProgrammesRoute: typeof ProgrammesRouteWithChildren
+  ProgrammesRoute: typeof ProgrammesRoute
   ThemeTestRoute: typeof ThemeTestRoute
+  ProgrammesChineseRoute: typeof ProgrammesChineseRoute
+  ProgrammesEnglishRoute: typeof ProgrammesEnglishRoute
+  ProgrammesKidsRoute: typeof ProgrammesKidsRoute
+  ProgrammesMathematicsRoute: typeof ProgrammesMathematicsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -260,54 +264,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/programmes/mathematics': {
-      id: '/programmes/mathematics'
-      path: '/mathematics'
+    '/programmes_/mathematics': {
+      id: '/programmes_/mathematics'
+      path: '/programmes/mathematics'
       fullPath: '/programmes/mathematics'
       preLoaderRoute: typeof ProgrammesMathematicsRouteImport
-      parentRoute: typeof ProgrammesRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/programmes/kids': {
-      id: '/programmes/kids'
-      path: '/kids'
+    '/programmes_/kids': {
+      id: '/programmes_/kids'
+      path: '/programmes/kids'
       fullPath: '/programmes/kids'
       preLoaderRoute: typeof ProgrammesKidsRouteImport
-      parentRoute: typeof ProgrammesRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/programmes/english': {
-      id: '/programmes/english'
-      path: '/english'
+    '/programmes_/english': {
+      id: '/programmes_/english'
+      path: '/programmes/english'
       fullPath: '/programmes/english'
       preLoaderRoute: typeof ProgrammesEnglishRouteImport
-      parentRoute: typeof ProgrammesRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/programmes/chinese': {
-      id: '/programmes/chinese'
-      path: '/chinese'
+    '/programmes_/chinese': {
+      id: '/programmes_/chinese'
+      path: '/programmes/chinese'
       fullPath: '/programmes/chinese'
       preLoaderRoute: typeof ProgrammesChineseRouteImport
-      parentRoute: typeof ProgrammesRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface ProgrammesRouteChildren {
-  ProgrammesChineseRoute: typeof ProgrammesChineseRoute
-  ProgrammesEnglishRoute: typeof ProgrammesEnglishRoute
-  ProgrammesKidsRoute: typeof ProgrammesKidsRoute
-  ProgrammesMathematicsRoute: typeof ProgrammesMathematicsRoute
-}
-
-const ProgrammesRouteChildren: ProgrammesRouteChildren = {
-  ProgrammesChineseRoute: ProgrammesChineseRoute,
-  ProgrammesEnglishRoute: ProgrammesEnglishRoute,
-  ProgrammesKidsRoute: ProgrammesKidsRoute,
-  ProgrammesMathematicsRoute: ProgrammesMathematicsRoute,
-}
-
-const ProgrammesRouteWithChildren = ProgrammesRoute._addFileChildren(
-  ProgrammesRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -317,8 +303,12 @@ const rootRouteChildren: RootRouteChildren = {
   CentresRoute: CentresRoute,
   CommentsRoute: CommentsRoute,
   PartnersRoute: PartnersRoute,
-  ProgrammesRoute: ProgrammesRouteWithChildren,
+  ProgrammesRoute: ProgrammesRoute,
   ThemeTestRoute: ThemeTestRoute,
+  ProgrammesChineseRoute: ProgrammesChineseRoute,
+  ProgrammesEnglishRoute: ProgrammesEnglishRoute,
+  ProgrammesKidsRoute: ProgrammesKidsRoute,
+  ProgrammesMathematicsRoute: ProgrammesMathematicsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
