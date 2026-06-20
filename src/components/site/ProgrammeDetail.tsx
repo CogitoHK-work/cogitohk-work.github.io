@@ -36,15 +36,29 @@ export function ProgrammeDetail({ slug }: { slug: ProgrammeSlug }) {
             <ArrowLeft className="h-4 w-4" />
             {t.programmes.backToAll}
           </Link>
-          <div className="mt-6 flex items-start gap-5">
-            <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
-              <Icon className="h-7 w-7" />
+          <div className="mt-6 flex flex-col md:flex-row md:items-start md:gap-8">
+            <div className="flex-1">
+              <div className="flex items-start gap-5">
+                <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-elegant">
+                  <Icon className="h-7 w-7" />
+                </div>
+                <div>
+                  <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
+                    {p.title}
+                  </h1>
+                  <div className="mt-2 text-muted-foreground">{p.age}</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-balance leading-[1.05]">
-                {p.title}
-              </h1>
-              <div className="mt-2 text-muted-foreground">{p.age}</div>
+            <div className="mt-6 md:mt-0 md:w-64 lg:w-72 shrink-0">
+              <div className="overflow-hidden rounded-2xl border border-border/40 shadow-soft aspect-[4/3]">
+                <img
+                  src={image}
+                  alt={p.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
