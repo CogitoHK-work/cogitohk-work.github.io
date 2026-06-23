@@ -1,14 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import logo from "@/assets/cogito-logo.png";
 import { useLang } from "@/i18n/LanguageProvider";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -52,36 +46,19 @@ export function Header() {
         </div>
 
         {/* Right side: CTA button (desktop only) */}
-        <div className="hidden lg:flex items-center shrink-0">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                type="button"
-                className="inline-flex items-center gap-1 rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
-              >
-                {t.nav.joinUs}
-                <ChevronDown className="h-4 w-4" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              sideOffset={8}
-              className="rounded-2xl border-0 bg-gradient-primary p-2 text-primary-foreground shadow-elegant"
-            >
-              <DropdownMenuItem
-                asChild
-                className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
-              >
-                <Link to="/begin">{t.nav.joinAsParent}</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                asChild
-                className="cursor-pointer rounded-xl px-4 py-2.5 text-base font-medium text-primary-foreground focus:bg-primary-foreground/20 focus:text-primary-foreground"
-              >
-                <Link to="/partners">{t.nav.partners}</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
+          <Link
+            to="/begin"
+            className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+          >
+            {t.nav.joinAsParent}
+          </Link>
+          <Link
+            to="/partners"
+            className="inline-flex items-center rounded-full bg-gradient-primary px-5 py-2.5 text-base font-medium text-primary-foreground shadow-elegant hover:shadow-gold transition-all hover:scale-[1.02]"
+          >
+            {t.nav.partners}
+          </Link>
         </div>
 
         {/* Mobile controls */}
