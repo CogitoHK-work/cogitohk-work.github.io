@@ -1,16 +1,9 @@
-import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Handshake, Building2, Check, MessageCircle, Mail, Send, CheckCircle2, RotateCcw } from "lucide-react";
+import { Handshake, Building2, Check, MessageCircle, Send } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import treeImg from "@/assets/tree-illustration.jpg";
 import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
 
 export const Route = createFileRoute("/partners")({
   head: () => ({
@@ -28,68 +21,6 @@ export const Route = createFileRoute("/partners")({
 
 function PartnersPage() {
   const t = useT();
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    region: "",
-    interest_type: "both",
-    message: "",
-  });
-
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!formData.name.trim() || !formData.email.trim()) {
-      toast.error("Please fill in your name and email.");
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email.trim())) {
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-
-    setSubmitting(true);
-
-    const { error } = await supabase.from("partner_interests").insert({
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim() || null,
-      region: formData.region.trim() || null,
-      interest_type: formData.interest_type,
-      message: formData.message.trim() || null,
-    });
-
-    setSubmitting(false);
-
-    if (error) {
-      toast.error("Something went wrong. Please try again or contact us directly.");
-      return;
-    }
-
-    setSubmitted(true);
-    toast.success(t.partners.formSuccessTitle);
-  };
-
-  const resetForm = () => {
-    setSubmitted(false);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      region: "",
-      interest_type: "both",
-      message: "",
-    });
-  };
 
   return (
     <SiteLayout>
