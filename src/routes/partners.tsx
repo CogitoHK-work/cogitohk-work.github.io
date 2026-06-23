@@ -82,123 +82,6 @@ function PartnersPage() {
         </div>
 
         {/* Interest Form */}
-        <div className="mt-16 rounded-3xl border border-border bg-card p-10 lg:p-14 shadow-soft">
-          {!submitted ? (
-            <>
-              <h3 className="font-display text-2xl md:text-3xl text-balance">{t.partners.formTitle}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed max-w-2xl">{t.partners.formLead}</p>
-
-              <form onSubmit={handleSubmit} className="mt-8 grid gap-6 md:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="pi-name">{t.partners.formName}</Label>
-                  <Input
-                    id="pi-name"
-                    value={formData.name}
-                    onChange={(e) => handleChange("name", e.target.value)}
-                    required
-                    maxLength={100}
-                    placeholder=""
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="pi-email">{t.partners.formEmail}</Label>
-                  <Input
-                    id="pi-email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    required
-                    maxLength={255}
-                    placeholder=""
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="pi-phone">{t.partners.formPhone}</Label>
-                  <Input
-                    id="pi-phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => handleChange("phone", e.target.value)}
-                    maxLength={50}
-                    placeholder=""
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="pi-region">{t.partners.formRegion}</Label>
-                  <Input
-                    id="pi-region"
-                    value={formData.region}
-                    onChange={(e) => handleChange("region", e.target.value)}
-                    maxLength={100}
-                    placeholder=""
-                  />
-                </div>
-                <div className="space-y-3 md:col-span-2">
-                  <Label>{t.partners.formInterest}</Label>
-                  <div className="flex flex-wrap gap-3">
-                    {([
-                      { value: "partner", label: t.partners.formInterestPartner },
-                      { value: "franchisee", label: t.partners.formInterestFranchisee },
-                      { value: "both", label: t.partners.formInterestBoth },
-                    ] as const).map((opt) => (
-                      <button
-                        key={opt.value}
-                        type="button"
-                        onClick={() => handleChange("interest_type", opt.value)}
-                        className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors border ${
-                          formData.interest_type === opt.value
-                            ? "bg-primary text-primary-foreground border-primary"
-                            : "bg-transparent text-foreground/80 border-border hover:bg-muted"
-                        }`}
-                      >
-                        {formData.interest_type === opt.value && <Check className="h-4 w-4" />}
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="pi-message">{t.partners.formMessage}</Label>
-                  <Textarea
-                    id="pi-message"
-                    value={formData.message}
-                    onChange={(e) => handleChange("message", e.target.value)}
-                    maxLength={1000}
-                    rows={4}
-                    placeholder={t.partners.formMessagePlaceholder}
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <Button
-                    type="submit"
-                    disabled={submitting}
-                    className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 h-auto text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
-                  >
-                    <Send className="h-4 w-4" />
-                    {submitting ? t.partners.formSubmitting : t.partners.formSubmit}
-                  </Button>
-                </div>
-              </form>
-            </>
-          ) : (
-            <div className="text-center py-10">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-6">
-                <CheckCircle2 className="h-8 w-8" />
-              </div>
-              <h3 className="font-display text-2xl md:text-3xl">{t.partners.formSuccessTitle}</h3>
-              <p className="mt-3 text-muted-foreground max-w-lg mx-auto leading-relaxed">{t.partners.formSuccessMessage}</p>
-              <button
-                type="button"
-                onClick={resetForm}
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
-              >
-                <RotateCcw className="h-4 w-4" />
-                {t.partners.formSubmitAnother}
-              </button>
-            </div>
-          )}
-        </div>
-
         {/* Contact */}
         <div className="mt-16 rounded-[2.5rem] bg-gradient-primary p-12 lg:p-16 text-primary-foreground relative overflow-hidden">
           <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-gold/30 blur-3xl" />
@@ -217,10 +100,12 @@ function PartnersPage() {
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
               <a
-                href="mailto:cogitohk@gmail.com"
+                href="https://forms.gle/htzPbbFUjTLH4zae9"
+                target="_blank"
+                rel="noopener"
                 className="inline-flex items-center gap-2 rounded-full bg-cream/10 border border-cream/20 px-7 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-cream/15 transition-colors"
               >
-                <Mail className="h-4 w-4" /> Email
+                <Send className="h-4 w-4" /> {t.partners.submitInterest}
               </a>
             </div>
           </div>
