@@ -643,7 +643,7 @@ export const dict = {
       partners: "合作與加盟",
       parentsLine: "家長 6400 9989",
       othersLine: "其他 9494 0994",
-      lamTin: "香港藍田",
+      lamTin: "香港九龍觀塘創業街36號華基中心511室",
       copyright: "© 2026 Cogito Education (Hong Kong) Ltd. 版權所有。",
       trademark: "為 Cogito Education (Hong Kong) Ltd. 之商標。",
       privacy: "私隱政策",
