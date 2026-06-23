@@ -1082,6 +1082,7 @@ export const dict = {
       formSuccessMessage: "我們已收到您的意向，將盡快與您聯絡。",
       formSubmitAnother: "再提交一份",
       preferChat: "想直接聯絡我們？",
+      submitInterest: "提交意向",
     },
 
     // ───────── Begin ─────────
