@@ -60,11 +60,11 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-cream mb-4 tracking-wide uppercase">{t.footer.contact}</h4>
             <ul className="space-y-2.5 text-sm opacity-80">
-              <li className="flex items-start gap-2"><PhoneCall className="h-4 w-4 mt-0.5 text-gold" strokeWidth={2.25} /> 8128 8686</li>
-              <li className="flex items-start gap-2"><WhatsAppIcon className="h-4 w-4 mt-0.5 text-gold shrink-0" /> {t.footer.parentsLine}</li>
-              <li className="flex items-start gap-2"><WhatsAppIcon className="h-4 w-4 mt-0.5 text-gold shrink-0" /> {t.footer.othersLine}</li>
-              <li className="flex items-start gap-2"><AtSign className="h-4 w-4 mt-0.5 text-gold" strokeWidth={2.25} /> cogitohk@gmail.com</li>
-              <li className="flex items-start gap-2"><MapPinned className="h-4 w-4 mt-0.5 text-gold shrink-0" strokeWidth={2.25} /> {t.footer.lamTin}</li>
+              <li className="flex items-start gap-3"><PhoneCall className="h-5 w-5 mt-0.5 text-gold shrink-0" strokeWidth={2.25} /> 8128 8686</li>
+              <li className="flex items-start gap-3"><WhatsAppIcon className="h-5 w-5 mt-0.5 text-gold shrink-0" /> {t.footer.parentsLine}</li>
+              <li className="flex items-start gap-3"><WhatsAppIcon className="h-5 w-5 mt-0.5 text-gold shrink-0" /> {t.footer.othersLine}</li>
+              <li className="flex items-start gap-3"><AtSign className="h-5 w-5 mt-0.5 text-gold shrink-0" strokeWidth={2.25} /> cogitohk@gmail.com</li>
+              <li className="flex items-start gap-3"><MapPinned className="h-5 w-5 mt-0.5 text-gold shrink-0" strokeWidth={2.25} /> {t.footer.lamTin}</li>
             </ul>
             <div className="mt-5 flex gap-3">
               <a href="https://facebook.com/cogitohk" aria-label="Facebook" className="rounded-full bg-cream/10 p-2 hover:bg-gold hover:text-ink transition-colors">
