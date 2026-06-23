@@ -494,6 +494,7 @@ export const dict = {
       formSuccessMessage: "We have received your expression of interest and will contact you shortly.",
       formSubmitAnother: "Submit another",
       preferChat: "Prefer to reach us directly?",
+      submitInterest: "Submit Interest",
     },
 
     // ───────── Begin ─────────
