@@ -44,7 +44,7 @@ export const dict = {
       comments: "Parents' Comments",
       partners: "Partners & Franchisees",
       parentsLine: "Parents 6400 9989",
-      othersLine: "Others 9494 0994",
+      othersLine: "Business 9494 0994",
       lamTin: "Room 511, Ricky Centre, 36 Chong Yip Street, Kwun Tong, Kowloon, Hong Kong",
       copyright:
         "© 2026 Cogito Education (Hong Kong) Ltd. All Rights Reserved.",
@@ -642,7 +642,7 @@ export const dict = {
       comments: "家長心聲",
       partners: "合作與加盟",
       parentsLine: "家長 6400 9989",
-      othersLine: "其他 9494 0994",
+      othersLine: "生意合作 9494 0994",
       lamTin: "香港九龍觀塘創業街36號華基中心511室",
       copyright: "© 2026 Cogito Education (Hong Kong) Ltd. 版權所有。",
       trademark: "為 Cogito Education (Hong Kong) Ltd. 之商標。",
