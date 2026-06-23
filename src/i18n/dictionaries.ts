@@ -612,7 +612,7 @@ export const dict = {
       parents: "家長心聲",
       partners: "合作與加盟",
       joinAsParent: "家長預約",
-      joinUs: "加入我們",
+      joinUs: "深入了解",
       centres: "教育中心",
       menu: "選單",
     },
