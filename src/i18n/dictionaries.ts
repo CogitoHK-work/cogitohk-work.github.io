@@ -45,7 +45,7 @@ export const dict = {
       partners: "Partners & Franchisees",
       parentsLine: "Parents 6400 9989",
       othersLine: "Others 9494 0994",
-      lamTin: "Lam Tin, Hong Kong",
+      lamTin: "Room 511, Ricky Centre, 36 Chong Yip Street, Kwun Tong, Kowloon, Hong Kong",
       copyright:
         "© 2026 Cogito Education (Hong Kong) Ltd. All Rights Reserved.",
       trademark: "is a trademark of Cogito Education (Hong Kong) Ltd.",
