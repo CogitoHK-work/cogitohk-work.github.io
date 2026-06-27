@@ -75,6 +75,9 @@ function HomePage() {
             <h1 className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight text-balance break-keep">
               {t.home.heroTitleA}
               <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
+              {t.home.heroTitleEm2 && (
+                <em className="not-italic text-primary">{t.home.heroTitleEm2}</em>
+              )}
               {t.home.heroTitleB}
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground leading-relaxed text-pretty">
