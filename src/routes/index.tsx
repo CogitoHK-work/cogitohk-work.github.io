@@ -73,12 +73,12 @@ function HomePage() {
               <Sparkles className="h-3.5 w-3.5" /> {t.home.heroBadge}
             </div>
             <h1 className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight text-balance break-keep">
-              {t.home.heroTitleA}
-              <em className="not-italic text-primary">{t.home.heroTitleEm}</em>
+              <span className="inline-block">{t.home.heroTitleA}</span>
+              <em className="not-italic text-primary inline-block">{t.home.heroTitleEm}</em>
               {t.home.heroTitleEm2 && (
-                <em className="not-italic text-primary">{t.home.heroTitleEm2}</em>
+                <em className="not-italic text-primary inline-block">{t.home.heroTitleEm2}</em>
               )}
-              {t.home.heroTitleB}
+              <span className="inline-block">{t.home.heroTitleB}</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground leading-relaxed text-pretty">
               {t.home.heroLead}
