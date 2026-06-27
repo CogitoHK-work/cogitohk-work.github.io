@@ -67,6 +67,7 @@ export const dict = {
       heroBadge: "AI-powered personalized learning",
       heroTitleA: "Where your child's ",
       heroTitleEm: "unique learning",
+      heroTitleEm2: "",
       heroTitleB: " journey begins.",
       heroLead:
         "AI-powered personalization and expert-led small groups (1:3) for children aged 3–12 in Hong Kong. Education that thinks with your child.",
@@ -663,8 +664,9 @@ export const dict = {
       },
       heroBadge: "AI 驅動個人化學習",
       heroTitleA: "您孩子",
-      heroTitleEm: "獨一無二的學習之旅",
-      heroTitleB: "，由此開始。",
+      heroTitleEm: "獨一無二的",
+      heroTitleEm2: "學習之旅，",
+      heroTitleB: "由此開始。",
       heroLead:
         "為香港 3 至 12 歲兒童而設，AI 驅動個人化學習與專家指導小班(1:3)。與您孩子「共思」的教育。",
       ctaExplore: "探索課程",
