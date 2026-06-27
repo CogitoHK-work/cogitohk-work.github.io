@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Users, Brain, BookOpen, MessageCircle, Quote, Newspaper } from "lucide-react";
+import { ArrowRight, Sparkles, MessageCircle, Quote, Newspaper } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FacebookEmbed } from "@/components/FacebookEmbed";
 import { useT, useLang } from "@/i18n/LanguageProvider";
@@ -38,7 +38,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const ICONS = [Sparkles, BookOpen, Brain, Users] as const;
 const PROG_IMAGES = [kidsImg, englishImg, mathImg, chineseImg] as const;
 const CARD_TINTS = [
   "from-gold/20 to-gold/5",
