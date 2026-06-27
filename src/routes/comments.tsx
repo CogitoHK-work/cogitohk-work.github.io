@@ -2,6 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Quote } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import smallGroup from "@/assets/small-group.jpg";
+import avatar1 from "@/assets/avatars/parent-1.jpg";
+import avatar2 from "@/assets/avatars/parent-2.jpg";
+import avatar3 from "@/assets/avatars/parent-3.jpg";
+import avatar4 from "@/assets/avatars/parent-4.jpg";
+import avatar5 from "@/assets/avatars/parent-5.jpg";
+import avatar6 from "@/assets/avatars/parent-6.jpg";
 import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 
@@ -24,15 +30,7 @@ function CommentsPage() {
   const { lang } = useLang();
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
-  const isFemale = (name: string) =>
-    /Mrs\.|Ms\.|太|小姐|女士/.test(name);
-  const avatarFor = (name: string, i: number) => {
-    const femalePool = [44, 65, 32, 8, 90, 12];
-    const malePool = [15, 31, 52, 11, 76, 4];
-    const id = isFemale(name) ? femalePool[i % femalePool.length] : malePool[i % malePool.length];
-    const folder = isFemale(name) ? "women" : "men";
-    return `https://randomuser.me/api/portraits/${folder}/${id}.jpg`;
-  };
+  const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
@@ -70,7 +68,7 @@ function CommentsPage() {
                 <div className="text-sm text-muted-foreground">{c.relation}</div>
               </div>
               <img
-                src={avatarFor(c.name, i)}
+                src={avatars[i % avatars.length]}
                 alt=""
                 loading="lazy"
                 className="absolute bottom-5 right-5 h-12 w-12 rounded-full object-cover ring-2 ring-card shadow-soft"
