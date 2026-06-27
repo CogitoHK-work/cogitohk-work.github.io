@@ -8,6 +8,10 @@ import { useT, useLang } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
 import { useHomeMedia } from "@/hooks/useHomeMedia";
 import { PROGRAMME_SLUGS } from "@/components/site/ProgrammeNav";
+import kidsImg from "@/assets/programme-kids.jpg";
+import englishImg from "@/assets/programme-english.jpg";
+import mathImg from "@/assets/programme-mathematics.jpg";
+import chineseImg from "@/assets/programme-chinese.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -35,6 +39,7 @@ export const Route = createFileRoute("/")({
 });
 
 const ICONS = [Sparkles, BookOpen, Brain, Users] as const;
+const PROG_IMAGES = [kidsImg, englishImg, mathImg, chineseImg] as const;
 const CARD_TINTS = [
   "from-gold/20 to-gold/5",
   "from-primary/15 to-primary/5",
@@ -187,6 +192,7 @@ function HomePage() {
             {t.home.cards.map((p, i) => {
               const Icon = ICONS[i];
               const slug = PROGRAMME_SLUGS[i];
+              const img = PROG_IMAGES[i];
               return (
                 <CarouselItem key={p.name} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                   <Link
@@ -195,8 +201,16 @@ function HomePage() {
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${CARD_TINTS[i]} opacity-60`} />
                     <div className="relative">
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-card shadow-soft text-primary">
-                        <Icon className="h-6 w-6" />
+                      <div className="overflow-hidden rounded-xl aspect-[4/3] shadow-soft">
+                        <img
+                          src={img}
+                          alt={p.name}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-card/80 shadow-soft text-primary">
+                        <Icon className="h-4 w-4" />
                       </div>
                       <h3 className="mt-5 font-display text-xl">{p.name}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{p.age}</p>
