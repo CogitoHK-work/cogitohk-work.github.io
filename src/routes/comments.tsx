@@ -24,6 +24,15 @@ function CommentsPage() {
   const { lang } = useLang();
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
+  const isFemale = (name: string) =>
+    /Mrs\.|Ms\.|太|小姐|女士/.test(name);
+  const avatarFor = (name: string, i: number) => {
+    const femalePool = [44, 65, 32, 8, 90, 12];
+    const malePool = [15, 31, 52, 11, 76, 4];
+    const id = isFemale(name) ? femalePool[i % femalePool.length] : malePool[i % malePool.length];
+    const folder = isFemale(name) ? "women" : "men";
+    return `https://randomuser.me/api/portraits/${folder}/${id}.jpg`;
+  };
   return (
     <SiteLayout>
       <section className="bg-gradient-warm">
@@ -52,7 +61,7 @@ function CommentsPage() {
           {t.comments.list.map((c, i) => (
             <article
               key={i}
-              className="relative rounded-3xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-shadow"
+              className="relative rounded-3xl border border-border bg-card p-7 pb-16 shadow-soft hover:shadow-elegant transition-shadow"
             >
               <Quote className="absolute -top-3 -left-2 h-10 w-10 text-gold/30" />
               <p className="text-foreground/80 leading-relaxed">{openQuote}{c.body}{closeQuote}</p>
@@ -60,6 +69,12 @@ function CommentsPage() {
                 <div className="font-display text-lg text-ink">{c.name}</div>
                 <div className="text-sm text-muted-foreground">{c.relation}</div>
               </div>
+              <img
+                src={avatarFor(c.name, i)}
+                alt=""
+                loading="lazy"
+                className="absolute bottom-5 right-5 h-12 w-12 rounded-full object-cover ring-2 ring-card shadow-soft"
+              />
             </article>
           ))}
         </div>
