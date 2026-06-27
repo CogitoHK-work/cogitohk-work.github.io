@@ -105,16 +105,6 @@ function BeginPage() {
                 <div className="mt-1 font-display text-xl">6400 9989</div>
               </a>
               <a
-                href="https://wa.me/85294940994"
-                target="_blank"
-                rel="noopener"
-                className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors"
-              >
-                <WhatsAppIcon className="h-5 w-5 text-gold" />
-                <div className="mt-3 text-xs uppercase tracking-wide opacity-70">{L.waOthers}</div>
-                <div className="mt-1 font-display text-xl">9494 0994</div>
-              </a>
-              <a
                 href="mailto:cogitohk@gmail.com"
                 className="rounded-2xl bg-cream/10 border border-cream/20 p-5 hover:bg-cream/15 transition-colors"
               >
