@@ -190,7 +190,6 @@ function HomePage() {
         <Carousel opts={{ align: "start", loop: true }} className="mt-12 px-12">
           <CarouselContent>
             {t.home.cards.map((p, i) => {
-              const Icon = ICONS[i];
               const slug = PROGRAMME_SLUGS[i];
               const img = PROG_IMAGES[i];
               return (
@@ -208,9 +207,6 @@ function HomePage() {
                           loading="lazy"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                      </div>
-                      <div className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-card/80 shadow-soft text-primary">
-                        <Icon className="h-4 w-4" />
                       </div>
                       <h3 className="mt-5 font-display text-xl">{p.name}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{p.age}</p>
