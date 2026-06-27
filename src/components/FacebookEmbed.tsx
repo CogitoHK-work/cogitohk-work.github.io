@@ -73,7 +73,7 @@ export function FacebookEmbed() {
           data-show-facepile="true"
         >
           <blockquote cite={PAGE_URL} className="fb-xfbml-parse-ignore">
-            <a href={PAGE_URL}>夏恩蔡老師 Shane Grace Choi Education</a>
+            <a href={PAGE_URL}>Shane English School Hong Kong</a>
           </blockquote>
         </div>
       </div>
@@ -83,7 +83,7 @@ export function FacebookEmbed() {
           <div className="h-14 w-14 rounded-full bg-[#1877F2]/10 flex items-center justify-center mb-4">
             <Facebook className="h-7 w-7 text-[#1877F2]" />
           </div>
-          <h3 className="font-display text-xl text-ink mb-2">夏恩蔡老師 Shane Grace Choi Education</h3>
+          <h3 className="font-display text-xl text-ink mb-2">Shane English School Hong Kong</h3>
           <p className="text-sm text-muted-foreground mb-6 max-w-[260px]">
             Follow on Facebook for the latest education updates and learning tips.
           </p>
