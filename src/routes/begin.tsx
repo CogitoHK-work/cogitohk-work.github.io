@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import heroChild from "@/assets/hero-child.jpg";
 import { useT } from "@/i18n/LanguageProvider";
 import { dict } from "@/i18n/dictionaries";
+import { Check } from "lucide-react";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -68,6 +69,44 @@ function BeginPage() {
           ))}
         </div>
       </section>
+
+      {t.begin.whyItems.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pb-16">
+          <h2 className="font-display text-3xl md:text-4xl text-balance">{t.begin.whyTitle}</h2>
+          <p className="mt-4 max-w-3xl text-foreground/80 leading-relaxed">{t.begin.whyLead}</p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {t.begin.whyItems.map((w) => (
+              <div
+                key={w.title}
+                className="rounded-2xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-shadow"
+              >
+                <div className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-1" />
+                  <h3 className="font-display text-xl text-ink">{w.title}</h3>
+                </div>
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{w.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {t.begin.testimonials.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pb-20">
+          <h2 className="font-display text-3xl md:text-4xl text-balance">{t.begin.testimonialsTitle}</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {t.begin.testimonials.map((r) => (
+              <blockquote
+                key={r.author}
+                className="rounded-2xl border border-border bg-card p-7 shadow-soft"
+              >
+                <p className="text-foreground/85 leading-relaxed">{r.quote}</p>
+                <footer className="mt-4 text-sm text-muted-foreground">— {r.author}</footer>
+              </blockquote>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Contact CTAs */}
       <section className="mx-auto max-w-7xl px-6 pb-24">
