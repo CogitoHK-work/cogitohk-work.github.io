@@ -36,7 +36,11 @@ export function useHomeMedia(): HomeMediaUrls {
         const videoFile = idx[videoKey];
         setUrls({
           hero: pick("hero-portrait", 1600),
-          video: pick(videoKey, 1600),
+          video: videoFile
+            ? lang === "zh"
+              ? "/philosophy-video-chinese.mp4"
+              : "/philosophy-video-english.mp4"
+            : undefined,
           videoFileId: videoFile?.id,
           feature: pick("name-card", 800),
         });
