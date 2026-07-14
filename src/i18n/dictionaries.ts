@@ -498,14 +498,47 @@ export const dict = {
       preferChat: "Prefer to reach us directly?",
       submitInterest: "Submit Interest",
 
-      // Extended content (Chinese-only for now)
-      intro: "",
-      reasonsTitle: "",
-      reasons: [] as { title: string; desc: string }[],
-      idealTitle: "",
-      idealLead: "",
-      idealBullets: [] as string[],
-      idealClose: "",
+      // Extended content
+      intro:
+        "The Hong Kong education market is undergoing a significant transformation. With the influx of new families through various talent schemes and the growing demand for quality after-school programmes, there is a clear and expanding need for premium educational services. This creates a unique opportunity for passionate individuals to establish a successful and meaningful business.",
+      reasonsTitle: "Why Partner with Cogito Education?",
+      reasons: [
+        {
+          title: "Market-Ready, Proven System",
+          desc: "Don't build from scratch. You gain immediate access to our proven, AI-enhanced curriculum and operational know-how, developed and refined over years of successful operation in Hong Kong. We have already navigated the challenges of localization, so you don't have to. Skip the tiring chores of building your own teaching system and preparing teaching material continuously — just focus on building your business. We take care of the rest.",
+        },
+        {
+          title: "Low-Risk, Low-Cost Entry",
+          desc: "Two flexible models for different needs. As a Partner, augment your existing establishment with our high-quality content for a small fixed monthly fee — you retain your brand and gain a new revenue stream with minimal disruption. As a Franchisee, start your own Cogito centre with our full support; entry focuses on your passion for teaching and children, not on prior education business experience. Start small with full HQ support at a small fixed monthly fee, and even at scale your expense remains a very small portion of your income.",
+        },
+        {
+          title: "Full-Spectrum Headquarter Support",
+          desc: "From day one you are never alone. Franchisees receive operational assistance with centre setup, licensing, recruitment and daily management; joint marketing and branding campaigns to build a strong local presence; and comprehensive training in our methodology, technology and teaching quality to ensure your team's success.",
+        },
+        {
+          title: "Future-Proof with AI and Technology",
+          desc: "In a market increasingly influenced by EdTech, our curriculum is already optimized with AI to maximize learning efficiency. Joining Cogito isn't just entering the education market — you're investing in the future of learning, as Cogito continues to upgrade its system and materials to keep up with the latest developments in curriculum and technology.",
+        },
+        {
+          title: "A Mission with Meaning",
+          desc: "This is not just a business; it's a calling. By joining us you become part of a community dedicated to \"Influencing life with life.\" This philosophy resonates with parents and helps build a loyal community around your centre.",
+        },
+        {
+          title: "Quick Return on Your Investment",
+          desc: "With the right guidance and a proven curriculum ready for use — both part of the package you receive upon joining — you have a very good chance of breaking even in your first year of operation. You'll need to invest a little in marketing your centre, but we are always by your side to assist. Our experience improves your odds of success within a reasonable timeframe.",
+        },
+      ],
+      idealTitle: "Who is an Ideal Cogito Partner or Franchisee?",
+      idealLead:
+        "We are looking for motivated, patient and passionate individuals who:",
+      idealBullets: [
+        "Hold a higher diploma or above (for franchisees).",
+        "Are eager to learn and follow our proven systems.",
+        "Want to make a positive impact on the next generation.",
+        "Are willing to serve their community with integrity.",
+      ],
+      idealClose:
+        "Ready to take the next step? If you have a passion for education and a drive to succeed, we want to hear from you. This is your chance to enter a growing market with a trusted brand and a robust support system. Contact us today for a no-obligation discussion.",
     },
 
     // ───────── Begin ─────────
@@ -561,12 +594,49 @@ export const dict = {
       },
       bookCta: "Book my free session",
 
-      // Extended content (Chinese-only for now)
-      whyTitle: "",
-      whyLead: "",
-      whyItems: [] as { title: string; desc: string }[],
-      testimonialsTitle: "",
-      testimonials: [] as { quote: string; author: string }[],
+      // Extended content
+      whyTitle: "Why Choose Cogito for Your Child?",
+      whyLead:
+        "As a parent, you want more than just good grades for your child. You want them to become confident, independent learners who can navigate life's challenges with resilience and curiosity. At Cogito, we understand this deeply — because we are parents too. Here's what makes Cogito different.",
+      whyItems: [
+        {
+          title: "Genuine Expertise, Genuine Care",
+          desc: "Our founders and teachers are veteran educators with years of experience in Hong Kong's education landscape. They have guided thousands of students — many of whom are now parents themselves, entrusting us with their own children. This cross-generational trust is earned, not given.",
+        },
+        {
+          title: "More Than Just Academics — We Build Self-Learners",
+          desc: "Our system is designed not just to teach, but to cultivate the habit of self-learning. We don't simply give answers; we show children how to find them on their own. When parents ask \"What can we do at home?\", our experienced teachers provide practical, personalized tips to reinforce self-learning habits beyond the classroom. Within six months of following our guidance closely, most students show noticeable improvement in both their grades and their attitude toward learning itself.",
+        },
+        {
+          title: "Motivation Matters",
+          desc: "A motivated child learns effortlessly. Our daily teaching is infused with encouragement, positive reinforcement and genuine enthusiasm. We celebrate progress, not just perfection. Our small-group setting (1:3 ratio) allows our teachers to know each child personally — their strengths, their struggles and what inspires them.",
+        },
+        {
+          title: "A Track Record of Results",
+          desc: "Our curriculum has been continuously refined and enhanced with AI tools to stay effective and relevant. More importantly, our students consistently excel in school and public examinations, with many advancing to top universities.",
+        },
+        {
+          title: "Practical Advice You Can Use",
+          desc: "Our teachers don't just teach your child — they partner with you. During regular progress updates we share specific strategies you can use at home to support your child's growth. From recommended reading to simple daily exercises, we empower you to be part of your child's learning journey.",
+        },
+        {
+          title: "A Community of Shared Values",
+          desc: "Cogito is not just a tutorial centre; it is a community built on the philosophy of \"Influencing life with life.\" We believe in nurturing not just scholars, but kind, responsible and empathetic individuals.",
+        },
+      ],
+      testimonialsTitle: "What Parents Say",
+      testimonials: [
+        {
+          quote:
+            "My daughter used to dislike math. Now she asks for 'one more problem!' The small class and the teacher's attention made all the difference.",
+          author: "Michelle L., Kowloon",
+        },
+        {
+          quote:
+            "Finally, an English programme that helps with school exams AND builds real communication skills. The British accent training is a bonus!",
+          author: "David T., Hong Kong Island",
+        },
+      ],
     },
 
     // ───────── 404 ─────────
