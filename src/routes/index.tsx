@@ -149,7 +149,7 @@ function HomePage() {
         <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
             <video
-              key={`${fallbackVideoWebm}-${videoSrc}`}
+              key={`${videoSrc}-${fallbackVideoWebm}`}
               autoPlay
               loop
               muted
@@ -157,8 +157,8 @@ function HomePage() {
               controls
               className="w-full h-full object-cover"
             >
-              <source src={fallbackVideoWebm} type="video/webm" />
               <source src={videoSrc} type="video/mp4" />
+              <source src={fallbackVideoWebm} type="video/webm" />
             </video>
           </div>
           <FacebookEmbed />
