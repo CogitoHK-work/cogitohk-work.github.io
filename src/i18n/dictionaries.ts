@@ -69,6 +69,7 @@ export const dict = {
       heroTitleEm: "unique learning",
       heroTitleEm2: "",
       heroTitleB: " journey begins.",
+      heroTitleC: "",
       heroLead:
         "AI-powered personalization and expert-led small groups (1:3) for children aged 3–12 in Hong Kong. Education that thinks with your child.",
       ctaExplore: "Explore Programmes",
