@@ -154,6 +154,7 @@ function HomePage() {
               loop
               muted
               playsInline
+              controls
               className="w-full h-full object-cover"
             >
               <source src={fallbackVideoWebm} type="video/webm" />
