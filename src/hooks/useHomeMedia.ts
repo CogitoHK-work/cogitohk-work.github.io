@@ -28,8 +28,11 @@ export function useHomeMedia(): HomeMediaUrls {
         const idx = indexByBasename(files);
         const pick = (key: string, width?: number) =>
           idx[key] ? driveContentUrl(idx[key].id, width) : undefined;
-        const videoKey =
-          lang === "zh" ? "philosophy-video-chinese" : "philosophy-video-english";
+        const videoKeys =
+          lang === "zh"
+            ? ["philosophy-video-chinese", "philosoply-video-chinese"]
+            : ["philosophy-video-english", "philosoply-video-english"];
+        const videoKey = videoKeys.find((k) => idx[k]) ?? videoKeys[0];
         const videoFile = idx[videoKey];
         setUrls({
           hero: pick("hero-portrait", 1600),
