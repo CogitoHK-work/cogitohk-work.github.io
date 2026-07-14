@@ -35,6 +35,9 @@ function PartnersPage() {
             </h1>
             <p className="mt-5 max-w-3xl text-base text-muted-foreground leading-relaxed">{t.partners.lead1}</p>
             <p className="mt-3 max-w-3xl text-foreground/75 leading-relaxed">{t.partners.lead2}</p>
+            {t.partners.intro && (
+              <p className="mt-3 max-w-3xl text-foreground/75 leading-relaxed">{t.partners.intro}</p>
+            )}
           </div>
           <img
             src={treeImg}
@@ -44,6 +47,28 @@ function PartnersPage() {
           />
         </div>
       </section>
+
+      {t.partners.reasons.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pt-4 pb-4">
+          <h2 className="font-display text-3xl md:text-4xl text-balance">
+            {t.partners.reasonsTitle}
+          </h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {t.partners.reasons.map((r, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-border bg-card p-7 shadow-soft hover:shadow-elegant transition-shadow"
+              >
+                <div className="font-display text-4xl text-gold/40 leading-none">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="mt-4 font-display text-xl text-ink">{r.title}</h3>
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{r.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-8 lg:grid-cols-2">
@@ -80,6 +105,24 @@ function PartnersPage() {
             </ul>
           </article>
         </div>
+
+        {t.partners.idealBullets.length > 0 && (
+          <div className="mt-16 rounded-3xl border border-border bg-card p-10 shadow-soft">
+            <h2 className="font-display text-3xl">{t.partners.idealTitle}</h2>
+            <p className="mt-4 text-foreground/80 leading-relaxed">{t.partners.idealLead}</p>
+            <ul className="mt-5 space-y-2.5">
+              {t.partners.idealBullets.map((b) => (
+                <li key={b} className="flex items-start gap-3 text-foreground/80">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+            {t.partners.idealClose && (
+              <p className="mt-6 text-foreground/75 leading-relaxed">{t.partners.idealClose}</p>
+            )}
+          </div>
+        )}
 
         {/* Interest Form */}
         {/* Contact */}
