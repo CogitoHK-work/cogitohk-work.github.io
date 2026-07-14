@@ -3,6 +3,7 @@ import { useLang } from "@/i18n/LanguageProvider";
 import {
   HOME_MEDIA_FOLDER_ID,
   driveContentUrl,
+  driveVideoUrl,
   indexByBasename,
   listDriveFolder,
 } from "@/lib/drive";
@@ -36,7 +37,7 @@ export function useHomeMedia(): HomeMediaUrls {
         const videoFile = idx[videoKey];
         setUrls({
           hero: pick("hero-portrait", 1600),
-          video: pick(videoKey, 1600),
+          video: videoFile ? driveVideoUrl(videoFile.id) : undefined,
           videoFileId: videoFile?.id,
           feature: pick("name-card", 800),
         });
