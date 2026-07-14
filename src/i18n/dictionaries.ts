@@ -496,6 +496,15 @@ export const dict = {
       formSubmitAnother: "Submit another",
       preferChat: "Prefer to reach us directly?",
       submitInterest: "Submit Interest",
+
+      // Extended content (Chinese-only for now)
+      intro: "",
+      reasonsTitle: "",
+      reasons: [] as { title: string; desc: string }[],
+      idealTitle: "",
+      idealLead: "",
+      idealBullets: [] as string[],
+      idealClose: "",
     },
 
     // ───────── Begin ─────────
@@ -550,6 +559,13 @@ export const dict = {
         socialHint: "Parenting tips & updates.",
       },
       bookCta: "Book my free session",
+
+      // Extended content (Chinese-only for now)
+      whyTitle: "",
+      whyLead: "",
+      whyItems: [] as { title: string; desc: string }[],
+      testimonialsTitle: "",
+      testimonials: [] as { quote: string; author: string }[],
     },
 
     // ───────── 404 ─────────
