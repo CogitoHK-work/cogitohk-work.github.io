@@ -664,7 +664,7 @@ export const dict = {
       },
       heroBadge: "AI 驅動個人化學習",
       heroTitleA: "歡迎來到夏恩教育 —— ",
-      heroTitleB: "您孩子",
+      heroTitleB: " 您孩子",
       heroTitleEm: "獨一無二的",
       heroTitleEm2: "學習之旅，",
       heroTitleC: "由此開始。",
