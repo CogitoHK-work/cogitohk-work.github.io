@@ -146,7 +146,7 @@ function HomePage() {
         <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
             <video
-              src="/philosophy-video.mp4"
+              src={media.video ?? "/philosophy-video.mp4"}
               autoPlay
               loop
               muted

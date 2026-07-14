@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLang } from "@/i18n/LanguageProvider";
 import {
   HOME_MEDIA_FOLDER_ID,
   driveContentUrl,
@@ -14,10 +15,11 @@ export type HomeMediaUrls = {
 };
 
 // Fetches the public Drive folder once and resolves URLs for
-// files named hero-portrait.*, philosophy-video.*, and name-card.*.
+// files named hero-portrait.*, philosophy-video-*.mp4, and name-card.*.
 // Returns {} until loaded; consumers fall back to local assets.
 export function useHomeMedia(): HomeMediaUrls {
   const [urls, setUrls] = useState<HomeMediaUrls>({});
+  const { lang } = useLang();
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -26,10 +28,12 @@ export function useHomeMedia(): HomeMediaUrls {
         const idx = indexByBasename(files);
         const pick = (key: string, width?: number) =>
           idx[key] ? driveContentUrl(idx[key].id, width) : undefined;
-        const videoFile = idx["philosophy-video"];
+        const videoKey =
+          lang === "zh" ? "philosophy-video-chinese" : "philosophy-video-english";
+        const videoFile = idx[videoKey];
         setUrls({
           hero: pick("hero-portrait", 1600),
-          video: pick("philosophy-video", 1600),
+          video: pick(videoKey, 1600),
           videoFileId: videoFile?.id,
           feature: pick("name-card", 800),
         });
@@ -41,7 +45,7 @@ export function useHomeMedia(): HomeMediaUrls {
         }
       });
     return () => ctrl.abort();
-  }, []);
+  }, [lang]);
 
   return urls;
 }
