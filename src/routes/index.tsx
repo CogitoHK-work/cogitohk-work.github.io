@@ -179,9 +179,9 @@ function HomePage() {
               type="button"
               aria-label={isVideoMuted ? "Unmute video" : "Mute video"}
               onClick={toggleVideoSound}
-              className="absolute bottom-4 right-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/90 text-primary shadow-elegant backdrop-blur transition hover:bg-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="absolute bottom-3 right-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white/80 shadow-sm backdrop-blur-sm transition hover:bg-black/45 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/40"
             >
-              {isVideoMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+              {isVideoMuted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
             </button>
           </div>
           <FacebookEmbed />
