@@ -51,7 +51,9 @@ function HomePage() {
   const { lang } = useLang();
   const media = useHomeMedia();
   const heroSrc = media.hero ?? "/hero-portrait.jpg";
-  const videoSrc = media.video ?? (lang === "zh" ? "/philosophy-video-chinese.mp4" : "/philosophy-video-english.mp4");
+  const fallbackVideoMp4 = lang === "zh" ? "/philosophy-video-chinese.mp4" : "/philosophy-video-english.mp4";
+  const fallbackVideoWebm = lang === "zh" ? "/philosophy-video-chinese.webm" : "/philosophy-video-english.webm";
+  const videoSrc = media.video ?? fallbackVideoMp4;
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
   const commentsPreview = useMemo(() => {
@@ -147,14 +149,16 @@ function HomePage() {
         <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
             <video
-              key={videoSrc}
-              src={videoSrc}
+              key={`${fallbackVideoWebm}-${videoSrc}`}
               autoPlay
               loop
               muted
               playsInline
               className="w-full h-full object-cover"
-            />
+            >
+              <source src={fallbackVideoWebm} type="video/webm" />
+              <source src={videoSrc} type="video/mp4" />
+            </video>
           </div>
           <FacebookEmbed />
         </div>
