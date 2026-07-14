@@ -1,7 +1,7 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, MessageCircle, Quote, Newspaper } from "lucide-react";
+import { ArrowRight, Sparkles, MessageCircle, Quote, Newspaper, Volume2, VolumeX } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FacebookEmbed } from "@/components/FacebookEmbed";
 import { useT, useLang } from "@/i18n/LanguageProvider";
@@ -50,10 +50,25 @@ function HomePage() {
   const t = useT();
   const { lang } = useLang();
   const media = useHomeMedia();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
   const heroSrc = media.hero ?? "/hero-portrait.jpg";
   const fallbackVideoMp4 = lang === "zh" ? "/philosophy-video-chinese.mp4" : "/philosophy-video-english.mp4";
   const fallbackVideoWebm = lang === "zh" ? "/philosophy-video-chinese.webm" : "/philosophy-video-english.webm";
   const videoSrc = media.video ?? fallbackVideoMp4;
+  const toggleVideoSound = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    video.volume = nextMuted ? video.volume : 1;
+    setIsVideoMuted(nextMuted);
+
+    if (!nextMuted && video.paused) {
+      await video.play().catch(() => undefined);
+    }
+  };
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
   const commentsPreview = useMemo(() => {
@@ -147,19 +162,27 @@ function HomePage() {
       {/* MEDIA STRIP (video + facebook) */}
       <section className="mx-auto max-w-5xl px-6 pt-16">
         <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
-          <div className="overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
+          <div className="relative overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
             <video
+              ref={videoRef}
               key={`${videoSrc}-${fallbackVideoWebm}`}
               autoPlay
               loop
-              muted
+              muted={isVideoMuted}
               playsInline
-              controls
               className="w-full h-full object-cover"
             >
               <source src={videoSrc} type="video/mp4" />
               <source src={fallbackVideoWebm} type="video/webm" />
             </video>
+            <button
+              type="button"
+              aria-label={isVideoMuted ? "Unmute video" : "Mute video"}
+              onClick={toggleVideoSound}
+              className="absolute bottom-4 right-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/90 text-primary shadow-elegant backdrop-blur transition hover:bg-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            >
+              {isVideoMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+            </button>
           </div>
           <FacebookEmbed />
         </div>
