@@ -66,8 +66,8 @@ export const dict = {
       },
       heroBadge: "AI-powered personalized learning",
       heroTitleA: "Welcome to Cogito Education – ",
-      heroTitleB: "Where your child's ",
-      heroTitleEm: "\u00A0unique learning\u00A0",
+      heroTitleB: "Where your child's\u00A0",
+      heroTitleEm: "unique learning\u00A0",
       heroTitleEm2: "",
       heroTitleC: " journey begins.",
       heroLead:
