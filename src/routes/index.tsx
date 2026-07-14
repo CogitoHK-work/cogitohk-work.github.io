@@ -51,6 +51,7 @@ function HomePage() {
   const { lang } = useLang();
   const media = useHomeMedia();
   const heroSrc = media.hero ?? "/hero-portrait.jpg";
+  const videoSrc = media.video ?? (lang === "zh" ? "/philosophy-video-chinese.mp4" : "/philosophy-video-english.mp4");
   const openQuote = lang === "zh" ? "「" : "\u201C";
   const closeQuote = lang === "zh" ? "」" : "\u201D";
   const commentsPreview = useMemo(() => {
@@ -146,7 +147,8 @@ function HomePage() {
         <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant aspect-[53/30]">
             <video
-              src={media.video ?? "/philosophy-video.mp4"}
+              key={videoSrc}
+              src={videoSrc}
               autoPlay
               loop
               muted
