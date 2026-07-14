@@ -663,7 +663,7 @@ export const dict = {
           "為香港 3 至 12 歲兒童提供 AI 個人化學習與專家指導小班教學。",
       },
       heroBadge: "AI 驅動個人化學習",
-      heroTitleA: "歡迎來到夏恩教育——",
+      heroTitleA: "歡迎來到夏恩教育 —— ",
       heroTitleB: "您孩子",
       heroTitleEm: "獨一無二的",
       heroTitleEm2: "學習之旅，",
