@@ -74,11 +74,12 @@ function HomePage() {
             </div>
             <h1 className="mt-5 font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight text-balance break-keep">
               <span className="inline-block">{t.home.heroTitleA}</span>
+              <span className="inline-block">{t.home.heroTitleB}</span>
               <em className="not-italic text-primary inline-block">{t.home.heroTitleEm}</em>
               {t.home.heroTitleEm2 && (
                 <em className="not-italic text-primary inline-block">{t.home.heroTitleEm2}</em>
               )}
-              <span className="inline-block">{t.home.heroTitleB}</span>
+              <span className="inline-block">{t.home.heroTitleC}</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground leading-relaxed text-pretty">
               {t.home.heroLead}
