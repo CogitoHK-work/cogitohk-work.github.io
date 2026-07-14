@@ -41,15 +41,6 @@ export function driveContentUrl(fileId: string, width = 1600): string {
   return `https://lh3.googleusercontent.com/d/${fileId}=w${width}`;
 }
 
-// Google image proxy URLs return JPEG thumbnails for videos, so videos need
-// the Drive media endpoint to serve the actual mp4 bytes.
-export function driveVideoUrl(fileId: string): string {
-  const url = new URL(`https://www.googleapis.com/drive/v3/files/${fileId}`);
-  url.searchParams.set("alt", "media");
-  url.searchParams.set("key", GOOGLE_DRIVE_API_KEY);
-  return url.toString();
-}
-
 // Build a basename-keyed lookup. "hero.jpg" -> "hero".
 export function indexByBasename(files: DriveFile[]): Record<string, DriveFile> {
   const out: Record<string, DriveFile> = {};
